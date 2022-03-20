@@ -1,0 +1,12 @@
+@tailwind base;
+
+@layer base{
+    body{
+        .btn{
+                &-login{
+                    @apply box-border border-2 rounded-md bg-blue-300 hover:bg-blue-800 hover:font-bold;
+                }
+                
+            }
+    }
+}
