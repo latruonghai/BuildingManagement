@@ -4,10 +4,10 @@ import { LoginState } from "../types";
 const LoginPage = (props: LoginState) =>{
     return (
         <div>
-           {
-               props.isLogin && 
+            {
+                props.isLogin && 
                 <Form type="Login"></Form>
-           }
+            }
         </div>
     )
 }
