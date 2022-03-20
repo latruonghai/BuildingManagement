@@ -1,17 +1,18 @@
 import React, {Fragment} from "react";
 import "../assets/style/components/_navbar.scss";
 import { LogoStyle } from "../types";
-import logo from "../logo.svg";
+
 import { CategoricalList } from "../types";
+import { NavBarProps, ButtonProps } from '../types/props/index';
 
 
-const Navbar = (props: any) =>{
+const Navbar = (props: NavBarProps) =>{
     return (
         <Fragment>
             <nav className="navbar-section">
                 <div className="navbar-section-container">
-                    <NavLogo logo={logo} title="TMA Solutions" />
-                    <ButtonToggle/>
+                    <NavLogo logo={props.logo} title={props.title} />
+                    <ButtonToggle contentButton={props.contentButton}/>
                     <NavItems items={props.items}/>
                 </div>
             </nav>
@@ -30,12 +31,12 @@ const NavLogo = ({logo, title}: LogoStyle)=>{
     )
 }
 
-const ButtonToggle = (props:any) =>{
+const ButtonToggle = (props:ButtonProps) =>{
     return(
         <Fragment>
             <button type="button" className="button-toggle" aria-controls="mobile-menu-2" aria-expanded="false" 
             data-collapse-toggle="mobile-menu">
-                <span className="button-span-title">Open main menu</span>
+                <span className="button-span-title">{props.contentButton}</span>
                 <svg className="button-svg-img" fill="currentColor" 
                     viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd"
@@ -43,7 +44,7 @@ const ButtonToggle = (props:any) =>{
                         clipRule="evenodd"></path>
                 </svg>
                 <svg className="button-hidden-svg" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path   fillRule="evenodd" 
+                    <path  fillRule="evenodd" 
                                 d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" 
                                 clipRule="evenodd">
                     </path>
@@ -62,14 +63,14 @@ const NavItems = (props:CategoricalList) =>{
                         props.items.map((item, index) => {
                             if(index ===0){
                                 return(
-                                    <li>
+                                    <li key={index}>
                                         <a href={`${item.toLowerCase()}`} className="menu-item selected">{item}</a>
                                     </li>
                                 )
                             }
                             else{
                                 return(
-                                    <li>
+                                    <li key={index}>
                                         <a href={`${item.toLowerCase()}`} className="menu-item unselected" >{item}</a>
                                     </li>
                                 )
