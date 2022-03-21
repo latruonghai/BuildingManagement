@@ -17,7 +17,8 @@
         }
         .view{
             @apply text-black bg-pink-400 hover:bg-pink-500 focus:ring-4 focus:ring-pink-300
-            border-pink-600 hover:font-bold items-center my-3 px-5 py-2.5 text-center;
+            border-pink-600 hover:font-bold items-center my-3 px-5 py-2.5 text-center
+                dark:bg-purple-300 dark:text-gray-600;
         }
     }
 }
