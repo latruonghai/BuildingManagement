@@ -1,5 +1,5 @@
 import { LoginAction } from './../types/index';
-import { ImageViewAction } from '../types/index';
+import { ImageViewAction, ToggleAction, BasicAction } from '../types/index';
 import { BuildingImageViewAction } from '../types/states/imageState';
 
 export const login = () => {
@@ -13,9 +13,15 @@ export const logout = () => {
     }
 }
 
-export const viewImage = (idData: number, imageString: string, name: string): BuildingImageViewAction => {
+export const viewImage = (idData: number): BuildingImageViewAction => {
     return {
         type: ImageViewAction.VIEW_IMAGE,
         idData,
+    }
+}
+
+export const toggleModal = (): BasicAction =>{
+    return{
+        type: ToggleAction.TOGGLE
     }
 }
