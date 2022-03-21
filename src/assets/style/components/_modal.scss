@@ -1,0 +1,31 @@
+@tailwind components;
+
+@layer components{
+    body{
+        .modal{
+
+            &-overlay{
+                @apply flex flex-col space-y-4 min-w-fit h-screen 
+            fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-opacity-50 bg-gray-100;
+            }
+            &-wrapper{
+                @apply relative px-4 w-full max-w-2xl h-full md:h-auto bg-neutral-50;
+            }
+            &-content{
+                @apply relative bg-white rounded-lg shadow dark:bg-gray-700;
+            }
+            &-header{
+                @apply flex justify-between items-center px-4 py-3;
+            }
+            &-title{
+                @apply text-2xl font-bold text-red-500;
+            }
+            &-body{
+                @apply p-6 space-y-6;
+            }
+            &-footer{
+                @apply flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600;
+            }
+        }
+    }
+}

@@ -1,12 +1,21 @@
-import LoginAction from "../types"
-const login = () => {
+import { LoginAction } from './../types/index';
+import { ImageViewAction } from '../types/index';
+import { BuildingImageViewAction } from '../types/states/imageState';
+
+export const login = () => {
     return {
-        type: LoginAction.Login
+        type: LoginAction.LOGIN
     }
 }
-const logout = () =>{
+export const logout = () => {
     return {
-        type: LoginAction.Logout
+        type: LoginAction.LOGOUT
     }
 }
-export {login, logout}
+
+export const viewImage = (idData: number, imageString: string, name: string): BuildingImageViewAction => {
+    return {
+        type: ImageViewAction.VIEW_IMAGE,
+        idData,
+    }
+}
