@@ -23,6 +23,7 @@ export interface ModalProps extends BasicComponentProps {
     isShowing: boolean;
     toggle: any;
     bodyContent: BuildingImageState;
+    
 }
 
 export interface BasicComponentProps {

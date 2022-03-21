@@ -16,7 +16,7 @@ export interface ImageSectionProps {
     imgDescription: string;
     imSrc: string;
     imgContent?: string;
-    handleClick?: () => void;
+    dispatchAction?: any;
     haveButton?: boolean;
 }
 

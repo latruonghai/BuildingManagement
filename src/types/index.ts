@@ -2,7 +2,9 @@ export enum LoginAction {
     LOGIN = 'LOGIN',
     LOGOUT = "LOGOUT"
 }
-
+export enum ToggleAction{
+    TOGGLE = 'TOGGLE'
+}
 export enum ImageHandleAction {
     UPLOAD = "UPLOAD_IMAGE",
     DELETE = "DELETE_IMAGE",
