@@ -5,8 +5,8 @@ import "../assets/style/components/_modal.scss"
 import Button from './Button';
 import { ImageSection } from "./ImageView";
 
-const Modal: any = ({ toggle, isShowing, name, bodyContent }: ModalProps) =>
-    isShowing && createPortal(
+const Modal= ({ toggle, isShowing, name, bodyContent }: ModalProps): JSX.Element =>
+    isShowing? createPortal(
         <Fragment>
             <div className="modal-overlay" aria-hidden="true" aria-modal="true">
                 <div className="relative px-4 w-full max-w-2xl h-full md:h-auto"  >
@@ -32,6 +32,6 @@ const Modal: any = ({ toggle, isShowing, name, bodyContent }: ModalProps) =>
             </div>
         </Fragment>,
         document.body
-    );
+    ):<div></div>;
 
 export default Modal;
