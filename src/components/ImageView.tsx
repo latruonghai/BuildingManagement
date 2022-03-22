@@ -3,7 +3,7 @@ import "../assets/style/components/_imageView.scss";
 import { ImageViewProps, ImageSectionComponentProps } from '../types/props/index';
 import Modal from "./Modal";
 import Button from "./Button";
-import { useSelector , useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from '../reducers/index';
 import { viewImage, toggleModal } from '../actions/index';
 
@@ -11,21 +11,21 @@ const ImageView: FC<ImageViewProps> = (props: ImageViewProps) => {
     const isShowing = useSelector((state: RootState) => state.toggleModalReducer);
     const contentBodyModal = useSelector((state: RootState) => state.viewImageReducer);
 
-    const dispatchAction = useDispatch(); 
+    const dispatchAction = useDispatch();
     const toggle = () => dispatchAction(toggleModal());
-    
+
     // console.log(imageDetailView.imageString);
 
-    
+
     return (
         <Fragment>
             <div className="image-view-section">
                 {
                     props.imageSections.map((imageSection, index) => {
                         return (
-                            <ImageSection idImage={index} key={index} 
-                            imgDescription={imageSection.imgDescription}
-                                imSrc={imageSection.imSrc} haveButton={true}  dispatchAction={dispatchAction}/>
+                            <ImageSection idImage={index} key={index}
+                                imgDescription={imageSection.imgDescription}
+                                imSrc={imageSection.imSrc} haveButton={true} dispatchAction={dispatchAction} />
                         )
                     })
                 }
@@ -38,15 +38,15 @@ const ImageView: FC<ImageViewProps> = (props: ImageViewProps) => {
 export const ImageSection: FC<ImageSectionComponentProps> = (props: ImageSectionComponentProps | any) => {
     // const 
     const isShowing = useSelector((state: RootState) => state.toggleModalReducer);
-    
-    const handleClickSection =  () => {
-            if (isShowing === false) {
 
-                props.idImage >= 0&& props.dispatchAction(viewImage(props.idImage));
-                props.dispatchAction(toggleModal());
-            }
-            console.log("End ", isShowing);
+    const handleClickSection = () => {
+        if (isShowing === false) {
+
+            props.idImage >= 0 && props.dispatchAction(viewImage(props.idImage));
+            props.dispatchAction(toggleModal());
         }
+        console.log("End ", isShowing);
+    }
     return (
         <Fragment>
             <div data-modal-toggle="defaultModal" className="image-item" >
