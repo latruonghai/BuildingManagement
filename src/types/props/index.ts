@@ -1,15 +1,16 @@
 import { LogoStyle, CategoricalList } from '../index';
-import { BasicButtonAction, BasicButtonTagStyle } from '../components/index';
+import { BasicOnclickHandle, BasicButtonTagStyle, BasicButtonAction } from '../basicType';
 
 
 export type FormComponentBasicProps = {
     type: string;
 }
 
-export interface ButtonProps extends BasicButtonTagStyle {
+export interface ButtonProps extends BasicButtonTagStyle, BasicOnclickHandle {
     buttonAction?: BasicButtonAction;
-    onClickHandler?: any;
+    description?: string;
 }
+
 
 export interface ImageSectionProps {
 
@@ -27,3 +28,9 @@ export interface ImageViewProps {
     imageSections: ImageSectionProps[];
 }
 export type NavBarProps = LogoStyle & CategoricalList & ButtonProps;
+
+export interface CanvasProps {
+    isShowing?: boolean;
+    toggle?: any;
+    imgSrc?: string;
+}

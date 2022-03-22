@@ -1,4 +1,5 @@
-import { BasicButtonAction } from '../components/index';
+import { BasicButtonAction } from '../basicType';
+
 export interface BuildingImageState extends BuildingImageViewAction {
     imageString: string | string[];
     name: string;
