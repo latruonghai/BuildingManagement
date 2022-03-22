@@ -3,23 +3,24 @@ import { createPortal } from "react-dom";
 import { ModalProps } from '../types/components/index';
 import "../assets/style/components/_modal.scss"
 import Button from './Button';
-import { ImageSection } from "./ImageView";
+import Slideshow from "./Slideshow";
 
-const Modal= ({ toggle, isShowing, name, bodyContent }: ModalProps): JSX.Element =>
-    isShowing? createPortal(
+const Modal = ({ toggle, isShowing, class_name, bodyContent, children }: any): JSX.Element =>
+    isShowing ? createPortal(
         <Fragment>
             <div className="modal-overlay" aria-hidden="true" aria-modal="true">
                 <div className="relative px-4 w-full max-w-2xl h-full md:h-auto"  >
                     <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         <div className=" flex justify-between items-center px-4 py-3">
-                            <h1 className="modal-title">{name}</h1>
+                            <h1 className="modal-title">{class_name}</h1>
                             <button type="button" className="modal-close-button" data-dismiss="modal" aria-label="Close" onClick={toggle}>
                                 <span aria-hidden="true">&times;</span>
                             </button>
 
                         </div>
                         <div className="modal-body">
-                            {bodyContent ? <ImageSection imgDescription={bodyContent.name} imSrc={bodyContent.imageString as string} />
+                            {bodyContent
+                                ? <Slideshow />
 
                                 : <p>Modal body text goes here.</p>}
                         </div>
@@ -32,6 +33,6 @@ const Modal= ({ toggle, isShowing, name, bodyContent }: ModalProps): JSX.Element
             </div>
         </Fragment>,
         document.body
-    ):<div></div>;
+    ) : <div></div>;
 
 export default Modal;

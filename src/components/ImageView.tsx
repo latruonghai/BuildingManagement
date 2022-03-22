@@ -6,6 +6,8 @@ import Button from "./Button";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from '../reducers/index';
 import { viewImage, toggleModal } from '../actions/index';
+import Canvas from "./Canvas";
+import Slideshow from "./Slideshow";
 
 const ImageView: FC<ImageViewProps> = (props: ImageViewProps) => {
     const isShowing = useSelector((state: RootState) => state.toggleModalReducer);
@@ -30,7 +32,9 @@ const ImageView: FC<ImageViewProps> = (props: ImageViewProps) => {
                     })
                 }
             </div>
-            <Modal isShowing={isShowing} toggle={toggle} name="Information" bodyContent={contentBodyModal} />
+            <Modal isShowing={isShowing} toggle={toggle} class_name="Information" bodyContent={contentBodyModal} />
+
+            <Canvas isShowing={true} imgSrc="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmlldG5hbSUyMGJlYWNofGVufDB8fDB8fA%3D%3D&w=1000&q=80" />
         </Fragment>
     )
 }
@@ -51,7 +55,7 @@ export const ImageSection: FC<ImageSectionComponentProps> = (props: ImageSection
         <Fragment>
             <div data-modal-toggle="defaultModal" className="image-item" >
                 <h1 className="image-item-description">{props.imgDescription}</h1>
-                <img className="image-item-single hover:scale-110" src={props.imSrc} alt="Image" />
+                <img className="image-item-single" src={props.imSrc} alt="Image" />
                 {props.haveButton && <Button classNameStyle="btn view mx-1" type="button" onClickHandler={handleClickSection} contentButton="View"></Button>}
             </div>
         </Fragment >

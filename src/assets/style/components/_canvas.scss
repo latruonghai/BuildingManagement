@@ -1,0 +1,33 @@
+@tailwind components;
+
+@layer components{
+    body{
+        .menu{
+            @apply w-full h-1/5 flex justify-evenly rounded-md items-center bg-gray-100 m-auto mt-3;
+        }
+        .canvas{
+            &-section{
+                @apply w-full flex flex-col justify-start items-center;
+                background-image: linear-gradient(
+                    120deg, #fdfbfb 0%, #ebedee 100%);
+                height:100vh;
+                h1{
+                    font-family: 'Lobster', cursive;
+                    font-size: 50px;
+                    color: #4644f0;
+                }
+            
+            }
+        
+        }
+        .drawing-section{
+            width: 1280px;
+            height: 720px;
+            // border: 1px solid #808080;
+            position: relative;
+            background-color: white;
+        }
+        
+
+    }
+}

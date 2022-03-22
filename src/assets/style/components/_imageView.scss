@@ -4,10 +4,10 @@
     body{
         .image{
             &-view-section{
-                @apply container grid grid-cols-3 gap-2 mx-auto shadow-lg;
+                @apply container grid grid-cols-3 gap-2 mx-auto shadow-lg mb-10 ;
             }
             &-item{
-                @apply bg-white rounded h-full text-gray-500 no-underline shadow-xl;
+                @apply bg-white rounded h-full text-gray-500 no-underline shadow-xl  hover:scale-110 hover:font-bold;
                 &-description{
                     @apply text-3xl p-6;
                 }
@@ -16,6 +16,7 @@
                     object-fit: cover;
                     width: 100%;
                     height: 65%;
+
                 }
             }
             
