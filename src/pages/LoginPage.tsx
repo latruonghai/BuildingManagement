@@ -3,12 +3,12 @@ import Form from "../components/Forms";
 import { LoginState } from "../types";
 const LoginPage = (props: LoginState) => {
     return (
-        <div>
+        <Fragment>
             {
                 props.isLogin &&
                 <Form type="Login"></Form>
             }
-        </div>
+        </Fragment>
     )
 }
 
