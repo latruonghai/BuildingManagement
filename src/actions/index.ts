@@ -1,6 +1,8 @@
 import { LoginAction } from './../types/index';
-import { ImageViewAction, ToggleAction, BasicAction } from '../types/index';
+import { ImageViewAction, ToggleAction, SlideshowAction, CanvasActionEnum } from '../types/index';
 import { BuildingImageViewAction } from '../types/states/imageState';
+import { BasicAction } from '../types/basicType';
+import { SlideShowAction, CanvasAction } from '../types/actions/index';
 
 export const login = () => {
     return {
@@ -20,8 +22,43 @@ export const viewImage = (idData: number): BuildingImageViewAction => {
     }
 }
 
-export const toggleModal = (): BasicAction =>{
-    return{
+export const toggleModal = (): BasicAction => {
+    return {
         type: ToggleAction.TOGGLE
+    }
+}
+
+export const slideShowOrder = (index: number, slideOfSlideShow: number): SlideShowAction => {
+    return {
+        type: index === 1 ? SlideshowAction.NEXT : index === -1 ? SlideshowAction.PREVIOUS : SlideshowAction.EXACTINDEX,
+        sizeOfSlideShow: slideOfSlideShow,
+        selectedIndex: index
+    }
+}
+
+export const canvasActions = (type: string, state: any): CanvasAction | any => {
+    switch (type) {
+        case CanvasActionEnum.SET_IS_DRAWING:
+            return {
+                type: CanvasActionEnum.SET_IS_DRAWING,
+                isDrawing: state
+            }
+        case CanvasActionEnum.SET_LINE_WIDTH:
+            return {
+                type: CanvasActionEnum.SET_LINE_WIDTH,
+                lineWidth: state
+            }
+        case CanvasActionEnum.SET_LINE_COLOR:
+            return {
+                type: CanvasActionEnum.SET_LINE_COLOR,
+                lineColor: state
+            }
+        case CanvasActionEnum.SET_OPACITY:
+            return {
+                type: CanvasActionEnum.SET_OPACITY,
+                lineOpacity: state
+            }
+        default:
+            { }
     }
 }
