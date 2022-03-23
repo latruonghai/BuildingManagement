@@ -5,11 +5,12 @@ import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
+// import "./assets/style/vendor/_font-awesome.css";
 import "flowbite";
 import rootReducer from './reducers/index';
 
 const store = createStore(rootReducer,
-    );
+);
 ReactDOM.render(
   <Provider store={store}>
     <App isLoggin={false} />

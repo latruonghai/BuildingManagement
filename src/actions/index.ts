@@ -1,8 +1,9 @@
 import { LoginAction } from './../types/index';
-import { ImageViewAction, ToggleAction, SlideshowAction, CanvasActionEnum } from '../types/index';
+import { ImageViewAction, ToggleAction, SlideshowAction, CanvasActionEnum, RedoUndoActionEnum } from '../types/index';
 import { BuildingImageViewAction } from '../types/states/imageState';
 import { BasicAction } from '../types/basicType';
-import { SlideShowAction, CanvasAction } from '../types/actions/index';
+import { SlideShowAction, CanvasAction, RedoUndoAction } from '../types/actions/index';
+import { ImagePaintingState } from '../types/states/canvasState';
 
 export const login = () => {
     return {
@@ -60,5 +61,25 @@ export const canvasActions = (type: string, state: any): CanvasAction | any => {
             }
         default:
             { }
+    }
+}
+export const redoUndoAction = (type: string, state: string): RedoUndoAction | any => {
+    switch (type) {
+        case RedoUndoActionEnum.REDO:
+            return {
+                type: RedoUndoActionEnum.REDO,
+                imSrc: state
+            }
+        case RedoUndoActionEnum.UNDO:
+            return {
+                type: RedoUndoActionEnum.UNDO,
+                imSrc: state
+            }
+        case RedoUndoActionEnum.CURRENT_STATE:
+            return {
+                type: RedoUndoActionEnum.CURRENT_STATE,
+                imSrc: state
+            }
+
     }
 }

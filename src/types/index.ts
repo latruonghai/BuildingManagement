@@ -6,6 +6,11 @@ export enum LoginAction {
 export enum ToggleAction {
     TOGGLE = 'TOGGLE'
 }
+export enum RedoUndoActionEnum {
+    REDO = 'REDO',
+    UNDO = 'UNDO',
+    CURRENT_STATE = 'CURRENT_STATE'
+}
 export enum ImageHandleAction {
     UPLOAD = "UPLOAD_IMAGE",
     DELETE = "DELETE_IMAGE",

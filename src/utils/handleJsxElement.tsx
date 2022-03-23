@@ -13,7 +13,16 @@ export const showElement = <T extends unknown>(dataImage: SlideshowItemProps[], 
 }
 
 export const createElement = <T extends HTMLElement>(imSrc: string): HTMLImageElement => {
-    let img = document.createElement('img');
+    let img = new Image();
+    // img.crossOrigin = "*";
     img.src = imSrc;
     return img;
+}
+
+export function canvasDrawing(canvas: React.MutableRefObject<HTMLCanvasElement>, 
+                                                    ctx: React.MutableRefObject<CanvasRenderingContext2D>,
+                                                    imSrc: string){
+    const canvasEl: HTMLCanvasElement = canvas.current as HTMLCanvasElement;
+    const ctxEl: CanvasRenderingContext2D = ctx.current as CanvasRenderingContext2D;
+    ctxEl.drawImage(createElement(imSrc), 0, 0, canvasEl.width, canvasEl.height);
 }
