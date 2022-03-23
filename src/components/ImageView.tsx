@@ -34,7 +34,7 @@ const ImageView: FC<ImageViewProps> = (props: ImageViewProps) => {
             </div>
             <Modal isShowing={isShowing} toggle={toggle} class_name="Information" bodyContent={contentBodyModal} />
 
-            <Canvas isShowing={true} imgSrc="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmlldG5hbSUyMGJlYWNofGVufDB8fDB8fA%3D%3D&w=1000&q=80" />
+            <Canvas isShowing={false} imgSrc="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmlldG5hbSUyMGJlYWNofGVufDB8fDB8fA%3D%3D&w=1000&q=80" />
         </Fragment>
     )
 }
