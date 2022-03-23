@@ -1,8 +1,8 @@
-export interface ImageDataResponse {
+export interface ImageData {
     imSrc: string;
 }
 
-export interface ImageDataDetail extends ImageDataResponse, IDData {
+export interface ImageDataDetail extends ImageData, IDData {
     description?: string;
 }
 export interface IDData {

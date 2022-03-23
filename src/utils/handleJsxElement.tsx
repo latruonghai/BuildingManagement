@@ -13,7 +13,8 @@ export const showElement = <T extends unknown>(dataImage: SlideshowItemProps[], 
 }
 
 export const createElement = <T extends HTMLElement>(imSrc: string): HTMLImageElement => {
-    let img = document.createElement('img');
+    let img = new Image();
+    img.crossOrigin = "*";
     img.src = imSrc;
     return img;
 }

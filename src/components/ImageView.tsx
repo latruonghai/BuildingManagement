@@ -7,11 +7,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from '../reducers/index';
 import { viewImage, toggleModal } from '../actions/index';
 import Canvas from "./Canvas";
-import Slideshow from "./Slideshow";
+// import Slideshow from "./Slideshow";
 
 const ImageView: FC<ImageViewProps> = (props: ImageViewProps) => {
     const isShowing = useSelector((state: RootState) => state.toggleModalReducer);
     const contentBodyModal = useSelector((state: RootState) => state.viewImageReducer);
+    const canvasState = useSelector((state: RootState) => state.redoUndoReducer);
 
     const dispatchAction = useDispatch();
     const toggle = () => dispatchAction(toggleModal());
@@ -34,7 +35,7 @@ const ImageView: FC<ImageViewProps> = (props: ImageViewProps) => {
             </div>
             <Modal isShowing={isShowing} toggle={toggle} class_name="Information" bodyContent={contentBodyModal} />
 
-            <Canvas isShowing={true} imgSrc="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmlldG5hbSUyMGJlYWNofGVufDB8fDB8fA%3D%3D&w=1000&q=80" />
+            <Canvas isShowing={true} imgSrc={canvasState.imSrc} />
         </Fragment>
     )
 }
