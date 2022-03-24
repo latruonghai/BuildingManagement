@@ -24,5 +24,10 @@ export function canvasDrawing(canvas: React.MutableRefObject<HTMLCanvasElement>,
                                                     imSrc: string){
     const canvasEl: HTMLCanvasElement = canvas.current as HTMLCanvasElement;
     const ctxEl: CanvasRenderingContext2D = ctx.current as CanvasRenderingContext2D;
-    ctxEl.drawImage(createElement(imSrc), 0, 0, canvasEl.width, canvasEl.height);
+    try{
+        ctxEl.drawImage(createElement(imSrc), 0, 0, canvasEl.width, canvasEl.height);
+    }
+    catch (e){
+        console.log(e);
+    }
 }

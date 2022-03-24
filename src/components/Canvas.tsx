@@ -18,6 +18,7 @@ const Canvas = ({ isShowing, imgSrc, toggle }: CanvasProps): JSX.Element => {
     const ctxRef: MutableRefObject<CanvasRenderingContext2D> = useRef<CanvasRenderingContext2D>(null) as MutableRefObject<CanvasRenderingContext2D>;
     const stateCanvas = useSelector((state: RootState) => state.canvasReducer);
     const dispatch = useDispatch<Dispatch<StateCanvas>>();
+    
     canvasDrawing(canvasRef, ctxRef, imgSrc as string);
     try {
         useEffect(() => {
