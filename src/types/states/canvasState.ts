@@ -4,9 +4,11 @@ export interface StateCanvas {
     lineColor?: string;
     lineWidth?: number;
     lineOpacity?: number;
+    isShowing?: boolean;
 }
 
-export interface ImagePaintingState extends ImageData {
-    redoImSrc?: string[];
-    undoImSrc?: string[];
+export interface ImagePaintingState {
+    presentCanvasElement: string;
+    redoCurrentCanvas?: string[];
+    undoCurrentCanvas?: string[];
 }
