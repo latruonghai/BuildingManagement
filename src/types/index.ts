@@ -1,4 +1,4 @@
-import { BasicAction } from './basicType';
+import {BasicButtonAction } from './basicType';
 export enum LoginAction {
     LOGIN = 'LOGIN',
     LOGOUT = "LOGOUT"
@@ -6,6 +6,8 @@ export enum LoginAction {
 export enum ToggleAction {
     TOGGLE = 'TOGGLE'
 }
+
+
 export enum BasicActionEnum {
     DO_NOTHING = 'DO_NOTHING'
 }
@@ -14,7 +16,7 @@ export enum RedoUndoActionEnum {
     UNDO = 'UNDO',
     CURRENT_STATE = 'CURRENT_STATE'
 }
-export enum ImageHandleAction {
+export enum ImageHandleActionEnum {
     UPLOAD = "UPLOAD_IMAGE",
     DELETE = "DELETE_IMAGE",
     UPDATE = "UPDATE_IMAGE"
@@ -42,7 +44,7 @@ export interface LoginState {
 
 export interface ButtonAction {
     name?: string;
-    action?: BasicAction;
+    action?: BasicButtonAction;
 }
 
 

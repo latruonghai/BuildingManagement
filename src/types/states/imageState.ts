@@ -1,4 +1,4 @@
-import { BasicButtonAction } from '../basicType';
+import { BasicButtonAction, BasicImageProperties } from '../basicType';
 
 export interface BuildingImageState extends BuildingImageViewAction {
     imageString: string | string[];
@@ -7,4 +7,14 @@ export interface BuildingImageState extends BuildingImageViewAction {
 
 export interface BuildingImageViewAction extends BasicButtonAction {
     idData: number | null;
+}
+
+// export interface ImageState 
+export interface ImageSlideShowState extends BasicImageProperties{
+    orderInImage?: number;
+}
+
+export interface ImageDataState{
+    // imageDataArray: 
+    imageDataArray: ImageSlideShowState[];
 }

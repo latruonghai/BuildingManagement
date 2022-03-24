@@ -13,9 +13,9 @@ export interface BasicComponentProps {
     children?: JSX.Element;
 }
 
-export interface ButtonUploadAction extends BasicButtonAction {
+export interface ImageHandleAction extends BasicButtonAction {
     idData: number;
-    imageString: string;
+    imageSrc: string;
     name: string;
 }
 

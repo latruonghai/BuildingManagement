@@ -10,9 +10,11 @@ export interface BasicButtonTagStyle {
     type?: "button" | "submit" | "reset";
 }
 export interface BasicButtonAction {
-    type: string;
+    type?: string;
 }
 
-export type BasicAction = {
-    type: string;
+export interface BasicImageProperties {
+    imageSrc?: string;
+    imageTitle?: string;
 }
+

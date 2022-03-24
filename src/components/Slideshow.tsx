@@ -42,7 +42,7 @@ export const SlideShowItem = (props: SlideshowItemProps) => {
     return (
         <Fragment>
             <div className={"slideshow-item fade" + props?.class_name}>
-                <img src={props.imSrc} alt=""></img>
+                <img src={props.imSrc} alt="" className="hover:cursor-pointer" ></img>
                 <h4>{props.title}</h4>
                 <div className="slideshow-item-text">
 

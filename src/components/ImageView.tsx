@@ -43,7 +43,7 @@ export const ImageSection: FC<ImageSectionComponentProps> = (props: ImageSection
         <Fragment>
             <div data-modal-toggle="defaultModal" className="image-item" >
                 <h1 className="image-item-description">{props.imgDescription}</h1>
-                <img className="image-item-single" src={props.imSrc} alt="Image" />
+                <img className="image-item-single" src={props.imSrc} alt={props.imgDescription} onClick={toggleSlideShowModal}  />
                 {props.haveButton && <Button classNameStyle="btn view mx-1" type="button" 
                 contentButton="View" onClickHandler={toggleSlideShowModal} ></Button>}
             </div>

@@ -1,6 +1,6 @@
 import { ToggleAction } from '../types/index';
-import { BasicAction } from '../types/basicType';
-export const toggleModalReducer = (state: boolean = false, action: BasicAction) => {
+import { BasicButtonAction } from '../types/basicType';
+export const toggleModalReducer = (state: boolean = false, action: BasicButtonAction) => {
     switch (action.type) {
         case ToggleAction.TOGGLE:
             return !state;

@@ -1,9 +1,8 @@
 import { LoginAction } from './../types/index';
-import { ImageViewAction, ToggleAction, SlideshowAction, CanvasActionEnum, RedoUndoActionEnum, BasicActionEnum } from '../types/index';
-import { BuildingImageViewAction } from '../types/states/imageState';
-import { BasicAction, BasicButtonAction } from '../types/basicType';
-import { SlideShowAction, CanvasAction, RedoUndoAction } from '../types/actions/index';
-import { ImagePaintingState } from '../types/states/canvasState';
+import { ImageViewAction, ToggleAction, SlideshowAction, CanvasActionEnum, RedoUndoActionEnum, BasicActionEnum, ImageHandleActionEnum } from '../types/index';
+import { BuildingImageViewAction, ImageSlideShowState } from '../types/states/imageState';
+import { BasicButtonAction } from '../types/basicType';
+import { SlideShowAction, CanvasAction, RedoUndoAction, ImageSlideShowAction } from '../types/actions/index';
 import { toDataUrlCanvas } from '../utils/handleJsxElement';
 
 export const login = () => {
@@ -24,7 +23,7 @@ export const viewImage = (idData: number): BuildingImageViewAction => {
     }
 }
 
-export const toggleModal = (): BasicAction => {
+export const toggleModal = (): BasicButtonAction => {
     return {
         type: ToggleAction.TOGGLE
     }
@@ -87,6 +86,35 @@ export const redoUndoAction = (type: string, state?: HTMLCanvasElement): RedoUnd
             return {
                 type: RedoUndoActionEnum.CURRENT_STATE,
                 currentCanvasElement: currentElement
+            }
+        default:
+            return {
+                type: BasicActionEnum.DO_NOTHING,
+                // currentCanvasElement: state as CanvasRenderingContext2D
+            }
+    }
+}
+
+export const slideShowImageHandleAction = (type: string, state: ImageSlideShowState): ImageSlideShowAction => {
+    switch (type) {
+        case ImageHandleActionEnum.UPLOAD:
+            return {
+                type: ImageHandleActionEnum.UPLOAD,
+                imageSrc: state.imageSrc,
+                orderInImage: state.orderInImage,
+                imageTitle: state.imageTitle,
+            }
+        case ImageHandleActionEnum.DELETE:
+            return {
+                type: ImageHandleActionEnum.DELETE,
+                orderInImage: state.orderInImage
+            }
+        case ImageHandleActionEnum.UPDATE:
+            return {
+                type: ImageHandleActionEnum.UPDATE,
+                imageSrc: state.imageSrc,
+                orderInImage: state.orderInImage,
+                imageTitle: state.imageTitle,
             }
         default:
             return {
