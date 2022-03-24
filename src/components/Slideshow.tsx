@@ -1,4 +1,4 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment } from "react";
 import "../assets/style/components/_slideshow.scss"
 import { ButtonProps } from '../types/props/index';
 import { SlideshowItemProps, DotSlideShowProps } from '../types/components/SlideshowType';

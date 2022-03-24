@@ -6,6 +6,7 @@ export const getInformationFromArray = (array: ImageSectionProps[], index: numbe
     const { imgDescription, imSrc }: ImageSectionProps = array[index];
     const [imageString, name, idData] = [imSrc, imgDescription, index];
     return {
+        type: "",
         imageString: imageString,
         name: name,
         idData: idData,

@@ -6,6 +6,9 @@ export enum LoginAction {
 export enum ToggleAction {
     TOGGLE = 'TOGGLE'
 }
+export enum BasicActionEnum {
+    DO_NOTHING = 'DO_NOTHING'
+}
 export enum RedoUndoActionEnum {
     REDO = 'REDO',
     UNDO = 'UNDO',
@@ -22,6 +25,7 @@ export enum CanvasActionEnum {
     SET_LINE_WIDTH = "SET_LINE_WIDTH",
     SET_LINE_COLOR = "SET_LINE_COLOR",
     SET_OPACITY = "SET_OPACITY",
+    SET_IS_SHOWING = "SET_IS_SHOWING",
 }
 export enum SlideshowAction {
     PREVIOUS = "PREVIOUS",

@@ -8,6 +8,7 @@ export interface SlideShowAction extends BasicButtonAction {
 
 export interface CanvasAction extends BasicButtonAction, StateCanvas {
 }
-export interface RedoUndoAction extends BasicButtonAction, ImageData {
+export interface RedoUndoAction extends BasicButtonAction {
+    currentCanvasElement?: string;
 
 }

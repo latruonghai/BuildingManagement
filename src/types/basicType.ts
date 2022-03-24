@@ -10,7 +10,7 @@ export interface BasicButtonTagStyle {
     type?: "button" | "submit" | "reset";
 }
 export interface BasicButtonAction {
-    type?: string;
+    type: string;
 }
 
 export type BasicAction = {

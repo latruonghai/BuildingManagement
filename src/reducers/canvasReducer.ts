@@ -26,6 +26,11 @@ export const canvasReducer = (state: StateCanvas = InitialState, action: CanvasA
                 ...state,
                 lineOpacity: action.lineOpacity
             }
+        case CanvasActionEnum.SET_IS_SHOWING:
+            return {
+                ...state,
+                isShowing: action.isShowing
+            }
         default:
             return state;
     }
