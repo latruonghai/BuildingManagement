@@ -10,15 +10,12 @@ import Canvas from "./Canvas";
 // import Slideshow from "./Slideshow";
 
 const ImageView: FC<ImageViewProps> = (props: ImageViewProps) => {
-    const isShowing = useSelector((state: RootState) => state.toggleModalReducer);
-    const contentBodyModal = useSelector((state: RootState) => state.viewImageReducer);
-    const canvasState = useSelector((state: RootState) => state.redoUndoReducer);
 
-    const dispatchAction = useDispatch();
-    const toggle = () => dispatchAction(toggleModal());
+
+
 
     // console.log(imageDetailView.imageString);
-
+    const dispatchAction = useDispatch();
 
     return (
         <Fragment>
@@ -33,9 +30,7 @@ const ImageView: FC<ImageViewProps> = (props: ImageViewProps) => {
                     })
                 }
             </div>
-            <Modal isShowing={isShowing} toggle={toggle} class_name="Information" bodyContent={contentBodyModal} />
 
-            <Canvas isShowing={true} imgSrc={canvasState.imSrc} />
         </Fragment>
     )
 }

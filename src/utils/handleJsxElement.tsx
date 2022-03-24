@@ -15,14 +15,22 @@ export const showElement = <T extends unknown>(dataImage: SlideshowItemProps[], 
 export const createElement = <T extends HTMLElement>(imSrc: string): HTMLImageElement => {
     let img = new Image();
     // img.crossOrigin = "*";
+    img.setAttribute('crossOrigin', 'anonymous');
     img.src = imSrc;
     return img;
 }
 
-export function canvasDrawing(canvas: React.MutableRefObject<HTMLCanvasElement>, 
-                                                    ctx: React.MutableRefObject<CanvasRenderingContext2D>,
-                                                    imSrc: string){
-    const canvasEl: HTMLCanvasElement = canvas.current as HTMLCanvasElement;
-    const ctxEl: CanvasRenderingContext2D = ctx.current as CanvasRenderingContext2D;
-    ctxEl.drawImage(createElement(imSrc), 0, 0, canvasEl.width, canvasEl.height);
+export function canvasDrawing(ctx: CanvasRenderingContext2D, imSrc: string) {
+    console.log("I will drawing canvas");
+    let img = new Image();
+    // const ctx = canvas.getContext('2d');
+    img.onload = function () {
+        ctx!.drawImage(img, 0, 0); // Or at whatever offset you like
+    };
+    img.setAttribute('crossOrigin', 'anonymous');
+    img.src = imSrc;
+}
+
+export function toDataUrlCanvas(canvas: HTMLCanvasElement): string {
+    return canvas.toDataURL();
 }

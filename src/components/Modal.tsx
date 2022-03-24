@@ -1,12 +1,16 @@
-import React, { Fragment } from "react";
+import React, { Dispatch, Fragment } from "react";
 import { createPortal } from "react-dom";
-import { ModalProps } from '../types/components/index';
 import "../assets/style/components/_modal.scss"
 import Button from './Button';
 import Slideshow from "./Slideshow";
+import { useDispatch } from "react-redux";
+import { CanvasAction } from '../types/actions/index';
+import { canvasActions } from '../actions/index';
+import { CanvasActionEnum } from "../types";
 
-const Modal = ({ toggle, isShowing, class_name, bodyContent, children }: any): JSX.Element =>
-    isShowing ? createPortal(
+const Modal = ({ toggle, isShowing, class_name, bodyContent, children }: any): JSX.Element => {
+    const dispatch = useDispatch<Dispatch<CanvasAction>>();
+    return isShowing ? createPortal(
         <Fragment>
             <div className="modal-overlay" aria-hidden="true" aria-modal="true">
                 <div className="relative px-4 w-full max-w-2xl h-full md:h-auto"  >
@@ -26,7 +30,10 @@ const Modal = ({ toggle, isShowing, class_name, bodyContent, children }: any): J
                         </div>
                         <div className="modal-footer">
                             <Button contentButton="Save change" classNameStyle="btn" type="button" data-dismiss="modal" onClickHandler={toggle} />
+                            <Button contentButton="Edit" classNameStyle=" edit" type="button" data-dismiss="modal" onClickHandler={
+                                () => dispatch(canvasActions(CanvasActionEnum.SET_IS_SHOWING, true))} />
                             <Button contentButton="Close" classNameStyle="btn decline" type="button" data-dismiss="modal" onClickHandler={toggle} />
+
                         </div>
                     </div>
                 </div>
@@ -34,5 +41,6 @@ const Modal = ({ toggle, isShowing, class_name, bodyContent, children }: any): J
         </Fragment>,
         document.body
     ) : <div></div>;
+}
 
 export default Modal;

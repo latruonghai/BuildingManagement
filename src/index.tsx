@@ -2,15 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import "./assets/style/_index.scss";
 import App from './App';
-import { createStore } from 'redux';
+import { compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 // import "./assets/style/vendor/_font-awesome.css";
 import "flowbite";
 import rootReducer from './reducers/index';
 
-const store = createStore(rootReducer,
-);
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+  }
+}
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+const store = createStore(rootReducer, composeEnhancers && composeEnhancers());
+
 ReactDOM.render(
   <Provider store={store}>
     <App isLoggin={false} />

@@ -11,31 +11,37 @@ import { createElement, canvasDrawing } from '../utils/handleJsxElement';
 import "../assets/style/components/_canvas.scss";
 import { CanvasProps } from '../types/props/index';
 import Button from './Button';
+import { RedoUndoAction, CanvasAction } from '../types/actions/index';
 
 const Canvas = ({ isShowing, imgSrc, toggle }: CanvasProps): JSX.Element => {
-    const canvasRef: MutableRefObject<HTMLCanvasElement> = useRef<HTMLCanvasElement>(null) as MutableRefObject<HTMLCanvasElement>;  
+    const canvasRef: MutableRefObject<HTMLCanvasElement> = useRef<HTMLCanvasElement>(null) as MutableRefObject<HTMLCanvasElement>;
     // console.log("Rerender")
     const ctxRef: MutableRefObject<CanvasRenderingContext2D> = useRef<CanvasRenderingContext2D>(null) as MutableRefObject<CanvasRenderingContext2D>;
     const stateCanvas = useSelector((state: RootState) => state.canvasReducer);
-    const dispatch = useDispatch<Dispatch<StateCanvas>>();
-    canvasDrawing(canvasRef, ctxRef, imgSrc as string);
+    const dispatch = useDispatch<Dispatch<CanvasAction | RedoUndoAction>>();
+    // console.log("IsShowing", isShowing);
     try {
         useEffect(() => {
             // console
-            console.log("New Img", imgSrc);
-            const canvas: HTMLCanvasElement = canvasRef.current as HTMLCanvasElement;
-            const ctx: CanvasRenderingContext2D = canvas!.getContext('2d') as CanvasRenderingContext2D;
-            ctx!.lineCap = 'round';
-            ctx!.lineJoin = 'round';
-            
-            ctx!.globalAlpha = stateCanvas["lineOpacity"] as number;
-            ctx!.strokeStyle = stateCanvas["lineColor"] as string;
-            ctx!.lineWidth = stateCanvas["lineWidth"] as number;
-            // let img = new Image();
-            // img.crossOrigin = "*";
-            // img.src = imSrc;
-            // 
-            ctxRef.current = ctx;
+            if (isShowing === true) {
+                console.log("New Img", imgSrc);
+                const canvas: HTMLCanvasElement = canvasRef.current as HTMLCanvasElement;
+                const ctx: CanvasRenderingContext2D = canvas!.getContext('2d') as CanvasRenderingContext2D;
+                ctx!.lineCap = 'round';
+                ctx!.lineJoin = 'round';
+
+                ctx!.globalAlpha = stateCanvas["lineOpacity"] as number;
+                ctx!.strokeStyle = stateCanvas["lineColor"] as string;
+                ctx!.lineWidth = stateCanvas["lineWidth"] as number;
+                // canvasDrawing(canvasRef, ctxRef, imgSrc as string);
+                // let img = new Image();
+                // img.crossOrigin = "*";
+                // img.src = imSrc;
+                // 
+                // ctx!.drawImage(createElement(imgSrc as string), 0, 0, canvas.width, canvas.height);
+                canvasDrawing(ctx, imgSrc as string);
+                ctxRef.current = ctx;
+            }
 
         }, [stateCanvas["lineColor"], stateCanvas["lineOpacity"], stateCanvas["lineWidth"], imgSrc]);
     }
@@ -62,21 +68,23 @@ const Canvas = ({ isShowing, imgSrc, toggle }: CanvasProps): JSX.Element => {
         ctxRef.current.closePath();
         const canvas = canvasRef.current;
         const ctx = canvas!.getContext('2d');
-        let image: string;
-        try{
-            image = canvas?.toDataURL!("image/png") as string;
-        }
-        catch(e){
-            console.log(e);
-        }
+        // To data URL
+        // let image: string;
+        // try{
+        //     image = canvas?.toDataURL!("image/png") as string;
+        // }
+        // catch(e){
+        //     console.log(e);
+        // }
         // console.log(image);  // here is the most important part because if you dont replace you will get a DOM 18 exception.
-        ctx!.drawImage(createElement(imgSrc as string), 0, 0, canvas!.width, canvas!.height);
-        ctxRef.current = ctx as CanvasRenderingContext2D;
+
+        // ctx!.drawImage(createElement(imgSrc as string), 0, 0, canvas!.width, canvas!.height);
+        // ctxRef.current = ctx as CanvasRenderingContext2D;
+        console.log("Canvas", canvas);
+        console.log("Curr", ctxRef.current);
         // console.log(stateCanvas.)
         // window.location.href = image as string;
-        setTimeout(() => {dispatch(redoUndoAction(RedoUndoActionEnum.CURRENT_STATE, image as string));
-        }
-            , 10);
+        dispatch(redoUndoAction(RedoUndoActionEnum.CURRENT_STATE, canvas as HTMLCanvasElement));
         dispatch(canvasActions(CanvasActionEnum.SET_IS_DRAWING, false));
     };
 
@@ -112,6 +120,10 @@ const Canvas = ({ isShowing, imgSrc, toggle }: CanvasProps): JSX.Element => {
                 </div>
                 <div className="button-area">
                     <Button classNameStyle="font-medium mb-2" contentButton="Add Image" onClickHandler={handleClick} />
+                    <Button classNameStyle="fas fa-undo ml-2 mb-2" contentButton="" onClickHandler={
+                        () => { dispatch!(redoUndoAction(RedoUndoActionEnum.UNDO)); }} />
+                    <Button classNameStyle="fas fa-redo ml-2 mb-2" contentButton="" />
+                    <Button classNameStyle="font-medium mb-2 ml-2" contentButton="Exit" onClickHandler={() => dispatch(canvasActions(CanvasActionEnum.SET_IS_SHOWING, false))} />
                 </div>
             </div>
         </Fragment>
@@ -120,7 +132,7 @@ const Canvas = ({ isShowing, imgSrc, toggle }: CanvasProps): JSX.Element => {
 
 const Menu = ({ dispatch }: CanvasMenuDispatch): JSX.Element => {
     // const dispatch = useDispatch();
-    const stateImsrc = useSelector((state: RootState) => state.redoUndoReducer.imSrc);
+    // const stateImsrc = useSelector((state: RootState) => state.redoUndoReducer.imSrc);
     return (
         <Fragment>
             <div className="menu">
@@ -130,9 +142,7 @@ const Menu = ({ dispatch }: CanvasMenuDispatch): JSX.Element => {
                 <input type="range" min="3" max="20" onChange={(ev) => dispatch!(canvasActions(CanvasActionEnum.SET_LINE_WIDTH, ev.target.value))} />
                 <label>Brush Opacity</label>
                 <input type="range" min="0" max="100" step="1" onChange={(ev) => dispatch!(canvasActions(CanvasActionEnum.SET_OPACITY, Number(ev.target.value) / 100))} />
-                <Button classNameStyle="fas fa-undo" contentButton="" onClickHandler={
-                    () => dispatch!(redoUndoAction(RedoUndoActionEnum.UNDO, stateImsrc))} />
-                <Button classNameStyle="fas fa-redo" contentButton="" />
+
             </div>
         </Fragment>
     )

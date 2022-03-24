@@ -1,15 +1,33 @@
 import React, { Fragment } from "react";
 import Navbar from "../components/Navbar";
-import { categoriesData, imageViewData } from '../assets/static/StaticData';
+import { categoriesData, imageViewData, slideShowData } from '../assets/static/StaticData';
 // import logo from "../logo.svg";
 import logo from "../assets/static/images/download.png";
+import { useSelector } from "react-redux";
+import { RootState } from "../reducers";
+import { useDispatch } from "react-redux";
+import { toggleModal } from "../actions/index";
+import Canvas from "../components/Canvas";
+import Modal from "../components/Modal";
 import ImageView from "../components/ImageView";
 
 const HomePage = (props: any) => {
+    const isShowing = useSelector((state: RootState) => state.toggleModalReducer);
+    const dispatchAction = useDispatch();
+    const toggle = () => dispatchAction(toggleModal());
+    const contentBodyModal = useSelector((state: RootState) => state.viewImageReducer);
+    const canvasState = useSelector((state: RootState) => state.redoUndoReducer);
+    const editorImageState = useSelector((state: RootState) => state.canvasReducer);
+    const imageIndex = useSelector((state: RootState) => state.slideshowReducer);
+    console.log(imageIndex);
+    // const isCanvasShowwing = useSelector((state: RootState) => state.canvasReducer.isShowing);
     return (
         <Fragment>
             <Navbar logo={logo} title="TMA Solutions" contentButton="Open main menu" items={categoriesData} />
             <ImageView imageSections={imageViewData} />
+            <Modal isShowing={isShowing} toggle={toggle} class_name="Information" bodyContent={contentBodyModal} />
+
+            <Canvas isShowing={editorImageState.isShowing} imgSrc={slideShowData[imageIndex as number].imSrc} />
         </Fragment>
     )
 }
