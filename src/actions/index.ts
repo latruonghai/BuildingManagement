@@ -1,6 +1,6 @@
 import { LoginAction } from './../types/index';
 import { ImageViewAction, ToggleAction, SlideshowAction, CanvasActionEnum, RedoUndoActionEnum, BasicActionEnum, ImageHandleActionEnum } from '../types/index';
-import { BuildingImageViewAction, ImageSlideShowState } from '../types/states/imageState';
+import { BuildingImageViewAction, ImageSlideShowState, ImageSlideShowType } from '../types/states/imageState';
 import { BasicButtonAction } from '../types/basicType';
 import { SlideShowAction, CanvasAction, RedoUndoAction, ImageSlideShowAction } from '../types/actions/index';
 import { toDataUrlCanvas } from '../utils/handleJsxElement';
@@ -95,26 +95,27 @@ export const redoUndoAction = (type: string, state?: HTMLCanvasElement): RedoUnd
     }
 }
 
-export const slideShowImageHandleAction = (type: string, state: ImageSlideShowState): ImageSlideShowAction => {
+export const slideShowImageHandleAction = (type: string, state?: ImageSlideShowType): ImageSlideShowAction => {
     switch (type) {
         case ImageHandleActionEnum.UPLOAD:
             return {
                 type: ImageHandleActionEnum.UPLOAD,
-                imageSrc: state.imageSrc,
-                orderInImage: state.orderInImage,
-                imageTitle: state.imageTitle,
+                imageData: state?.imageData
             }
         case ImageHandleActionEnum.DELETE:
             return {
                 type: ImageHandleActionEnum.DELETE,
-                orderInImage: state.orderInImage
+                imageData: state?.imageData
             }
         case ImageHandleActionEnum.UPDATE:
             return {
                 type: ImageHandleActionEnum.UPDATE,
-                imageSrc: state.imageSrc,
-                orderInImage: state.orderInImage,
-                imageTitle: state.imageTitle,
+                imageData: state?.imageData
+            }
+        case ImageHandleActionEnum.GET_ALL_IMAGES:
+            return {
+                type: ImageHandleActionEnum.GET_ALL_IMAGES,
+                imageDataArray: state?.imageDataArray
             }
         default:
             return {
@@ -123,3 +124,4 @@ export const slideShowImageHandleAction = (type: string, state: ImageSlideShowSt
             }
     }
 }
+

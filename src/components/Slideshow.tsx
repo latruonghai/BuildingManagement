@@ -8,21 +8,25 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../reducers/index';
 import { slideShowOrder } from '../actions/index';
 import { getIndexFromIdName } from '../utils/handleString';
+import { ImageDataState } from '../types/states/imageState';
 
 const Slideshow = (props: any) => {
     // const handleSlideShow = event => {
     const index = useSelector((state: RootState) => state.slideshowReducer) as number;
+    // console.log("Index, " ,index)
     // }
-
-    const numberOfSlideShowItem = slideShowData.length;
+    // console.log("Slide ", props.slideShowData);
+    const imageSlideShowState: ImageDataState | any= useSelector((state: RootState) => state.imageMethodReducer);
+    console.log("Image data", imageSlideShowState.imageDataArray);
+    const numberOfSlideShowItem = imageSlideShowState.imageDataArray.length;
     const dispatch = useDispatch()
     return (
         <Fragment>
             <div className="slideshow-container">
-                {showElement(slideShowData, index)}
+                {showElement(imageSlideShowState.imageDataArray, index)}
                 <ButtonSlideshow contentButton="&#10094;" description="prev" classNameStyle="prev" onClickHandler={() => dispatch(slideShowOrder(-1, numberOfSlideShowItem))} />
                 <ButtonSlideshow contentButton="&#10095;" description="next" classNameStyle="next" onClickHandler={() => dispatch(slideShowOrder(1, numberOfSlideShowItem))} />
-
+                
             </div>
             <br />
             <DotSlideShow numberItems={numberOfSlideShowItem} currentItemDot={index} onClickHandler={dispatch}></DotSlideShow>

@@ -14,6 +14,8 @@ export interface RedoUndoAction extends BasicButtonAction {
 
 }
 
-export interface ImageSlideShowAction extends ImageSlideShowState, BasicButtonAction{
-
+export interface ImageSlideShowAction extends BasicButtonAction{
+    imageDataArray?: ImageSlideShowState[],
+    imageData?: ImageSlideShowState
 }
+

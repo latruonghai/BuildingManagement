@@ -1,5 +1,6 @@
 import { LogoStyle, CategoricalList } from '../index';
 import { BasicOnclickHandle, BasicButtonTagStyle, BasicButtonAction } from '../basicType';
+import { ImageSlideShowState } from '../states/imageState';
 
 
 export type FormComponentBasicProps = {
@@ -23,6 +24,7 @@ export interface ImageSectionProps {
 
 export interface ImageSectionComponentProps extends ImageSectionProps {
     idImage?: number;
+    imageDataSlideShowArray?: ImageSlideShowState[]
 }
 export interface ImageViewProps {
     imageSections: ImageSectionProps[];

@@ -14,7 +14,7 @@ export interface BasicButtonAction {
 }
 
 export interface BasicImageProperties {
-    imageSrc?: string;
-    imageTitle?: string;
+    imSrc?: string;
+    title?: string;
 }
 

@@ -1,6 +1,7 @@
 import { ImageSectionProps } from '../../types/props/index';
 import { SlideshowItemProps } from '../../types/components/SlideshowType';
 import photo from "../static/images/cp.jpg";
+import { ImageSlideShowState } from '../../types/states/imageState';
 export const categoriesData: string[] = [
     "Home",
     "Views",
@@ -39,7 +40,7 @@ export const imageViewData: ImageSectionProps[] = [
 
 ]
 
-export const slideShowData: SlideshowItemProps[] = [
+export const slideShowData: ImageSlideShowState[] = [
     {
         title: "Ocean",
         imSrc: "https://images.unsplash.com/photo-1546188994-07c34f6e5e1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZnV0dXJlfGVufDB8fDB8fA%3D%3D&w=1000&q=80",

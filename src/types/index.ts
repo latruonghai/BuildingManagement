@@ -17,6 +17,7 @@ export enum RedoUndoActionEnum {
     CURRENT_STATE = 'CURRENT_STATE'
 }
 export enum ImageHandleActionEnum {
+    GET_ALL_IMAGES = 'GET_ALL_IMAGES',
     UPLOAD = "UPLOAD_IMAGE",
     DELETE = "DELETE_IMAGE",
     UPDATE = "UPDATE_IMAGE"

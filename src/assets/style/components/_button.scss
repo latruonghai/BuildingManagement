@@ -11,7 +11,7 @@
             @apply box-border border-2 rounded-md bg-blue-300 hover:bg-blue-800 hover:font-bold;
         }
 
-        .decline {
+        .edit {
             @apply text-gray-500 bg-white hover:bg-gray-100 focus:ring-gray-300 rounded-lg border border-gray-200 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600;
         }
 
@@ -21,8 +21,11 @@
         .undo, .redo{
             @apply bg-pink-400 hover:bg-purple-400 hover:font-bold hover:scale-105 focus:ring-purple-300 font-thin;
         }
-        .edit{
-            @apply bg-red-500 hover:bg-red-600 hover:text-black hover:font-bold text-gray-600 focus:ring-red-800 font-medium;
+        .decline{
+            @apply bg-red-600 hover:bg-red-800 hover:text-black hover:font-bold text-gray-600 focus:ring-red-800 text-black;
+        }
+        .upload{
+            @apply  bg- 
         }
     }
 }
