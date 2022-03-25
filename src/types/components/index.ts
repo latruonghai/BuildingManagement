@@ -1,5 +1,5 @@
 import { BuildingImageState } from '../states/imageState';
-import { BasicButtonAction } from '../basicType';
+import { BasicButtonAction, BasicHTMLElement } from '../basicType';
 import { Props, PropsWithChildren } from 'react';
 export type ButtonActionType = string;
 
@@ -8,14 +8,14 @@ export type ButtonActionType = string;
 export interface ButtonLoginAction extends BasicButtonAction {
 
 }
-export interface BasicComponentProps {
-    class_name?: string;
+export interface BasicComponentProps  extends BasicHTMLElement{
+
     children?: JSX.Element;
+    handleCallback?: (ev: any) => void ;
 }
 
 export interface ImageHandleAction extends BasicButtonAction {
     idData: number;
-    imageSrc: string;
     name: string;
 }
 

@@ -1,4 +1,4 @@
-import { BasicButtonAction } from '../basicType';
+import { BasicButtonAction, BasicComponentElement } from '../basicType';
 import { StateCanvas } from '../states/canvasState';
 import { ImageData } from '../data/index';
 import { ImageSlideShowState } from '../states/imageState';
@@ -19,3 +19,6 @@ export interface ImageSlideShowAction extends BasicButtonAction{
     imageData?: ImageSlideShowState
 }
 
+export interface ReactComponentSelectionAction extends BasicButtonAction, BasicComponentElement {
+
+}

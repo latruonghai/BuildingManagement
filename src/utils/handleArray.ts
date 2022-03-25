@@ -1,7 +1,6 @@
 
 import { BuildingImageState, ImageSlideShowType, ImageSlideShowState } from '../types/states/imageState';
 import { ImageSectionProps } from '../types/props/index';
-import { ImageSlideShowAction } from '../types/actions/index';
 
 export const getInformationFromArray = (array: ImageSectionProps[], index: number): BuildingImageState => {
     const { imgDescription, imSrc }: ImageSectionProps = array[index];

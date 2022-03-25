@@ -1,9 +1,10 @@
-import { LoginAction } from './../types/index';
-import { ImageViewAction, ToggleAction, SlideshowAction, CanvasActionEnum, RedoUndoActionEnum, BasicActionEnum, ImageHandleActionEnum } from '../types/index';
+import { LoginAction } from '../types/index';
+import { ImageViewAction, ToggleAction, SlideshowAction, CanvasActionEnum, RedoUndoActionEnum, BasicActionEnum, ImageHandleActionEnum, ReactComponentSelectionEnum } from '../types/index';
 import { BuildingImageViewAction, ImageSlideShowState, ImageSlideShowType } from '../types/states/imageState';
 import { BasicButtonAction } from '../types/basicType';
-import { SlideShowAction, CanvasAction, RedoUndoAction, ImageSlideShowAction } from '../types/actions/index';
+import { SlideShowAction, CanvasAction, RedoUndoAction, ImageSlideShowAction, ReactComponentSelectionAction } from '../types/actions/index';
 import { toDataUrlCanvas } from '../utils/handleJsxElement';
+import Slideshow from '../components/Slideshow';
 
 export const login = () => {
     return {
@@ -124,4 +125,5 @@ export const slideShowImageHandleAction = (type: string, state?: ImageSlideShowT
             }
     }
 }
+
 

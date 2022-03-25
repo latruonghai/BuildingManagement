@@ -12,6 +12,16 @@ import { CanvasProps } from '../types/props/index';
 import Button from './Button';
 import { RedoUndoAction, CanvasAction } from '../types/actions/index';
 
+
+// TODO:  Handling the undo and redo action
+/**
+ * 
+    [ ] Solve the problem about the undo and redo action
+BUG: Can't drawing image with canvas
+BUG: Unknown the solving of the problem of the redo and undo action.
+HACK: Try to redraw image with canvas 
+  
+ */
 const Canvas = ({ isShowing, imgSrc, toggle }: CanvasProps): JSX.Element => {
     const canvasRef: MutableRefObject<HTMLCanvasElement> = useRef<HTMLCanvasElement>(null) as MutableRefObject<HTMLCanvasElement>;
 

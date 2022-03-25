@@ -2,15 +2,21 @@ import React, { Dispatch, Fragment } from "react";
 import { createPortal } from "react-dom";
 import "../assets/style/components/_modal.scss"
 import Button from './Button';
-import Slideshow from "./Slideshow";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { CanvasAction } from '../types/actions/index';
 import { canvasActions } from '../actions/index';
 import { CanvasActionEnum } from "../types";
+import { reactComponentSelectionAction } from '../actions/elementReactAction';
+import { ReactComponentSelectionEnum } from '../types/index';
 
-const Modal = ({ toggle, isShowing, class_name, bodyContent }: any): JSX.Element => {
+// TODO:
+/**
+    [ ] Add handle click event for save button
+    [ ] Add handle click event for upload button
+ */
+const Modal = ({ toggle, isShowing, class_name, bodyContent, children }: any): JSX.Element => {
     const dispatch = useDispatch<Dispatch<CanvasAction>>();
-    
+    // console.log("Body", bodyContent);
     return isShowing ? createPortal(
         <Fragment>
             <div className="modal-overlay" aria-hidden="true" aria-modal="true">
@@ -25,13 +31,17 @@ const Modal = ({ toggle, isShowing, class_name, bodyContent }: any): JSX.Element
                         </div>
                         <div className="modal-body">
                             {bodyContent
-                                ? <Slideshow  />
+                                ? children
 
                                 : <p>Modal body text goes here.</p>}
                         </div>
                         <div className="modal-footer">
-                            <Button contentButton=" Save change" classNameStyle=" fas fa-save btn" type="button" data-dismiss="modal" onClickHandler={toggle} />
-                            <Button contentButton=" Upload Image" classNameStyle="fas fa-upload"></Button>
+                            <Button contentButton=" Save change" classNameStyle=" fas fa-save btn" type="button" data-dismiss="modal" onClickHandler={
+                                () => {dispatch(reactComponentSelectionAction(ReactComponentSelectionEnum.SLIDE_SHOW)) }
+                            } />
+                            <Button contentButton=" Upload Image" classNameStyle="fas fa-upload" onClickHandler={() => 
+                                dispatch(reactComponentSelectionAction(ReactComponentSelectionEnum.UPLOAD_VIEW))} />
+
                             <Button contentButton=" Edit" classNameStyle=" fas fa-edit edit" type="button" data-dismiss="modal" onClickHandler={
                                 () => dispatch(canvasActions(CanvasActionEnum.SET_IS_SHOWING, true))} />
                             <Button contentButton=" Close" classNameStyle="fas fa-times btn decline" type="button" data-dismiss="modal" onClickHandler={toggle} />

@@ -10,15 +10,20 @@ import { slideShowOrder } from '../actions/index';
 import { getIndexFromIdName } from '../utils/handleString';
 import { ImageDataState } from '../types/states/imageState';
 
+
+// FIXME:  Fix the issue of the slideshow cannot undo the  last slide
+/**
+ * 
+    [ ] Add the ability to undo the last slide
+    
+ */
 const Slideshow = (props: any) => {
-    // const handleSlideShow = event => {
+
     const index = useSelector((state: RootState) => state.slideshowReducer) as number;
-    // console.log("Index, " ,index)
-    // }
-    // console.log("Slide ", props.slideShowData);
     const imageSlideShowState: ImageDataState | any= useSelector((state: RootState) => state.imageMethodReducer);
     console.log("Image data", imageSlideShowState.imageDataArray);
     const numberOfSlideShowItem = imageSlideShowState.imageDataArray.length;
+
     const dispatch = useDispatch()
     return (
         <Fragment>

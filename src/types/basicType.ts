@@ -13,8 +13,16 @@ export interface BasicButtonAction {
     type?: string;
 }
 
+export interface  BasicHTMLElement{
+    class_name?: string;
+    id_name?: string;
+}
+
 export interface BasicImageProperties {
     imSrc?: string;
     title?: string;
 }
 
+export interface BasicComponentElement{
+    element: JSX.Element;
+}

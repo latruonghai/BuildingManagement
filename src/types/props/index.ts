@@ -1,6 +1,7 @@
 import { LogoStyle, CategoricalList } from '../index';
 import { BasicOnclickHandle, BasicButtonTagStyle, BasicButtonAction } from '../basicType';
 import { ImageSlideShowState } from '../states/imageState';
+import { BasicComponentProps } from '../components/index';
 
 
 export type FormComponentBasicProps = {
@@ -35,4 +36,12 @@ export interface CanvasProps {
     isShowing?: boolean;
     toggle?: any;
     imgSrc?: string;
+}
+
+export interface InputProps extends BasicComponentProps, FormComponentBasicProps{
+    placeholder?: string;
+    acceptFile?: string;
+    tabIndex?: number;
+    autoComplete?: "off" | "on";
+    style?: {};
 }

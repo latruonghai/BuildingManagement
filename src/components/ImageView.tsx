@@ -8,10 +8,11 @@ import { useDispatch } from 'react-redux';
 import { Dispatch } from 'react';
 import { ImageSlideShowAction } from '../types/actions/index';
 import { slideShowImageHandleAction } from '../actions/index';
-import { ImageHandleActionEnum } from '../types/index';
+import { ImageHandleActionEnum, ReactComponentSelectionEnum } from '../types/index';
 import { getImageSlideShowStateDataAction } from '../utils/handleArray';
 import { slideShowData } from '../assets/static/StaticData';
 import { ImageSlideShowType } from '../types/states/imageState';
+import { reactComponentSelectionAction } from '../actions/elementReactAction';
 
 const ImageView: FC<ImageViewProps> = (props: ImageViewProps) => {
     // console.log(imageDetailView.imageString);
@@ -52,6 +53,7 @@ export const ImageSection: FC<ImageSectionComponentProps> = (props: ImageSection
     const handleClickSection = () => {
         console.log("Do view", imageDataSlideShow)
         toggleSlideShowModal();
+        dispatch(reactComponentSelectionAction(ReactComponentSelectionEnum.SLIDE_SHOW));
         dispatch(slideShowImageHandleAction(ImageHandleActionEnum.GET_ALL_IMAGES, imageDataSlideShow ))
     }
     return (
