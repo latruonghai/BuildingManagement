@@ -22,7 +22,7 @@ var requestOptions = {
   mode: "cors"
 };
 
-fetch(" http://d53c-14-186-218-26.au.ngrok.io/api/building/getAll", requestOptions as  RequestInit)
+fetch(" https://d53c-14-186-218-26.au.ngrok.io/api/building/getAll", requestOptions as  RequestInit)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
