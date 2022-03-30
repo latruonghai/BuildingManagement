@@ -6,18 +6,18 @@ import { initialStateForImage } from '../services/initialStateCanvas';
 
 export const imageMethodReducer = (state: ImageDataState  = initialStateForImage, action: ImageSlideShowAction): ImageDataState => {
     switch (action.type) {
-        case ImageHandleActionEnum.UPDATE:
-            // delete action.type;
-            return {
-                ...state,
-                imageDataArray: [...state.imageDataArray as ImageSlideShowState[], action.imageData as ImageSlideShowState]
-            }
+        // case ImageHandleActionEnum.UPDATE:
+        //     // delete action.type;
+        //     return {
+        //         ...state,
+        //         imageDataArray: [...state.imageDataArray as ImageSlideShowState[], action.imageData as ImageSlideShowState]
+        //     }
         case ImageHandleActionEnum.DELETE:
             return{
                 ...state,
                 imageDataArray: state.imageDataArray.filter((item, index) => index !==  action?.imageData?.orderInImage as number)
             }
-        case ImageHandleActionEnum.UPLOAD:
+        case ImageHandleActionEnum.UPDATE:
             // delete action.type;
             // const number = 
             state.imageDataArray[action.imageData!.orderInImage as number] = action.imageData as ImageSlideShowState;

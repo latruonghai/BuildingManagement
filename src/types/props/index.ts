@@ -1,7 +1,8 @@
 import { LogoStyle, CategoricalList } from '../index';
-import { BasicOnclickHandle, BasicButtonTagStyle, BasicButtonAction } from '../basicType';
+import { BasicOnclickHandle, BasicButtonTagStyle, BasicButtonAction, BasicImageProperties } from '../basicType';
 import { ImageSlideShowState } from '../states/imageState';
 import { BasicComponentProps } from '../components/index';
+import {BuildingResponseState } from '../states/request';
 
 
 export type FormComponentBasicProps = {
@@ -45,3 +46,7 @@ export interface InputProps extends BasicComponentProps, FormComponentBasicProps
     autoComplete?: "off" | "on";
     style?: {};
 }
+
+// export interface ImageViewProps extends BasicComponentProps{
+//     image_array: BuildingResponseState[];
+// }

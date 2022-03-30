@@ -16,14 +16,17 @@ export enum RedoUndoActionEnum {
     UNDO = 'UNDO',
     CURRENT_STATE = 'CURRENT_STATE'
 }
-
+export enum ImageUploadStateEnum{
+    UPLOAD_IMAGE = 'UPLOAD_IMAGE',
+    
+}
 export enum ReactComponentSelectionEnum{
     SLIDE_SHOW = 'SLIDE_SHOW',
     UPLOAD_VIEW = 'UPLOAD_VIEW',
 }
 export enum ImageHandleActionEnum {
     GET_ALL_IMAGES = 'GET_ALL_IMAGES',
-    UPLOAD = "UPLOAD_IMAGE",
+    UPLOAD = "UPLOAD",
     DELETE = "DELETE_IMAGE",
     UPDATE = "UPDATE_IMAGE"
 }

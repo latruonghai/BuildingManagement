@@ -22,3 +22,4 @@ export interface ImageSlideShowType {
     imageDataArray?: ImageSlideShowState[];
     imageData?: ImageSlideShowState;
 }
+

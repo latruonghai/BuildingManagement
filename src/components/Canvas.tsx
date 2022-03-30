@@ -20,7 +20,7 @@ import { RedoUndoAction, CanvasAction } from '../types/actions/index';
 BUG: Can't drawing image with canvas
 BUG: Unknown the solving of the problem of the redo and undo action.
 HACK: Try to redraw image with canvas 
-  
+
  */
 const Canvas = ({ isShowing, imgSrc, toggle }: CanvasProps): JSX.Element => {
     const canvasRef: MutableRefObject<HTMLCanvasElement> = useRef<HTMLCanvasElement>(null) as MutableRefObject<HTMLCanvasElement>;
@@ -140,8 +140,7 @@ const Canvas = ({ isShowing, imgSrc, toggle }: CanvasProps): JSX.Element => {
 }
 
 const Menu = ({ dispatch }: CanvasMenuDispatch): JSX.Element => {
-    // const dispatch = useDispatch();
-    // const stateImsrc = useSelector((state: RootState) => state.redoUndoReducer.imSrc);
+
     return (
         <Fragment>
             <div className="menu">

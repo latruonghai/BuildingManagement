@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { InputProps } from '../types/props/index';
 import "../assets/style/components/_upload.scss";
 import classNames from "classnames";
 import Input from './Input';
