@@ -1,5 +1,5 @@
 import { LogoStyle, CategoricalList } from '../index';
-import { BasicOnclickHandle, BasicButtonTagStyle, BasicButtonAction, BasicImageProperties } from '../basicType';
+import { BasicOnclickHandle, BasicButtonTagStyle, BasicButtonAction, BasicImageProperties, BasicComponentElement, BasicHTMLElement } from '../basicType';
 import { ImageSlideShowState } from '../states/imageState';
 import { BasicComponentProps } from '../components/index';
 import {BuildingResponseState } from '../states/request';
@@ -9,7 +9,7 @@ export type FormComponentBasicProps = {
     type: string;
 }
 
-export interface ButtonProps extends BasicButtonTagStyle, BasicOnclickHandle {
+export interface ButtonProps extends BasicButtonTagStyle, BasicOnclickHandle, BasicHTMLElement {
     buttonAction?: BasicButtonAction;
     description?: string;
 }

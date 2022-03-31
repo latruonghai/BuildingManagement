@@ -21,8 +21,13 @@ export interface  BasicHTMLElement{
 export interface BasicImageProperties {
     imSrc?: string;
     title?: string;
+    id?:number;
 }
 
 export interface BasicComponentElement{
     element: JSX.Element;
+}
+
+export interface ToggleImageViewAction extends BasicButtonAction {
+    idSelector: number;
 }

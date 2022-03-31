@@ -26,7 +26,7 @@ const HomePage = (props: any) => {
         <Fragment>
             <Navbar logo={logo} title="TMA Solutions" contentButton="Open main menu" items={categoriesData} />
             <ImageView imageSections={imageViewData} />
-            <Modal isShowing={isShowing} toggle={toggleSlideShowModal} class_name="Information"
+            <Modal isShowing={isShowing.toggle} toggle={toggleSlideShowModal} class_name="Information"
             bodyContent={contentBodyModal} >
                 {reactComponentState.element}
                 </Modal>

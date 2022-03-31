@@ -2,7 +2,7 @@
 
 /**
  * 
-    [ ] Add function that handle image sending from server. Add it into slideshow whose images are being
+    [x] Add function that handle image sending from server. Add it into slideshow whose images are being
     show at the moment.
  */
 

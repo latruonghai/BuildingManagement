@@ -7,7 +7,10 @@ export enum ToggleAction {
     TOGGLE = 'TOGGLE'
 }
 
-
+export enum ImageViewHandleActionEnum{
+    FETCH_IMAGE_VIEW_DATA = 'FETCH_IMAGE_VIEW_DATA',
+    SELECT_VIEW_IMAGE = 'SELECT_VIEW_IMAGE'
+}
 export enum BasicActionEnum {
     DO_NOTHING = 'DO_NOTHING'
 }
@@ -43,7 +46,7 @@ export enum SlideshowAction {
     NEXT = "NEXT",
     EXACTINDEX = "EXACTINDEX"
 }
-export enum ImageViewAction {
+export enum ImageViewActionEnum {
     VIEW_IMAGE = "VIEW_IMAGE"
 }
 export interface LoginState {

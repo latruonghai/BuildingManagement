@@ -7,7 +7,7 @@ const Button = (props: ButtonProps) => {
 
     return (
         <Fragment>
-            <button className={"btn " + props.classNameStyle}
+            <button className={"btn " + props.classNameStyle} id={props.id_name}
                 type={props.type} onClick={props.onClickHandler}>{props.contentButton}</button>
         </Fragment>
     )

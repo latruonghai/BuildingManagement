@@ -9,6 +9,7 @@ import { RootState } from '../reducers/index';
 import { slideShowOrder } from '../actions/index';
 import { getIndexFromIdName } from '../utils/handleString';
 import { ImageDataState } from '../types/states/imageState';
+import { useFetchApartments } from '../hooks/useFetchApartment';
 
 
 // FIXME:  Fix the issue of the slideshow cannot undo the  last slide
@@ -19,9 +20,11 @@ import { ImageDataState } from '../types/states/imageState';
  */
 const Slideshow = (props: any) => {
 
+    const selectorId = useSelector((state: RootState) => state.toggleModalReducer);
     const index = useSelector((state: RootState) => state.slideshowReducer) as number;
     const imageSlideShowState: ImageDataState | any= useSelector((state: RootState) => state.imageMethodReducer);
     console.log("Image data", imageSlideShowState.imageDataArray);
+    useFetchApartments(selectorId.idSelector as number);
     const numberOfSlideShowItem = imageSlideShowState.imageDataArray.length;
 
     const dispatch = useDispatch()

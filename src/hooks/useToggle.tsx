@@ -4,13 +4,13 @@ import React, {useCallback} from 'react';
 
 
 
-export const useToggleSlideShowModal = ()=> {
+export const useToggleSlideShowModal = (id: number = 0)=> {
     const dispatch = useDispatch();
 
     const toggleSlideShowModal = useCallback(
     () => {
-        dispatch(toggleModal());
-    },[]);
+        dispatch(toggleModal(id));
+    },[id]);
 
     
 

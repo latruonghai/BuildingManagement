@@ -1,10 +1,11 @@
-import { LoginAction } from '../types/index';
-import { ImageViewAction, ToggleAction, SlideshowAction, CanvasActionEnum, RedoUndoActionEnum, BasicActionEnum, ImageHandleActionEnum, ReactComponentSelectionEnum } from '../types/index';
+import { LoginAction, ImageViewHandleActionEnum, ImageViewActionEnum } from '../types/index';
+import { ToggleAction, SlideshowAction, CanvasActionEnum, RedoUndoActionEnum, BasicActionEnum, ImageHandleActionEnum, ReactComponentSelectionEnum } from '../types/index';
 import { BuildingImageViewAction, ImageSlideShowState, ImageSlideShowType } from '../types/states/imageState';
-import { BasicButtonAction } from '../types/basicType';
-import { SlideShowAction, CanvasAction, RedoUndoAction, ImageSlideShowAction, ReactComponentSelectionAction } from '../types/actions/index';
+import { BasicButtonAction, ToggleImageViewAction } from '../types/basicType';
+import { SlideShowAction, CanvasAction, RedoUndoAction, ImageSlideShowAction, ReactComponentSelectionAction, ImageViewAction } from '../types/actions/index';
 import { toDataUrlCanvas } from '../utils/handleJsxElement';
 import Slideshow from '../components/Slideshow';
+import { ImageViewState } from '../types/components/ImageViewState';
 
 export const login = () => {
     return {
@@ -19,14 +20,15 @@ export const logout = () => {
 
 export const viewImage = (idData: number): BuildingImageViewAction => {
     return {
-        type: ImageViewAction.VIEW_IMAGE,
+        type: ImageViewActionEnum.VIEW_IMAGE,
         idData,
     }
 }
 
-export const toggleModal = (): BasicButtonAction => {
+export const toggleModal = (state: number): ToggleImageViewAction => {
     return {
-        type: ToggleAction.TOGGLE
+        type: ToggleAction.TOGGLE,
+        idSelector: state
     }
 }
 
@@ -126,4 +128,19 @@ export const slideShowImageHandleAction = (type: string, state?: ImageSlideShowT
     }
 }
 
+export const getImageFromApiForImageView = (type: string, state?: ImageViewState[]): ImageViewAction => {
+    switch (type) {
+        case ImageViewHandleActionEnum.FETCH_IMAGE_VIEW_DATA:
+            return {
+                type: ImageViewHandleActionEnum.FETCH_IMAGE_VIEW_DATA,
+                imageData: state,
+            }
+        
+        default:
+            return {
+                type: BasicActionEnum.DO_NOTHING,
+                // currentCanvasElement: state as CanvasRenderingContext2D
+            }
+    }
+}
 

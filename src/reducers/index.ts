@@ -6,6 +6,7 @@ import { canvasReducer } from './canvasReducer';
 import { redoUndoReducer } from './redoUndoReducer';
 import { imageMethodReducer } from './imageMethodReducer';
 import { reactComponentSelectorReducer } from './reactComponentSelector';
+import { imageViewReducer } from './imageViewReducer';
 
 // Todo: add new more reducers here
 /**
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
     canvasReducer: canvasReducer,
     redoUndoReducer: redoUndoReducer,
     imageMethodReducer: imageMethodReducer,
-    reactComponentSelectorReducer: reactComponentSelectorReducer
+    reactComponentSelectorReducer: reactComponentSelectorReducer,
+    imageViewReducer: imageViewReducer
 });
 export default rootReducer;
 export type RootState = ReturnType<typeof rootReducer>
