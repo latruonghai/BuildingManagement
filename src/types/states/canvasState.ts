@@ -1,4 +1,3 @@
-import { ImageData } from '../data/index';
 export interface StateCanvas {
     isDrawing?: boolean;
     lineColor?: string;

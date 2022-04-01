@@ -1,5 +1,4 @@
 import { Dispatch } from "react";
-import { BasicComponentProps } from './components/index';
 
 export interface BasicOnclickHandle {
     onClickHandler?: Dispatch<BasicButtonAction> | any;

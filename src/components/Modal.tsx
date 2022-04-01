@@ -3,7 +3,6 @@ import { createPortal } from "react-dom";
 import "../assets/style/components/_modal.scss"
 import Button from './Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { CanvasAction } from '../types/actions/index';
 import { canvasActions, uploadImageAction, slideShowOrder } from '../actions/index';
 import { CanvasActionEnum } from "../types";
 import { reactComponentSelectionAction } from '../actions/elementReactAction';

@@ -1,8 +1,7 @@
 import { LogoStyle, CategoricalList } from '../index';
-import { BasicOnclickHandle, BasicButtonTagStyle, BasicButtonAction, BasicImageProperties, BasicComponentElement, BasicHTMLElement } from '../basicType';
+import { BasicOnclickHandle, BasicButtonTagStyle, BasicButtonAction, BasicHTMLElement } from '../basicType';
 import { ImageSlideShowState } from '../states/imageState';
 import { BasicComponentProps } from '../components/index';
-import {BuildingResponseState } from '../states/request';
 import React from 'react';
 
 

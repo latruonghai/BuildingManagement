@@ -3,21 +3,24 @@ import "../assets/style/components/_imageView.scss";
 import { ImageViewProps, ImageSectionComponentProps } from '../types/props/index';
 import Button from "./Button";
 // import Slideshow from "./Slideshow";
-import { useToggleSlideShowModal } from '../hooks/useToggle';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'react';
 import { ImageSlideShowAction } from '../types/actions/index';
-import { slideShowImageHandleAction, toggleModal } from '../actions/index';
-import { ImageHandleActionEnum, ReactComponentSelectionEnum } from '../types/index';
+import { toggleModal } from '../actions/index';
+import { ReactComponentSelectionEnum } from '../types/index';
 import { getImageSlideShowStateDataAction } from '../utils/handleArray';
 import { slideShowData } from '../assets/static/StaticData';
 import { ImageSlideShowType } from '../types/states/imageState';
 import { reactComponentSelectionAction } from '../actions/elementReactAction';
 import useFetchBuilding from '../hooks/useFetchBuilding';
-import { imageViewReducer } from '../reducers/imageViewReducer';
 import { RootState } from '../reducers/index';
 import { getIndexFromIdName } from '../utils/handleString';
 
+/**
+ * 
+[ ] Create section for adding new apartment in building.
+[ ] Handle delete and add apartment action.
+ */
 const ImageView: FC<ImageViewProps> = (props: ImageViewProps) => {
     // console.log(imageDetailView.imageString);
     const imageStateArray = useSelector((state: RootState) => state.imageViewReducer);
@@ -41,8 +44,12 @@ const ImageView: FC<ImageViewProps> = (props: ImageViewProps) => {
 }
 
 export const ImageSection: FC<ImageSectionComponentProps> = (props: ImageSectionComponentProps) => {
+
     const dispatch = useDispatch<Dispatch<ImageSlideShowAction>>();
-    const imageDataSlideShow: ImageSlideShowType  = getImageSlideShowStateDataAction({}, props.imageDataSlideShowArray);
+
+    const imageDataSlideShow: ImageSlideShowType  = getImageSlideShowStateDataAction({}, 
+        props.imageDataSlideShowArray);
+
     const handleClickSection = (ev:any) => {
         console.log("Target", ev.target.id);
         console.log("Do view", imageDataSlideShow)
@@ -50,6 +57,7 @@ export const ImageSection: FC<ImageSectionComponentProps> = (props: ImageSection
         dispatch(reactComponentSelectionAction(ReactComponentSelectionEnum.SLIDE_SHOW));
         // dispatch(slideShowImageHandleAction(ImageHandleActionEnum.GET_ALL_IMAGES, imageDataSlideShow ))
     }
+
     return (
         <Fragment>
             <div key={props.idImage} id={`building-${props.idImage}`} data-modal-toggle="defaultModal" className="image-item" >

@@ -1,8 +1,7 @@
 // import { updateRequest } from './requestHandle';
-import { BACKEND_URL, BACKEND_LOGIN, BACKEND_ADMIN_URL } from './../services/constant';
+import { BACKEND_URL, BACKEND_ADMIN_URL } from './../services/constant';
 import axios from 'axios';
 import { HEADERS } from '../services/constant';
-import { useDispatch } from 'react-redux';
 import { slideShowImageHandleAction } from '../actions';
 import { ImageHandleActionEnum } from '../types';
 import { getImageSlideShowApartmentData } from './handleArray';

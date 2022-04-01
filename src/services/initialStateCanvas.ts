@@ -26,7 +26,7 @@ export const initialApartmentRequest: ApartmentDataRequest = {
     image_bye_string: ''
 }
 
-export const initiatialUploadState: ImageUploadState = {
+export const initialUploadState: ImageUploadState = {
     imgSrc:"",
     name: "",
     imageNameFile: "",

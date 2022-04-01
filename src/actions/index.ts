@@ -1,12 +1,10 @@
 import { LoginAction, ImageViewHandleActionEnum, ImageViewActionEnum, UploadImageSectionActionEnum } from '../types/index';
-import { ToggleAction, SlideshowAction, CanvasActionEnum, RedoUndoActionEnum, BasicActionEnum, ImageHandleActionEnum, ReactComponentSelectionEnum } from '../types/index';
-import { BuildingImageViewAction, ImageSlideShowState, ImageSlideShowType, ImageUploadState } from '../types/states/imageState';
-import { BasicButtonAction, ToggleImageViewAction } from '../types/basicType';
-import { SlideShowAction, CanvasAction, RedoUndoAction, ImageSlideShowAction, ReactComponentSelectionAction, ImageViewAction, UploadAction } from '../types/actions/index';
+import { ToggleAction, SlideshowAction, CanvasActionEnum, RedoUndoActionEnum, BasicActionEnum, ImageHandleActionEnum } from '../types/index';
+import { BuildingImageViewAction, ImageSlideShowType, ImageUploadState } from '../types/states/imageState';
+import { ToggleImageViewAction } from '../types/basicType';
+import { SlideShowAction, CanvasAction, RedoUndoAction, ImageSlideShowAction, ImageViewAction, UploadAction } from '../types/actions/index';
 import { toDataUrlCanvas } from '../utils/handleJsxElement';
-import Slideshow from '../components/Slideshow';
 import { ImageViewState } from '../types/components/ImageViewState';
-import { stat } from 'fs';
 
 export const login = () => {
     return {

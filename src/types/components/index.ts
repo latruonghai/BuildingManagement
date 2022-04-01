@@ -1,6 +1,6 @@
 import { BuildingImageState } from '../states/imageState';
 import { BasicButtonAction, BasicHTMLElement } from '../basicType';
-import { Props, PropsWithChildren } from 'react';
+
 export type ButtonActionType = string;
 
 

@@ -1,17 +1,14 @@
 import React, { Fragment } from "react";
 import Navbar from "../components/Navbar";
-import { categoriesData, imageViewData, slideShowData } from '../assets/static/StaticData';
+import { categoriesData, imageViewData } from '../assets/static/StaticData';
 // import logo from "../logo.svg";
 import logo from "../assets/static/images/download.png";
 import { useSelector } from "react-redux";
 import { RootState } from "../reducers";
-import { useDispatch } from "react-redux";
-import { toggleModal } from "../actions/index";
 import Canvas from "../components/Canvas";
 import Modal from "../components/Modal";
 import ImageView from "../components/ImageView";
 import { useToggleSlideShowModal } from '../hooks/useToggle';
-import { reactComponentSelectorReducer } from '../reducers/reactComponentSelector';
 
 const HomePage = (props: any) => {
     const isShowing = useSelector((state: RootState) => state.toggleModalReducer);

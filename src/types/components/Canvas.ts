@@ -1,6 +1,5 @@
 import { Dispatch } from 'react';
 import { BasicComponentProps } from './index';
-import { StateCanvas } from '../states/canvasState';
 import { RedoUndoAction, CanvasAction } from '../actions/index';
 export interface CanvasMenuDispatch extends BasicComponentProps {
     setLineColor?: Dispatch<string>;

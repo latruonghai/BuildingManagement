@@ -1,5 +1,5 @@
 import { ImageSlideShowState } from '../types/states/imageState';
-import { updateRequestAdmin, updateRequestUser } from '../utils/requestHandle';
+import { updateRequestUser } from '../utils/requestHandle';
 // import { updateRequest, updateRequestAdmin } from '../utils/requestHandle';
 import { getRandomStringNameImage } from '../utils/handleString';
 export const handleUpdateImageButton = (canvas: HTMLCanvasElement, imageData: ImageSlideShowState) =>{
