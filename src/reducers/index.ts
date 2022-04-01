@@ -7,10 +7,11 @@ import { redoUndoReducer } from './redoUndoReducer';
 import { imageMethodReducer } from './imageMethodReducer';
 import { reactComponentSelectorReducer } from './reactComponentSelector';
 import { imageViewReducer } from './imageViewReducer';
+import { uploadReducer } from './uploadReducer';
 
 // Todo: add new more reducers here
 /**
-    [ ] Add reducers handle upload image changes
+    [x] Add reducers handle upload image changes
  */
 const rootReducer = combineReducers({
     viewImageReducer: viewImageReducer,
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
     redoUndoReducer: redoUndoReducer,
     imageMethodReducer: imageMethodReducer,
     reactComponentSelectorReducer: reactComponentSelectorReducer,
-    imageViewReducer: imageViewReducer
+    imageViewReducer: imageViewReducer,
+    uploadReducer: uploadReducer
 });
 export default rootReducer;
 export type RootState = ReturnType<typeof rootReducer>

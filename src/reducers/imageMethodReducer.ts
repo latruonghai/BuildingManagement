@@ -18,7 +18,8 @@ export const imageMethodReducer = (state: ImageDataState  = initialStateForImage
             return state;
         case ImageHandleActionEnum.GET_ALL_IMAGES:
             console.log(ImageHandleActionEnum.GET_ALL_IMAGES);
-            console.log(action.imageDataArray);
+            console.log("Action", action.imageDataArray);
+            state.imageDataArray = [];
             return {
                 ...state,
                 imageDataArray: [...action.imageDataArray as ImageSlideShowState[]]

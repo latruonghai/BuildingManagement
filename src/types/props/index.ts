@@ -3,6 +3,7 @@ import { BasicOnclickHandle, BasicButtonTagStyle, BasicButtonAction, BasicImageP
 import { ImageSlideShowState } from '../states/imageState';
 import { BasicComponentProps } from '../components/index';
 import {BuildingResponseState } from '../states/request';
+import React from 'react';
 
 
 export type FormComponentBasicProps = {
@@ -37,6 +38,7 @@ export interface CanvasProps {
     isShowing?: boolean;
     toggle?: any;
     imgSrc?: string;
+    imgData?: ImageSlideShowState;
 }
 
 export interface InputProps extends BasicComponentProps, FormComponentBasicProps{
@@ -45,6 +47,8 @@ export interface InputProps extends BasicComponentProps, FormComponentBasicProps
     tabIndex?: number;
     autoComplete?: "off" | "on";
     style?: {};
+    text?: string;
+    ref?: React.MutableRefObject<HTMLInputElement>;
 }
 
 // export interface ImageViewProps extends BasicComponentProps{

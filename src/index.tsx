@@ -6,7 +6,6 @@ import { compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 // import "./assets/style/vendor/_font-awesome.css";
-import "flowbite";
 import rootReducer from './reducers/index';
 
 declare global {

@@ -12,8 +12,8 @@ export interface BuildingImageViewAction extends BasicButtonAction {
 // export interface ImageState 
 export interface ImageSlideShowState extends BasicImageProperties{
     orderInImage?: number;
+    ref_id?: number;
 }
-
 export interface ImageDataState{
     // imageDataArray: 
     imageDataArray: ImageSlideShowState[];
@@ -23,3 +23,8 @@ export interface ImageSlideShowType {
     imageData?: ImageSlideShowState;
 }
 
+export interface ImageUploadState {
+    imgSrc?: string;
+    name?: string;
+    imageNameFile?: string;
+}

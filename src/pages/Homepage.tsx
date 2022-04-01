@@ -20,18 +20,19 @@ const HomePage = (props: any) => {
     const reactComponentState = useSelector((state: RootState) => state.reactComponentSelectorReducer);
     const editorImageState = useSelector((state: RootState) => state.canvasReducer);
     const imageIndex = useSelector((state: RootState) => state.slideshowReducer);
+    const imageSlideshowState = useSelector((state: RootState) => state.imageMethodReducer);
     console.log(imageIndex);
     // const isCanvasShowwing = useSelector((state: RootState) => state.canvasReducer.isShowing);
     return (
         <Fragment>
             <Navbar logo={logo} title="TMA Solutions" contentButton="Open main menu" items={categoriesData} />
             <ImageView imageSections={imageViewData} />
-            <Modal isShowing={isShowing.toggle} toggle={toggleSlideShowModal} class_name="Information"
+            <Modal isShowing={isShowing.toggle} toggle={toggleSlideShowModal} class_name="Information "
             bodyContent={contentBodyModal} >
                 {reactComponentState.element}
                 </Modal>
 
-            <Canvas isShowing={editorImageState.isShowing} imgSrc={slideShowData[imageIndex as number].imSrc} />
+            <Canvas isShowing={editorImageState.isShowing} imgData={imageSlideshowState.imageDataArray[imageIndex as number]} />
         </Fragment>
     )
 }

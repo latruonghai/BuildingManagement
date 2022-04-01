@@ -5,11 +5,11 @@ import { LoginState } from "../types";
 /**
  * 
 TODO: Handling the login form
-[ ] Add Username and Password
+[x] Add Username and Password
 [ ] Remember me problem
 [ ] Register button
 [ ] Logout button
-BUG: Unknown handling authenticator error.
+BUG: Unknown handling authenticator error headers.
  */
 
 const LoginPage = (props: LoginState) => {

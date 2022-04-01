@@ -1,11 +1,12 @@
-import { LoginAction, ImageViewHandleActionEnum, ImageViewActionEnum } from '../types/index';
+import { LoginAction, ImageViewHandleActionEnum, ImageViewActionEnum, UploadImageSectionActionEnum } from '../types/index';
 import { ToggleAction, SlideshowAction, CanvasActionEnum, RedoUndoActionEnum, BasicActionEnum, ImageHandleActionEnum, ReactComponentSelectionEnum } from '../types/index';
-import { BuildingImageViewAction, ImageSlideShowState, ImageSlideShowType } from '../types/states/imageState';
+import { BuildingImageViewAction, ImageSlideShowState, ImageSlideShowType, ImageUploadState } from '../types/states/imageState';
 import { BasicButtonAction, ToggleImageViewAction } from '../types/basicType';
-import { SlideShowAction, CanvasAction, RedoUndoAction, ImageSlideShowAction, ReactComponentSelectionAction, ImageViewAction } from '../types/actions/index';
+import { SlideShowAction, CanvasAction, RedoUndoAction, ImageSlideShowAction, ReactComponentSelectionAction, ImageViewAction, UploadAction } from '../types/actions/index';
 import { toDataUrlCanvas } from '../utils/handleJsxElement';
 import Slideshow from '../components/Slideshow';
 import { ImageViewState } from '../types/components/ImageViewState';
+import { stat } from 'fs';
 
 export const login = () => {
     return {
@@ -144,3 +145,29 @@ export const getImageFromApiForImageView = (type: string, state?: ImageViewState
     }
 }
 
+export const uploadImageAction = (type: string, state?: ImageUploadState): UploadAction => {
+    switch (type) {
+        case UploadImageSectionActionEnum.UPLOAD_IMAGE_SECTION:
+            return {
+                type: UploadImageSectionActionEnum.UPLOAD_IMAGE_SECTION,
+                imgSrc: state?.imgSrc,
+                name: state?.name,
+
+            }
+        case UploadImageSectionActionEnum.DELETE_IMAGE_SECTION:
+            return{
+                type: UploadImageSectionActionEnum.DELETE_IMAGE_SECTION,
+                imgSrc: '',
+                
+            }
+        case UploadImageSectionActionEnum.CHANGE_IMAGE_NAME:
+            return {
+                    type: UploadImageSectionActionEnum.DELETE_IMAGE_SECTION,
+                    name: state?.name
+                }
+        default:
+            return {
+                type: BasicActionEnum.DO_NOTHING,
+            }
+    }
+}

@@ -22,9 +22,9 @@ export const redoUndoReducer = (state: ImagePaintingState = InitialImagePainting
 
             }
         case RedoUndoActionEnum.CURRENT_STATE:
-            console.log("Last ", state);
-            console.log("Current", action.currentCanvasElement);
-            console.log("Equals?", state?.undoCurrentCanvas && state?.undoCurrentCanvas[1] as string === action.currentCanvasElement);
+            // console.log("Last ", state);
+            // console.log("Current", action.currentCanvasElement);
+            // console.log("Equals?", state?.undoCurrentCanvas && state?.undoCurrentCanvas[1] as string === action.currentCanvasElement);
             return {
                 ...state,
                 presentCanvasElement: action?.currentCanvasElement as string,

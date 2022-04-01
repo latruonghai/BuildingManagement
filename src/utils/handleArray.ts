@@ -2,7 +2,8 @@
 import { BuildingImageState, ImageSlideShowType, ImageSlideShowState } from '../types/states/imageState';
 import { ImageSectionProps } from '../types/props/index';
 import { ImageViewState } from '../types/components/ImageViewState';
-import { IMAGE_BUILDING_LINKS } from '../services/constant';
+import { IMAGE_BUILDING_LINKS, BACKEND_URL, API_URL } from '../services/constant';
+import _ from 'lodash';
 
 export const getInformationFromArray = (array: ImageSectionProps[], index: number): BuildingImageState => {
     const { imgDescription, imSrc }: ImageSectionProps = array[index];
@@ -39,11 +40,13 @@ export const updateArrayImageView = (imageDataArray: any): ImageViewState[] =>{
 
 export const getImageSlideShowApartmentData = (imageDataArray: any): ImageSlideShowState[] =>{
     const imageDataState: ImageSlideShowState[] = [];
+    console.log("Array", imageDataArray);
     for(let imageData of imageDataArray){
         imageDataState.push({
-            imSrc: imageData.ImagePath,
+            imSrc: _.startsWith(imageData.ImagePath,"/")? API_URL + imageData.ImagePath: imageData.ImagePath,
             title: imageData.name,
             id: imageData.id,
+            ref_id: imageData.IDBuilding
         });
     }
     return imageDataState;

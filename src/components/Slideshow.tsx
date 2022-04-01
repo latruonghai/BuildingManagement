@@ -1,33 +1,35 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import "../assets/style/components/_slideshow.scss"
 import { ButtonProps } from '../types/props/index';
 import { SlideshowItemProps, DotSlideShowProps } from '../types/components/SlideshowType';
 import { showElement } from '../utils/handleJsxElement';
-import { slideShowData } from '../assets/static/StaticData';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../reducers/index';
 import { slideShowOrder } from '../actions/index';
 import { getIndexFromIdName } from '../utils/handleString';
 import { ImageDataState } from '../types/states/imageState';
-import { useFetchApartments } from '../hooks/useFetchApartment';
+import { fetchData } from "../utils/requestHandle";
 
 
 // FIXME:  Fix the issue of the slideshow cannot undo the  last slide
 /**
  * 
     [ ] Add the ability to undo the last slide
+    BUG:  can't refresh the page after upload and edit image
     
  */
 const Slideshow = (props: any) => {
 
     const selectorId = useSelector((state: RootState) => state.toggleModalReducer);
+    const dispatch = useDispatch();
     const index = useSelector((state: RootState) => state.slideshowReducer) as number;
     const imageSlideShowState: ImageDataState | any= useSelector((state: RootState) => state.imageMethodReducer);
     console.log("Image data", imageSlideShowState.imageDataArray);
-    useFetchApartments(selectorId.idSelector as number);
+    useEffect(() => {fetchData(selectorId.idSelector as number, dispatch)}, [selectorId.idSelector, dispatch]);
+    
     const numberOfSlideShowItem = imageSlideShowState.imageDataArray.length;
 
-    const dispatch = useDispatch()
+    
     return (
         <Fragment>
             <div className="slideshow-container">

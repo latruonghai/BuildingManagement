@@ -33,7 +33,11 @@ export enum ImageHandleActionEnum {
     DELETE = "DELETE_IMAGE",
     UPDATE = "UPDATE_IMAGE"
 }
-
+export enum UploadImageSectionActionEnum{
+    UPLOAD_IMAGE_SECTION = 'UPLOAD_IMAGE_SECTION',
+    DELETE_IMAGE_SECTION = 'DELETE_IMAGE_SECTION',
+    CHANGE_IMAGE_NAME = 'CHANGE_IMAGE_NAME'
+}
 export enum CanvasActionEnum {
     SET_IS_DRAWING = "SET_IS_DRAWING",
     SET_LINE_WIDTH = "SET_LINE_WIDTH",

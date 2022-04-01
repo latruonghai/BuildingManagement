@@ -11,6 +11,8 @@ import "../assets/style/components/_canvas.scss";
 import { CanvasProps } from '../types/props/index';
 import Button from './Button';
 import { RedoUndoAction, CanvasAction } from '../types/actions/index';
+// import { ImageSlideShowState } from '../types/states/imageState';
+import { handleUpdateImageButton } from '../services/handleClickButton';
 
 
 // TODO:  Handling the undo and redo action
@@ -18,13 +20,16 @@ import { RedoUndoAction, CanvasAction } from '../types/actions/index';
  * 
     [ ] Solve the problem about the undo and redo action
 BUG: Can't drawing image with canvas
+BUG: Can't refresh the page after edit image
+BUG: Image drawn with canvas is not be updated with the original width and height
 BUG: Unknown the solving of the problem of the redo and undo action.
 HACK: Try to redraw image with canvas 
 
  */
-const Canvas = ({ isShowing, imgSrc, toggle }: CanvasProps): JSX.Element => {
+const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
     const canvasRef: MutableRefObject<HTMLCanvasElement> = useRef<HTMLCanvasElement>(null) as MutableRefObject<HTMLCanvasElement>;
-
+    const imgSrc = imgData?.imSrc as string;
+    console.log("Img Data", imgData)
     const ctxRef: MutableRefObject<CanvasRenderingContext2D> = useRef<CanvasRenderingContext2D>(null) as MutableRefObject<CanvasRenderingContext2D>;
     const stateCanvas = useSelector((state: RootState) => state.canvasReducer);
     const dispatch = useDispatch<Dispatch<CanvasAction | RedoUndoAction>>();
@@ -33,7 +38,7 @@ const Canvas = ({ isShowing, imgSrc, toggle }: CanvasProps): JSX.Element => {
         useEffect(() => {
             // console
             if (isShowing === true) {
-                console.log("New Img", imgSrc);
+                // console.log("New Img", imgSrc);
                 const canvas: HTMLCanvasElement = canvasRef.current as HTMLCanvasElement;
                 const ctx: CanvasRenderingContext2D = canvas!.getContext('2d') as CanvasRenderingContext2D;
                 ctx!.lineCap = 'round';
@@ -42,13 +47,6 @@ const Canvas = ({ isShowing, imgSrc, toggle }: CanvasProps): JSX.Element => {
                 ctx!.globalAlpha = stateCanvas["lineOpacity"] as number;
                 ctx!.strokeStyle = stateCanvas["lineColor"] as string;
                 ctx!.lineWidth = stateCanvas["lineWidth"] as number;
-                // canvasDrawing(canvasRef, ctxRef, imgSrc as string);
-                // let img = new Image();
-                // img.crossOrigin = "*";
-                // img.src = imSrc;
-                // 
-                // ctx!.drawImage(createElement(imgSrc as string), 0, 0, canvas.width, canvas.height);
-                canvasDrawing(ctx, imgSrc as string);
                 ctxRef.current = ctx;
             }
 
@@ -59,11 +57,11 @@ const Canvas = ({ isShowing, imgSrc, toggle }: CanvasProps): JSX.Element => {
     }
 
     const handleClick = () => {
-        console.log("handleClick");
+        // console.log("handleClick");
         const canvas = canvasRef.current;
 
-        const ctx = canvas!.getContext('2d');
-        ctx!.drawImage(createElement(imgSrc as string), 0, 0, canvas!.width, canvas!.height);
+        const ctx = canvas!.getContext('2d') as CanvasRenderingContext2D;
+        canvasDrawing(ctx, imgSrc as string);
         ctxRef.current = ctx as CanvasRenderingContext2D;
     }
     const startDrawing = (ev: any) => {
@@ -77,22 +75,6 @@ const Canvas = ({ isShowing, imgSrc, toggle }: CanvasProps): JSX.Element => {
         ctxRef.current.closePath();
         const canvas = canvasRef.current;
         const ctx = canvas!.getContext('2d');
-        // To data URL
-        // let image: string;
-        // try{
-        //     image = canvas?.toDataURL!("image/png") as string;
-        // }
-        // catch(e){
-        //     console.log(e);
-        // }
-        // console.log(image);  // here is the most important part because if you dont replace you will get a DOM 18 exception.
-
-        // ctx!.drawImage(createElement(imgSrc as string), 0, 0, canvas!.width, canvas!.height);
-        // ctxRef.current = ctx as CanvasRenderingContext2D;
-        console.log("Canvas", canvas);
-        console.log("Curr", ctxRef.current);
-        // console.log(stateCanvas.)
-        // window.location.href = image as string;
         dispatch(redoUndoAction(RedoUndoActionEnum.CURRENT_STATE, canvas as HTMLCanvasElement));
         dispatch(canvasActions(CanvasActionEnum.SET_IS_DRAWING, false));
     };
@@ -129,10 +111,17 @@ const Canvas = ({ isShowing, imgSrc, toggle }: CanvasProps): JSX.Element => {
                 </div>
                 <div className="button-area">
                     <Button classNameStyle="font-medium mb-2" contentButton="Add Image" onClickHandler={handleClick} />
-                    <Button classNameStyle="fas fa-undo ml-2 mb-2" contentButton="" onClickHandler={
+                    {/* <Button classNameStyle="fas fa-undo ml-2 mb-2" contentButton="" onClickHandler={
                         () => { dispatch!(redoUndoAction(RedoUndoActionEnum.UNDO)); }} />
-                    <Button classNameStyle="fas fa-redo ml-2 mb-2" contentButton="" />
-                    <Button classNameStyle="font-medium mb-2 ml-2" contentButton="Exit" onClickHandler={() => dispatch(canvasActions(CanvasActionEnum.SET_IS_SHOWING, false))} />
+                    <Button classNameStyle="fas fa-redo ml-2 mb-2" contentButton="" /> */}
+                    <Button classNameStyle="font-medium mb-2" contentButton="Update Image"
+                            onClickHandler={() =>{
+                                handleUpdateImageButton(canvasRef.current as HTMLCanvasElement, imgData as any);
+                            }}/>
+                    <Button classNameStyle="font-medium mb-2 ml-2" contentButton="Exit" 
+                    onClickHandler={
+                        () => dispatch(canvasActions(CanvasActionEnum.SET_IS_SHOWING, false))
+                        } />
                 </div>
             </div>
         </Fragment>

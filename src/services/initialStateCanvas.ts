@@ -1,5 +1,6 @@
 import { StateCanvas, ImagePaintingState } from '../types/states/canvasState';
-import { ImageDataState } from '../types/states/imageState';
+import { ImageDataState, ImageUploadState } from '../types/states/imageState';
+import { ApartmentDataRequest } from '../types/model/requestType';
 export const InitialState: StateCanvas = {
     isDrawing: false,
     lineColor: 'black',
@@ -14,5 +15,19 @@ export const InitialImagePaintingData: ImagePaintingState = {
 }
 
 export const initialStateForImage: ImageDataState = {
-    imageDataArray: [],
+    imageDataArray: [{imSrc: "", orderInImage: 0}],
+}
+
+export const initialApartmentRequest: ApartmentDataRequest = {
+    name: "",
+    image_path: "",
+    description: '',
+    id_building: 0,
+    image_bye_string: ''
+}
+
+export const initiatialUploadState: ImageUploadState = {
+    imgSrc:"",
+    name: "",
+    imageNameFile: "",
 }

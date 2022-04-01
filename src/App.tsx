@@ -9,7 +9,7 @@ import { loginHandle, requestBuilding } from './utils/requestHandle';
 function App(props: any) {
   useEffect(
     ()=> {
-      requestBuilding();
+      loginHandle();
       // requestBuilding();
     }
      ,[]

@@ -48,7 +48,7 @@ export const ImageSection: FC<ImageSectionComponentProps> = (props: ImageSection
         console.log("Do view", imageDataSlideShow)
         dispatch(toggleModal(getIndexFromIdName(ev.target.id)));
         dispatch(reactComponentSelectionAction(ReactComponentSelectionEnum.SLIDE_SHOW));
-        dispatch(slideShowImageHandleAction(ImageHandleActionEnum.GET_ALL_IMAGES, imageDataSlideShow ))
+        // dispatch(slideShowImageHandleAction(ImageHandleActionEnum.GET_ALL_IMAGES, imageDataSlideShow ))
     }
     return (
         <Fragment>
