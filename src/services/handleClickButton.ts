@@ -6,6 +6,7 @@ export const handleUpdateImageButton = (canvas: HTMLCanvasElement, imageData: Im
     // const imageData: ImageSlideShowState
     const imageStringBase64 = canvas.toDataURL();
     const IMAGE_REGEX = /([0-9a-zA-Z\._-]+.(png|PNG|gif|GIF|jp[e]?g|JP[E]?G))/
+    
     let imageStringName = imageData.imSrc?.split("/").slice(-1)[0];
     console.log("Image String", imageStringBase64);
     const imageRequest = {

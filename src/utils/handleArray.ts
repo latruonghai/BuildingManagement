@@ -11,7 +11,7 @@ export const getInformationFromArray = (array: ImageSectionProps[], index: numbe
     return {
         type: "",
         imageString: imageString,
-        name: name,
+        name: name as string,
         idData: idData,
     }
 }

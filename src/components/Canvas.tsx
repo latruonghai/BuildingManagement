@@ -6,13 +6,14 @@ import { RootState } from '../reducers/index';
 import { canvasActions, redoUndoAction } from '../actions/index';
 import { CanvasActionEnum, RedoUndoActionEnum } from '../types/index';
 import { Dispatch } from 'react';
-import { createElement, canvasDrawing } from '../utils/handleJsxElement';
+import { canvasDrawing } from '../utils/handleJsxElement';
 import "../assets/style/components/_canvas.scss";
 import { CanvasProps } from '../types/props/index';
 import Button from './Button';
 import { RedoUndoAction, CanvasAction } from '../types/actions/index';
 // import { ImageSlideShowState } from '../types/states/imageState';
 import { handleUpdateImageButton } from '../services/handleClickButton';
+import { StateCanvas } from '../types/states/canvasState';
 
 
 // TODO:  Handling the undo and redo action
@@ -31,7 +32,7 @@ const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
     const imgSrc = imgData?.imSrc as string;
     console.log("Img Data", imgData)
     const ctxRef: MutableRefObject<CanvasRenderingContext2D> = useRef<CanvasRenderingContext2D>(null) as MutableRefObject<CanvasRenderingContext2D>;
-    const stateCanvas = useSelector((state: RootState) => state.canvasReducer);
+    const stateCanvas: StateCanvas = useSelector((state: RootState) => state.canvasReducer);
     const dispatch = useDispatch<Dispatch<CanvasAction | RedoUndoAction>>();
 
     try {
@@ -50,7 +51,7 @@ const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
                 ctxRef.current = ctx;
             }
 
-        }, [stateCanvas["lineColor"], stateCanvas["lineOpacity"], stateCanvas["lineWidth"], imgSrc]);
+        }, [imgSrc, isShowing, stateCanvas]);
     }
     catch (e) {
         console.log(e);
@@ -61,7 +62,7 @@ const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
         const canvas = canvasRef.current;
 
         const ctx = canvas!.getContext('2d') as CanvasRenderingContext2D;
-        canvasDrawing(ctx, imgSrc as string);
+        canvasDrawing(canvas, imgSrc as string);
         ctxRef.current = ctx as CanvasRenderingContext2D;
     }
     const startDrawing = (ev: any) => {
@@ -74,7 +75,6 @@ const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
     const endDrawing = (ev: any) => {
         ctxRef.current.closePath();
         const canvas = canvasRef.current;
-        const ctx = canvas!.getContext('2d');
         dispatch(redoUndoAction(RedoUndoActionEnum.CURRENT_STATE, canvas as HTMLCanvasElement));
         dispatch(canvasActions(CanvasActionEnum.SET_IS_DRAWING, false));
     };
@@ -97,7 +97,9 @@ const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
                     <Menu
                         dispatch={dispatch}
                     />
-                    <canvas
+                    <div className="w-full h-auto rounded-sm mt-3">
+                        <canvas
+                            className="fit-content"
                         ref={canvasRef}
                         width={window.innerWidth * 0.8}
                         height={window.innerHeight * 0.8}
@@ -108,6 +110,7 @@ const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
                     >
 
                     </canvas>
+                    </div>
                 </div>
                 <div className="button-area">
                     <Button classNameStyle="font-medium mb-2" contentButton="Add Image" onClickHandler={handleClick} />

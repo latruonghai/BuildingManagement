@@ -5,11 +5,11 @@
         .modal{
 
             &-overlay{
-                @apply flex flex-col space-y-4 min-w-fit h-screen 
+                @apply flex flex-col space-y-4 min-w-fit h-screen max-h-full
             fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-opacity-50 bg-gray-100;
             }
             &-wrapper{
-                @apply relative px-4 w-full max-w-2xl h-full md:h-auto bg-neutral-50;
+                @apply relative px-4 w-full max-w-2xl h-full md:h-auto overflow-x-auto;
             }
             &-content{
                 @apply relative bg-white rounded-lg shadow dark:bg-gray-700;

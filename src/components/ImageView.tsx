@@ -2,7 +2,6 @@ import React, { FC, Fragment } from "react";
 import "../assets/style/components/_imageView.scss";
 import { ImageViewProps, ImageSectionComponentProps } from '../types/props/index';
 import Button from "./Button";
-// import Slideshow from "./Slideshow";
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'react';
 import { ImageSlideShowAction } from '../types/actions/index';
@@ -15,11 +14,12 @@ import { reactComponentSelectionAction } from '../actions/elementReactAction';
 import useFetchBuilding from '../hooks/useFetchBuilding';
 import { RootState } from '../reducers/index';
 import { getIndexFromIdName } from '../utils/handleString';
+import imageAdd from "../assets/static/images/image_add_button.png";
 
 /**
  * 
-[ ] Create section for adding new apartment in building.
-[ ] Handle delete and add apartment action.
+[x] Create section for adding new apartment in building.
+[x] Handle delete and add apartment action.
  */
 const ImageView: FC<ImageViewProps> = (props: ImageViewProps) => {
     // console.log(imageDetailView.imageString);
@@ -37,6 +37,8 @@ const ImageView: FC<ImageViewProps> = (props: ImageViewProps) => {
                         )
                     })
                 }
+                <ImageSection imgDescription="" key={imageStateArray.length} idImage={imageStateArray.length}
+                    imSrc={imageAdd}/>
             </div>
 
         </Fragment>

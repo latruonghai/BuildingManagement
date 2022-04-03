@@ -17,7 +17,7 @@ export interface ButtonProps extends BasicButtonTagStyle, BasicOnclickHandle, Ba
 
 export interface ImageSectionProps {
 
-    imgDescription: string;
+    imgDescription?: string;
     imSrc: string;
     imgContent?: string;
     dispatchAction?: any;

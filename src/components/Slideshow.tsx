@@ -24,7 +24,6 @@ const Slideshow = (props: any) => {
     const dispatch = useDispatch();
     const index = useSelector((state: RootState) => state.slideshowReducer) as number;
     const imageSlideShowState: ImageDataState | any= useSelector((state: RootState) => state.imageMethodReducer);
-    console.log("Image data", imageSlideShowState.imageDataArray);
     useEffect(() => {fetchData(selectorId.idSelector as number, dispatch)}, [selectorId.idSelector, dispatch]);
     
     const numberOfSlideShowItem = imageSlideShowState.imageDataArray.length;

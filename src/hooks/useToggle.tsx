@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { toggleModal } from '../actions/index';
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 
 
 
