@@ -4,28 +4,18 @@ import LoginPage from './pages/LoginPage';
 import HomePage from './pages/Homepage';
 import { login } from './utils/requestHandle';
 // import LoginAction from './types/index';
+import { useSelector } from 'react-redux';
+import { RootState } from './reducers/index';
+import { HEADERS } from './services/constant';
 
 function App(props: any) {
-  useEffect(
-    () => {
-      const response = login("latruonghai", "password");
-      response.then(
-        res => {
-          console.log(res.headers);
-        }
-      ).catch(
-        err => {
-          console.log(err);
-        }
-      )
-      // requestBuilding();
-    }
-    , []
-  )
+  const loginState = useSelector((state: RootState) => state.loginReducer);
+  console.log(document.cookie);
+  console.log(HEADERS);
   return (
     <Fragment>
       {
-        props.isLoggin ? <LoginPage type="login" isLogin={true}></LoginPage>
+        !loginState? <LoginPage type="login" ></LoginPage>
           : <HomePage />
       }
     </Fragment>

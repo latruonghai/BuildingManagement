@@ -1,5 +1,5 @@
 import { BasicButtonAction } from './basicType';
-export enum LoginAction {
+export enum LoginActionEnum {
     LOGIN = 'LOGIN',
     LOGOUT = "LOGOUT"
 }
@@ -63,7 +63,7 @@ export enum ImageViewActionEnum {
 }
 export interface LoginState {
     type: string;
-    isLogin: boolean;
+    // isLogin: boolean;
 }
 
 export interface ButtonAction {

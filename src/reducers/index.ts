@@ -10,6 +10,7 @@ import { imageViewReducer } from './imageViewReducer';
 import { uploadReducer } from './uploadReducer';
 import { onChangeInputReducer } from './onChangeInputReducer';
 import { toggleFormReducer } from './toggleFormReducer';
+import { loginReducer } from './loginReducer';
 
 // Todo: add new more reducers here
 /**
@@ -26,7 +27,8 @@ const rootReducer = combineReducers({
     imageViewReducer: imageViewReducer,
     uploadReducer: uploadReducer,
     onChangeInputReducer: onChangeInputReducer,
-    toggleFormReducer: toggleFormReducer
+    toggleFormReducer: toggleFormReducer,
+    loginReducer: loginReducer
 });
 export default rootReducer;
 export type RootState = ReturnType<typeof rootReducer>

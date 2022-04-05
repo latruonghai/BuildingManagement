@@ -17,6 +17,7 @@ import { BuildingDataRequest } from '../types/model/requestType';
 import { getImageFromApiForImageView } from '../actions/index';
 import { ImageViewHandleActionEnum } from '../types/index';
 import { Dispatch } from 'react';
+import { getAuthorizationFromCookies, getFullAuthorizationString } from './handleString';
 
 
 
@@ -82,7 +83,10 @@ export const updateRequestUser = async (data: any) => {
         const response = await axios({
             method: 'POST',
             url: `${BACKEND_ADMIN_URL}apartment/update`,
-            headers: HEADERS,
+            headers: {
+                    ...HEADERS,
+                    "Authorization": getFullAuthorizationString()
+                },
             data: data
 
         });
@@ -108,7 +112,10 @@ export const updateRequestAdmin = (data: any) => {
 
     var requestOptions = {
         method: 'post',
-        headers: HEADERS,
+        headers: {
+                    ...HEADERS,
+                    "Authorization": getFullAuthorizationString()
+                },
         body: raw,
         //   mode: "no-cors",
         redirect: 'follow'
@@ -126,7 +133,10 @@ export async function fetchDataApartment(id: number, callback: any) {
         const response = await axios({
             method: "get",
             url: `${BACKEND_URL}getApartmentWithBuildingId/${id}`,
-            headers: HEADERS,
+            headers: {
+                    ...HEADERS,
+                    "Authorization": getFullAuthorizationString()
+                },
 
         });
         if (response.status === 200) {
@@ -151,7 +161,10 @@ export const delApartmentImageRequest = async (id: number) => {
         const response = await axios({
             method: 'POST',
             url: `${BACKEND_ADMIN_URL}apartment/delete/${id}`,
-            headers: HEADERS,
+            headers:{
+                    ...HEADERS,
+                    "Authorization": getFullAuthorizationString()
+                },
         });
         if (response.status === 200) {
             alert("Success Delete");
@@ -169,7 +182,10 @@ export const addBuildingRequest = async (data: BuildingDataRequest) => {
         const response = await axios({
             method: 'POST',
             url: `${BACKEND_ADMIN_URL}building/create`,
-            headers: HEADERS,
+            headers: {
+                    ...HEADERS,
+                    "Authorization": getFullAuthorizationString()
+                },
             data: data
 
         });
@@ -192,7 +208,10 @@ export const FetchAllBuilding = async (callback: Dispatch<any>) => {
             {
                 method: 'get',
                 url: `${BACKEND_URL}building/getAll`,
-                headers: HEADERS,
+                headers: {
+                    ...HEADERS,
+                    "Authorization": getFullAuthorizationString()
+                },
             }
         );
 
@@ -239,4 +258,17 @@ export const deleteBuilding = async (id: number) => {
             headers: HEADERS,
         }
     )
+}
+
+export const loginRequest = async (username: string, password: string) => {
+    return await axios({
+        method: 'post',
+        url: BACKEND_LOGIN,
+        headers: HEADERS,
+        data: {
+            username: username,
+            password: password
+        }
+    });
+        
 }

@@ -1,12 +1,17 @@
 import React, {Fragment} from "react";
 import "../assets/style/components/_navbar.scss";
-import { LogoStyle } from "../types";
+import { LoginActionEnum, LogoStyle } from "../types";
 
 import { CategoricalList } from "../types";
 import { NavBarProps, ButtonProps } from '../types/props/index';
+import Button from "./Button";
+import { checkIsLoggin } from '../utils/handleString';
+import { useDispatch } from "react-redux";
+import { loginHandler } from '../actions/index';
 
 
 const Navbar = (props: NavBarProps) =>{
+    const dispatch = useDispatch();
     return (
         <Fragment>
             <nav className="navbar-section">
@@ -14,6 +19,12 @@ const Navbar = (props: NavBarProps) =>{
                     <NavLogo logo={props.logo} title={props.title} />
                     <ButtonToggle contentButton={props.contentButton}/>
                     <NavItems items={props.items}/>
+                    <Button contentButton={"Logout"} onClickHandler={
+                        ()=>{
+                                document.cookie = `token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+                                dispatch(loginHandler(LoginActionEnum.LOGIN));
+                        }
+                    } />
                 </div>
             </nav>
         </Fragment>

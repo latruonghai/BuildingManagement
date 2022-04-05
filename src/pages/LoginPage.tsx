@@ -12,12 +12,12 @@ TODO: Handling the login form
 BUG: Unknown handling authenticator error headers.
  */
 
-const LoginPage = (props: LoginState) => {
+const LoginPage = (props: any) => {
     return (
         <Fragment>
             {
-                props.isLogin &&
-                <LoginForm type="Login"></LoginForm>
+            
+                <LoginForm></LoginForm>
             }
         </Fragment>
     )
