@@ -11,11 +11,11 @@ function App(props: any) {
       const response = login("latruonghai", "password");
       response.then(
         res => {
-
+          console.log(res.headers);
         }
       ).catch(
         err => {
-
+          console.log(err);
         }
       )
       // requestBuilding();

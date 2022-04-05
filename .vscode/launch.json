@@ -8,7 +8,7 @@
             "type": "vscode-edge-devtools.debug",
             "request": "launch",
             "name": "Launch Microsoft Edge and open the Edge DevTools",
-            "url": "http://localhost:3030",
+            "url": "http://localhost:8000",
             "webRoot": "${workspaceFolder}",
             "browserLaunchLocation": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
         },
@@ -16,7 +16,7 @@
             "name": "Launch Edge",
             "request": "launch",
             "type": "pwa-msedge",
-            "url": "http://localhost:3030",
+            "url": "http://localhost:8000",
             "webRoot": "${workspaceFolder}",
             "browserLaunchLocation": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
         },

@@ -25,6 +25,7 @@ export const getImageSlideShowStateDataAction = (imageData: ImageSlideShowState 
 
 export const updateArrayImageView = (imageDataArray: any): ImageViewState[] => {
     const imageDataState: ImageViewState[] = [];
+
     for (let imageData of imageDataArray) {
         imageDataState.push({
             imSrc: IMAGE_BUILDING_LINKS,
@@ -40,7 +41,7 @@ export const updateArrayImageView = (imageDataArray: any): ImageViewState[] => {
 
 export const getImageSlideShowApartmentData = (imageDataArray: any): ImageSlideShowState[] => {
     const imageDataState: ImageSlideShowState[] = [];
-    console.log("Array", imageDataArray);
+    // console.log("Array", imageDataArray);
     for (let imageData of imageDataArray) {
         imageDataState.push({
             imSrc: _.startsWith(imageData.ImagePath, "/") ? API_URL + imageData.ImagePath : imageData.ImagePath,

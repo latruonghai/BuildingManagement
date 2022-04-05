@@ -33,3 +33,8 @@ export interface ToggleImageViewAction extends BasicButtonAction {
 export interface ToggleFormAction extends BasicButtonAction {
     state?: boolean;
 }
+
+export interface BasicTableProperties {
+    header?: string[];
+    body?: string[];
+}
