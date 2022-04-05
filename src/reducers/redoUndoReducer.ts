@@ -5,7 +5,7 @@ import { InitialImagePaintingData } from '../services/initialStateCanvas';
 export const redoUndoReducer = (state: ImagePaintingState = InitialImagePaintingData, action: RedoUndoAction): ImagePaintingState => {
     switch (action?.type) {
         case RedoUndoActionEnum.UNDO:
-            // console.log("Length Undo ", state.undoImSrc?.pop());
+            // 
             ;
             // const tempString: string = action.imSrc;
             return {
@@ -22,9 +22,9 @@ export const redoUndoReducer = (state: ImagePaintingState = InitialImagePainting
 
             }
         case RedoUndoActionEnum.CURRENT_STATE:
-            // console.log("Last ", state);
-            // console.log("Current", action.currentCanvasElement);
-            // console.log("Equals?", state?.undoCurrentCanvas && state?.undoCurrentCanvas[1] as string === action.currentCanvasElement);
+            // 
+            // 
+            // 
             return {
                 ...state,
                 presentCanvasElement: action?.currentCanvasElement as string,

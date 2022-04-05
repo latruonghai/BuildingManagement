@@ -30,7 +30,7 @@ HACK: Try to redraw image with canvas
 const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
     const canvasRef: MutableRefObject<HTMLCanvasElement> = useRef<HTMLCanvasElement>(null) as MutableRefObject<HTMLCanvasElement>;
     const imgSrc = imgData?.imSrc as string;
-    console.log("Img Data", imgData)
+
     const ctxRef: MutableRefObject<CanvasRenderingContext2D> = useRef<CanvasRenderingContext2D>(null) as MutableRefObject<CanvasRenderingContext2D>;
     const stateCanvas: StateCanvas = useSelector((state: RootState) => state.canvasReducer);
     const dispatch = useDispatch<Dispatch<CanvasAction | RedoUndoAction>>();
@@ -39,7 +39,7 @@ const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
         useEffect(() => {
             // console
             if (isShowing === true) {
-                // console.log("New Img", imgSrc);
+                // 
                 const canvas: HTMLCanvasElement = canvasRef.current as HTMLCanvasElement;
                 const ctx: CanvasRenderingContext2D = canvas!.getContext('2d') as CanvasRenderingContext2D;
                 ctx!.lineCap = 'round';
@@ -54,11 +54,11 @@ const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
         }, [imgSrc, isShowing, stateCanvas]);
     }
     catch (e) {
-        console.log(e);
+
     }
 
     const handleClick = () => {
-        // console.log("handleClick");
+        // 
         const canvas = canvasRef.current;
 
         const ctx = canvas!.getContext('2d') as CanvasRenderingContext2D;
@@ -66,7 +66,7 @@ const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
         ctxRef.current = ctx as CanvasRenderingContext2D;
     }
     const startDrawing = (ev: any) => {
-        // console.log(ev.which);
+        // 
         ctxRef.current.beginPath();
         ctxRef.current.moveTo(ev.nativeEvent.offsetX, ev.nativeEvent.offsetY);
         dispatch(canvasActions(CanvasActionEnum.SET_IS_DRAWING, true));
@@ -100,16 +100,16 @@ const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
                     <div className="w-full h-auto rounded-sm mt-3">
                         <canvas
                             className="fit-content"
-                        ref={canvasRef}
-                        width={window.innerWidth * 0.8}
-                        height={window.innerHeight * 0.8}
-                        onMouseDown={startDrawing}
-                        onMouseUp={endDrawing}
-                        onMouseMove={draw}
-                        onLoad={handleClick}
-                    >
+                            ref={canvasRef}
+                            width={window.innerWidth * 0.8}
+                            height={window.innerHeight * 0.8}
+                            onMouseDown={startDrawing}
+                            onMouseUp={endDrawing}
+                            onMouseMove={draw}
+                            onLoad={handleClick}
+                        >
 
-                    </canvas>
+                        </canvas>
                     </div>
                 </div>
                 <div className="button-area">
@@ -118,12 +118,12 @@ const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
                         () => { dispatch!(redoUndoAction(RedoUndoActionEnum.UNDO)); }} />
                     <Button classNameStyle="fas fa-redo ml-2 mb-2" contentButton="" /> */}
                     <Button classNameStyle="font-medium mb-2" contentButton="Update Image"
-                            onClickHandler={() =>{
-                                handleUpdateImageButton(canvasRef.current as HTMLCanvasElement, imgData as any);
-                            }}/>
-                    <Button classNameStyle="font-medium mb-2 ml-2" contentButton="Exit" 
-                    onClickHandler={
-                        () => dispatch(canvasActions(CanvasActionEnum.SET_IS_SHOWING, false))
+                        onClickHandler={() => {
+                            handleUpdateImageButton(canvasRef.current as HTMLCanvasElement, imgData as any);
+                        }} />
+                    <Button classNameStyle="font-medium mb-2 ml-2" contentButton="Exit"
+                        onClickHandler={
+                            () => dispatch(canvasActions(CanvasActionEnum.SET_IS_SHOWING, false))
                         } />
                 </div>
             </div>

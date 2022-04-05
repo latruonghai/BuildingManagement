@@ -11,31 +11,32 @@ export const useFetchBuilding = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         async function fetchData() {
-            try{
-            const response = await axios(
-            {
-                method: 'get',
-                url: `${BACKEND_URL}building/getAll`,
-                headers: HEADERS,
-            }
-        );
+            try {
+                const response = await axios(
+                    {
+                        method: 'get',
+                        url: `${BACKEND_URL}building/getAll`,
+                        headers: HEADERS,
+                    }
+                );
 
-        if(response.status === 200){
-            console.log("Success");
-            console.log("Response", response.data);
-            const dataImageVIew = updateArrayImageView(response.data.body);
-            dispatch(getImageFromApiForImageView(ImageViewHandleActionEnum.FETCH_IMAGE_VIEW_DATA,
+                if (response.status === 200) {
+
+
+                    const dataImageVIew = updateArrayImageView(response.data.body);
+                    dispatch(getImageFromApiForImageView(ImageViewHandleActionEnum.FETCH_IMAGE_VIEW_DATA,
                         dataImageVIew))
+                }
+                else {
+
+
+                }
+            }
+            catch (error) {
+
+            }
         }
-        else{
-            console.log(response.status);
-            
-        }
-    }
-    catch(error){
-        console.log(error);
-    }
+        fetchData();
+    }, []);
 }
-fetchData();
-    }, []);}
 export default useFetchBuilding;

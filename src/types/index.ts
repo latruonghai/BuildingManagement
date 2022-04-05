@@ -33,6 +33,7 @@ export enum ImageUploadStateEnum {
 export enum ReactComponentSelectionEnum {
     SLIDE_SHOW = 'SLIDE_SHOW',
     UPLOAD_VIEW = 'UPLOAD_VIEW',
+    TABLE_VIEW = 'TABLE_VIEW',
 }
 export enum ImageHandleActionEnum {
     GET_ALL_IMAGES = 'GET_ALL_IMAGES',
@@ -79,3 +80,4 @@ export interface LogoStyle {
 export interface CategoricalList {
     items: string[];
 }
+export type Void = (ev: any) => void;

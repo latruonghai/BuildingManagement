@@ -1,0 +1,38 @@
+@tailwind components;
+
+@layer{
+    body{
+        .table{
+            &-view{
+                @apply relative overflow-x-auto shadow-md sm:rounded-lg;
+            }
+            &-container{
+                @apply w-full text-sm text-center text-gray-500 dark:text-gray-200 overflow-auto;
+                &-header{
+                    @apply text-xs font-bold uppercase bg-gray-100 dark:bg-gray-600 dark:text-gray-300;
+                }
+                .header-item{
+                    @apply py-3 px-2;
+                }
+            }
+        }
+        .rows-section{
+            @apply bg-white ;
+        }
+        .cell{
+            @apply text-center py-2 px-4;
+            border-width: 2px !important;
+        }
+    }
+    // .row{
+    //             @apply bg-white border-b-2;
+                
+    //         }
+    //     td.cell{
+    //         @apply text-center py-2 px-4 border-2;
+    //     }   
+        
+    //     .header{
+    //         @apply  font-medium;
+    //     }  
+}

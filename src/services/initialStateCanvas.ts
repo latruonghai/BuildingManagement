@@ -15,7 +15,7 @@ export const InitialImagePaintingData: ImagePaintingState = {
 }
 
 export const initialStateForImage: ImageDataState = {
-    imageDataArray: [{imSrc: "", orderInImage: 0}],
+    imageDataArray: [{ imSrc: "", orderInImage: 0 }],
 }
 
 export const initialApartmentRequest: ApartmentDataRequest = {
@@ -27,7 +27,7 @@ export const initialApartmentRequest: ApartmentDataRequest = {
 }
 
 export const initialUploadState: ImageUploadState = {
-    imgSrc:"",
+    imgSrc: "",
     name: "",
     imageNameFile: "",
 }

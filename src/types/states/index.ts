@@ -1,6 +1,6 @@
 import { BasicComponentElement } from '../basicType';
 
-export interface ReactComponentElement extends BasicComponentElement{
+export interface ReactComponentElement extends BasicComponentElement {
 }
 
 export interface ToggleImageViewState {
@@ -8,12 +8,12 @@ export interface ToggleImageViewState {
     idSelector?: number;
 }
 
-export interface InputState{
+export interface InputState {
     value?: string;
     name?: string;
 }
 
-export interface BuildingStateForm{
+export interface BuildingStateForm {
     name: string;
     price: number;
     num_of_rooms: number;

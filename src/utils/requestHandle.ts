@@ -29,16 +29,16 @@ export const requestBuilding = async () => {
         });
 
         if (response.status === 200) {
-            console.log("Success");
-            console.log("Response", response.data);
+
+
             return response.data.body;
         } else {
-            console.log(response.status);
+
 
         }
         return response;
     } catch (error) {
-        console.log(error);
+
     }
 }
 
@@ -63,7 +63,7 @@ export const loginHandle = () => {
 
     fetch("http://localhost:8080/login", requestOptions as RequestInit)
         .then(response => {
-            console.log(response);
+
             if (response.ok) {
 
                 return response;
@@ -71,9 +71,9 @@ export const loginHandle = () => {
             throw Error(response.statusText);
         })
         .then(result => {
-            console.log(result);
+            alert("Success");
         })
-        .catch(error => console.log('error', error));
+        .catch(error => alert("Error"));
 
 }
 
@@ -93,7 +93,7 @@ export const updateRequestUser = async (data: any) => {
             alert("You are not authorized to update");
         }
     } catch (error) {
-        console.log(error);
+
     }
 }
 
@@ -117,11 +117,11 @@ export const updateRequestAdmin = (data: any) => {
     fetch("http://localhost:8080/admin/api/apartment/update", requestOptions as RequestInit)
         .then(response => response.text())
         .then(result => alert("Success"))
-        .catch(error => console.log('error', error));
+        .catch(error => alert("Error"));
 }
-export async function fetchData(id: number, callback: any) {
+export async function fetchDataApartment(id: number, callback: any) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    console.log("Fetch Data");
+
     try {
         const response = await axios({
             method: "get",
@@ -130,19 +130,19 @@ export async function fetchData(id: number, callback: any) {
 
         });
         if (response.status === 200) {
-            console.log("Success");
-            console.log("Response", response.data);
+
+
             const dataImageApartment = getImageSlideShowApartmentData(response.data.body);
-            // console.log("Data image", dataImageApartment);
+            // 
             callback(slideShowImageHandleAction(ImageHandleActionEnum.GET_ALL_IMAGES, {
                 imageDataArray: dataImageApartment
             }))
             // dispatch(slideShowImageHandleAction(ImageHandleActionEnum.GET_ALL_IMAGES, imageDataSlideShow ))
         } else {
-            console.log(response.status);
+
         }
     } catch (error) {
-        console.log(error);
+
     }
 }
 
@@ -155,11 +155,12 @@ export const delApartmentImageRequest = async (id: number) => {
         });
         if (response.status === 200) {
             alert("Success Delete");
+
         } else if (response.status === 403) {
             alert("You are not authorized to delete");
         }
     } catch (error) {
-        console.log(error);
+
     }
 }
 
@@ -180,7 +181,7 @@ export const addBuildingRequest = async (data: BuildingDataRequest) => {
             alert("You are not authorized to add");
         }
     } catch (error) {
-        console.log(error);
+
     }
 }
 
@@ -197,18 +198,18 @@ export const FetchAllBuilding = async (callback: Dispatch<any>) => {
 
         if (response.status === 200) {
             // alert("Success");
-            // console.log("Response", response.data);
+            // 
             const dataImageVIew = updateArrayImageView(response.data.body);
             callback(getImageFromApiForImageView(ImageViewHandleActionEnum.FETCH_IMAGE_VIEW_DATA,
                 dataImageVIew))
         }
         else {
-            console.log(response.status);
+
 
         }
     }
     catch (error) {
-        console.log(error);
+
     }
 }
 

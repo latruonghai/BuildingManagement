@@ -8,7 +8,7 @@ import { RootState } from '../reducers/index';
 import { slideShowOrder } from '../actions/index';
 import { getIndexFromIdName } from '../utils/handleString';
 import { ImageDataState } from '../types/states/imageState';
-import { fetchData } from "../utils/requestHandle";
+import { fetchDataApartment } from "../utils/requestHandle";
 
 
 // FIXME:  Fix the issue of the slideshow cannot undo the  last slide
@@ -23,19 +23,19 @@ const Slideshow = (props: any) => {
     const selectorId = useSelector((state: RootState) => state.toggleModalReducer);
     const dispatch = useDispatch();
     const index = useSelector((state: RootState) => state.slideshowReducer) as number;
-    const imageSlideShowState: ImageDataState | any= useSelector((state: RootState) => state.imageMethodReducer);
-    useEffect(() => {fetchData(selectorId.idSelector as number, dispatch)}, [selectorId.idSelector, dispatch]);
-    
+    const imageSlideShowState: ImageDataState = useSelector((state: RootState) => state.imageMethodReducer);
+    useEffect(() => { fetchDataApartment(selectorId.idSelector as number, dispatch) }, [selectorId.idSelector, dispatch]);
+
     const numberOfSlideShowItem = imageSlideShowState.imageDataArray.length;
 
-    
+
     return (
         <Fragment>
             <div className="slideshow-container">
-                {showElement(imageSlideShowState.imageDataArray, index)}
+                {showElement(imageSlideShowState.imageDataArray as any, index)}
                 <ButtonSlideshow contentButton="&#10094;" description="prev" classNameStyle="prev" onClickHandler={() => dispatch(slideShowOrder(-1, numberOfSlideShowItem))} />
                 <ButtonSlideshow contentButton="&#10095;" description="next" classNameStyle="next" onClickHandler={() => dispatch(slideShowOrder(1, numberOfSlideShowItem))} />
-                
+
             </div>
             <br />
             <DotSlideShow numberItems={numberOfSlideShowItem} currentItemDot={index} onClickHandler={dispatch}></DotSlideShow>

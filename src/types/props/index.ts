@@ -5,6 +5,7 @@ import { BasicComponentProps } from '../components/index';
 import React from 'react';
 import { JsxElement } from 'typescript';
 import { ImageViewState } from '../components/ImageViewState';
+import { TableData } from '../data/index';
 
 
 export type FormComponentBasicProps = {
@@ -78,4 +79,22 @@ export interface FormInputProps extends BasicComponentProps {
     title?: string;
     inputArray: InputProps[];
     isFormShowing: boolean;
+}
+
+export interface OptionView extends BasicHTMLElement {
+    onClickHandler?: (ev: any) => void;
+}
+
+export interface OptionViewProps {
+    arrayOptionView: OptionView[];
+}
+
+export interface TableProps extends BasicHTMLElement, TableData {
+
+}
+
+export interface RowProps extends BasicComponentProps {
+    body: ImageSlideShowState;
+    // id_name: string;
+
 }

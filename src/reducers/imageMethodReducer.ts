@@ -4,12 +4,12 @@ import { ImageDataState } from '../types/states/imageState';
 import { ImageSlideShowAction } from '../types/actions/index';
 import { initialStateForImage } from '../services/initialStateCanvas';
 
-export const imageMethodReducer = (state: ImageDataState  = initialStateForImage, action: ImageSlideShowAction): ImageDataState => {
+export const imageMethodReducer = (state: ImageDataState = initialStateForImage, action: ImageSlideShowAction): ImageDataState => {
     switch (action.type) {
         case ImageHandleActionEnum.DELETE:
-            return{
+            return {
                 ...state,
-                imageDataArray: state.imageDataArray.filter((item, index) => index !==  action?.imageData?.orderInImage as number)
+                imageDataArray: state.imageDataArray.filter((item, index) => index !== action?.imageData?.orderInImage as number)
             }
         case ImageHandleActionEnum.UPDATE:
             // delete action.type;
@@ -17,8 +17,8 @@ export const imageMethodReducer = (state: ImageDataState  = initialStateForImage
             state.imageDataArray[action.imageData!.orderInImage as number] = action.imageData as ImageSlideShowState;
             return state;
         case ImageHandleActionEnum.GET_ALL_IMAGES:
-            console.log(ImageHandleActionEnum.GET_ALL_IMAGES);
-            console.log("Action", action.imageDataArray);
+
+
             state.imageDataArray = [];
             return {
                 ...state,
@@ -32,5 +32,5 @@ export const imageMethodReducer = (state: ImageDataState  = initialStateForImage
         default:
             return state;
 
-        }
     }
+}

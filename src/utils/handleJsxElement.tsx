@@ -22,12 +22,12 @@ export const createElement = <T extends HTMLElement>(imSrc: string): HTMLImageEl
 
 export function canvasDrawing(canvas: HTMLCanvasElement, imSrc: string) {
     const ctx: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D;
-    console.log("I will drawing canvas");
+
     let img = new Image();
     // const ctx = canvas.getContext('2d');
     img.onload = function () {
-        ctx.drawImage(img, 0, 0, img.width,    img.height,     // source rectangle
-                   0, 0, canvas.width, canvas.height); // Or at whatever offset you like
+        ctx.drawImage(img, 0, 0, img.width, img.height,     // source rectangle
+            0, 0, canvas.width, canvas.height); // Or at whatever offset you like
     };
     img.setAttribute('crossOrigin', 'anonymous');
     img.src = imSrc;

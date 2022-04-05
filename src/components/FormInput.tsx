@@ -17,8 +17,8 @@ const FormInput = (props: FormInputProps) => {
     const onChangeHandler = (ev: any) => {
         const value = ev.target.value;
         const name = ev.target.name;
-        console.log("name", name);
-        console.log("value", value);
+
+
         dispatch(onChangeInputField(InputFormActionEnum.ON_CHANGE, {
             value: value,
             name: name
@@ -28,19 +28,19 @@ const FormInput = (props: FormInputProps) => {
 
     const button = <Fragment>
         <Button contentButton={"Close"} classNameStyle="close" onClickHandler={
-        () => {
-            dispatch(toggleFormAction(ToggleFormActionEnum.UNTOGGLE_FORM));
-            // fetch
-            FetchAllBuilding(dispatch);
-        }
-    } />
-    <Button contentButton=" Save" classNameStyle="fas fa-save" onClickHandler={
-        () => {
-            console.log("Input", inputState);
-            addBuildingRequest(inputState);
-            
-        }
-    }></Button>
+            () => {
+                dispatch(toggleFormAction(ToggleFormActionEnum.UNTOGGLE_FORM));
+                // fetch
+                FetchAllBuilding(dispatch);
+            }
+        } />
+        <Button contentButton=" Save" classNameStyle="fas fa-save" onClickHandler={
+            () => {
+
+                addBuildingRequest(inputState);
+
+            }
+        }></Button>
     </Fragment>
     return (
         <Fragment>
@@ -57,17 +57,17 @@ const InputSection = (props: InputArrayProps) => {
         <Fragment>
             <form>
                 {props.inputArray.map((item: InputProps, index: number) => {
-                return (
-                    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label htmlFor={item.name} className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-                            {item.label}
-                            <Input class_name="rounded-md" {...item} type={item.type} name={item.name} handleCallback={props.onChangeCallBack} />
-                        </label>
-                    </div>
-                )
-            }
-            )}
-            
+                    return (
+                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label htmlFor={item.name} className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                                {item.label}
+                                <Input class_name="rounded-md" {...item} type={item.type} name={item.name} handleCallback={props.onChangeCallBack} />
+                            </label>
+                        </div>
+                    )
+                }
+                )}
+
             </form>
         </Fragment>
     )

@@ -22,7 +22,7 @@ import { deleteBuilding, FetchAllBuilding } from '../utils/requestHandle';
 [x] Handle delete and add apartment action.
  */
 const ImageView: FC<ImageViewProps> = (props: ImageViewProps) => {
-    // console.log(imageDetailView.imageString);
+    // 
 
     const dispatch = useDispatch<Dispatch<ImageSlideShowAction>>();
 

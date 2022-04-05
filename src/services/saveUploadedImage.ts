@@ -8,6 +8,6 @@ export const saveUploadedImage = (imageRequest: ApartmentDataRequest, references
         name: referencesData.name,
         image_bye_string: referencesData.imageByteString,
     }
-    console.log("Image will be sent ", imageRequest)
+    // 
     uploadImage(imageRequest);
 }

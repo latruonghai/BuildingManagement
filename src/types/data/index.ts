@@ -1,3 +1,4 @@
+import { ImageSlideShowState } from '../states/imageState';
 export interface ImageData {
     imSrc: string;
 }
@@ -14,3 +15,9 @@ export interface ApartmentDataResponse {
     description: string;
     imgDataDetail: ImageDataDetail[];
 }
+
+export interface TableData {
+    headers?: string[];
+    body?: ImageSlideShowState[];
+}
+

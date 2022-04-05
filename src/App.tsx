@@ -7,20 +7,20 @@ import { login } from './utils/requestHandle';
 
 function App(props: any) {
   useEffect(
-    ()=> {
+    () => {
       const response = login("latruonghai", "password");
       response.then(
         res => {
-          console.log(res.headers);
+
         }
       ).catch(
         err => {
-          console.log(err);
+
         }
       )
       // requestBuilding();
     }
-     ,[]
+    , []
   )
   return (
     <Fragment>
