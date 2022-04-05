@@ -43,7 +43,7 @@ export interface CanvasProps {
     imgData?: ImageSlideShowState;
 }
 
-export interface InputProps extends BasicComponentProps, FormComponentBasicProps{
+export interface InputProps extends BasicComponentProps, FormComponentBasicProps {
     placeholder?: string;
     acceptFile?: string;
     tabIndex?: number;
@@ -65,16 +65,16 @@ export interface FormProps extends BasicComponentProps {
     isFormShowing?: boolean;
 }
 
-export interface InputArrayProps{
+export interface InputArrayProps {
     inputArray: InputProps[];
     onChangeCallBack?: (ev: any) => void;
 }
 
-export interface HTMLLabelProps{
-    
+export interface HTMLLabelProps {
+
 }
 
-export interface FormInputProps extends BasicComponentProps{
+export interface FormInputProps extends BasicComponentProps {
     title?: string;
     inputArray: InputProps[];
     isFormShowing: boolean;

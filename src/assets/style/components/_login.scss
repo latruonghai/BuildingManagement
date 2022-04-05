@@ -14,6 +14,7 @@
             @apply bg-gradient-to-br from-cyan-500 to-blue-500 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-2/4 m-auto mt-5;
             background:$white;
             background: linear-gradient(to right, #f2ebeb, $white);
+            
         }
         .login-label{
                     @apply block text-sm font-bold mb-2;

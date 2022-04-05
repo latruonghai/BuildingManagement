@@ -12,7 +12,7 @@ export interface BasicButtonAction {
     type?: string;
 }
 
-export interface  BasicHTMLElement{
+export interface BasicHTMLElement {
     class_name?: string;
     id_name?: string;
 }
@@ -20,10 +20,10 @@ export interface  BasicHTMLElement{
 export interface BasicImageProperties {
     imSrc?: string;
     title?: string;
-    id?:number;
+    id?: number;
 }
 
-export interface BasicComponentElement{
+export interface BasicComponentElement {
     element: JSX.Element;
 }
 

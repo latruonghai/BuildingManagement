@@ -1,4 +1,4 @@
-import {BasicButtonAction } from './basicType';
+import { BasicButtonAction } from './basicType';
 export enum LoginAction {
     LOGIN = 'LOGIN',
     LOGOUT = "LOGOUT"
@@ -7,14 +7,14 @@ export enum ToggleAction {
     TOGGLE = 'TOGGLE'
 }
 
-export enum ToggleFormActionEnum{
+export enum ToggleFormActionEnum {
     TOGGLE_FORM = 'TOGGLE_FORM',
     UNTOGGLE_FORM = 'UNTOGGLE_FORM'
 }
 export enum InputFormActionEnum {
     ON_CHANGE = 'ON_CHANGE'
 }
-export enum ImageViewHandleActionEnum{
+export enum ImageViewHandleActionEnum {
     FETCH_IMAGE_VIEW_DATA = 'FETCH_IMAGE_VIEW_DATA',
     SELECT_VIEW_IMAGE = 'SELECT_VIEW_IMAGE'
 }
@@ -26,11 +26,11 @@ export enum RedoUndoActionEnum {
     UNDO = 'UNDO',
     CURRENT_STATE = 'CURRENT_STATE'
 }
-export enum ImageUploadStateEnum{
+export enum ImageUploadStateEnum {
     UPLOAD_IMAGE = 'UPLOAD_IMAGE',
-    
+
 }
-export enum ReactComponentSelectionEnum{
+export enum ReactComponentSelectionEnum {
     SLIDE_SHOW = 'SLIDE_SHOW',
     UPLOAD_VIEW = 'UPLOAD_VIEW',
 }
@@ -40,7 +40,7 @@ export enum ImageHandleActionEnum {
     DELETE = "DELETE_IMAGE",
     UPDATE = "UPDATE_IMAGE"
 }
-export enum UploadImageSectionActionEnum{
+export enum UploadImageSectionActionEnum {
     UPLOAD_IMAGE_SECTION = 'UPLOAD_IMAGE_SECTION',
     DELETE_IMAGE_SECTION = 'DELETE_IMAGE_SECTION',
     CHANGE_IMAGE_NAME = 'CHANGE_IMAGE_NAME'

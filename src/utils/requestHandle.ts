@@ -5,7 +5,7 @@ import {
     BACKEND_LOGIN
 } from './../services/constant';
 import axios from 'axios';
-import {HEADERS} from '../services/constant';
+import { HEADERS } from '../services/constant';
 import {
     slideShowImageHandleAction
 } from '../actions';
@@ -71,9 +71,7 @@ export const loginHandle = () => {
             throw Error(response.statusText);
         })
         .then(result => {
-            for (let header of result.headers) {
-                console.log(header);
-            }
+            console.log(result);
         })
         .catch(error => console.log('error', error));
 
@@ -186,32 +184,32 @@ export const addBuildingRequest = async (data: BuildingDataRequest) => {
     }
 }
 
-export const FetchAllBuilding = async(callback: Dispatch<any>) => {
-    
-            try{
-                const response = await axios(
-                {
-                    method: 'get',
-                    url: `${BACKEND_URL}building/getAll`,
-                    headers: HEADERS,
-                }
-            );
+export const FetchAllBuilding = async (callback: Dispatch<any>) => {
 
-            if(response.status === 200){
-                // alert("Success");
-                // console.log("Response", response.data);
-                const dataImageVIew = updateArrayImageView(response.data.body);
-                callback(getImageFromApiForImageView(ImageViewHandleActionEnum.FETCH_IMAGE_VIEW_DATA,
-                            dataImageVIew))
+    try {
+        const response = await axios(
+            {
+                method: 'get',
+                url: `${BACKEND_URL}building/getAll`,
+                headers: HEADERS,
             }
-            else{
-                console.log(response.status);
-                
-            }
+        );
+
+        if (response.status === 200) {
+            // alert("Success");
+            // console.log("Response", response.data);
+            const dataImageVIew = updateArrayImageView(response.data.body);
+            callback(getImageFromApiForImageView(ImageViewHandleActionEnum.FETCH_IMAGE_VIEW_DATA,
+                dataImageVIew))
         }
-        catch(error){
-            console.log(error);
+        else {
+            console.log(response.status);
+
         }
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 
 // export const deleteApartmentData = async (id: number) => {
@@ -230,4 +228,14 @@ export const login = async (username: string, password: string) => {
         }
 
     });
+}
+
+export const deleteBuilding = async (id: number) => {
+    return await axios(
+        {
+            method: 'POST',
+            url: `${BACKEND_ADMIN_URL}building/delete/${id}`,
+            headers: HEADERS,
+        }
+    )
 }

@@ -16,7 +16,7 @@ export interface RedoUndoAction extends BasicButtonAction {
 
 }
 
-export interface ImageSlideShowAction extends BasicButtonAction{
+export interface ImageSlideShowAction extends BasicButtonAction {
     imageDataArray?: ImageSlideShowState[],
     imageData?: ImageSlideShowState
 }
@@ -24,12 +24,12 @@ export interface ImageSlideShowAction extends BasicButtonAction{
 export interface ReactComponentSelectionAction extends BasicButtonAction, BasicComponentElement {
 
 }
-export interface ImageViewAction extends BasicButtonAction{
+export interface ImageViewAction extends BasicButtonAction {
     imageData?: ImageViewState[];
 }
-export interface UploadAction extends BasicButtonAction, ImageUploadState{
+export interface UploadAction extends BasicButtonAction, ImageUploadState {
 
 }
 
-export interface InputStateAction extends BasicButtonAction, InputState{
+export interface InputStateAction extends BasicButtonAction, InputState {
 }

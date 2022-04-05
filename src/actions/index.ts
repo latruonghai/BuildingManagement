@@ -135,7 +135,7 @@ export const getImageFromApiForImageView = (type: string, state?: ImageViewState
                 type: ImageViewHandleActionEnum.FETCH_IMAGE_VIEW_DATA,
                 imageData: state,
             }
-        
+
         default:
             return {
                 type: BasicActionEnum.DO_NOTHING,
@@ -154,16 +154,16 @@ export const uploadImageAction = (type: string, state?: ImageUploadState): Uploa
 
             }
         case UploadImageSectionActionEnum.DELETE_IMAGE_SECTION:
-            return{
+            return {
                 type: UploadImageSectionActionEnum.DELETE_IMAGE_SECTION,
                 imgSrc: '',
-                
+
             }
         case UploadImageSectionActionEnum.CHANGE_IMAGE_NAME:
             return {
-                    type: UploadImageSectionActionEnum.DELETE_IMAGE_SECTION,
-                    name: state?.name
-                }
+                type: UploadImageSectionActionEnum.DELETE_IMAGE_SECTION,
+                name: state?.name
+            }
         default:
             return {
                 type: BasicActionEnum.DO_NOTHING,
@@ -172,7 +172,7 @@ export const uploadImageAction = (type: string, state?: ImageUploadState): Uploa
 }
 
 export const onChangeInputField = (type: string, state?: InputState): InputStateAction => {
-    return{
+    return {
         type: type,
         value: state!.value as string,
         name: state!.name as string

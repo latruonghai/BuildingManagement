@@ -10,11 +10,11 @@ export interface BuildingImageViewAction extends BasicButtonAction {
 }
 
 // export interface ImageState 
-export interface ImageSlideShowState extends BasicImageProperties{
+export interface ImageSlideShowState extends BasicImageProperties {
     orderInImage?: number;
     ref_id?: number;
 }
-export interface ImageDataState{
+export interface ImageDataState {
     // imageDataArray: 
     imageDataArray: ImageSlideShowState[];
 }
