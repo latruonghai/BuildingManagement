@@ -7,6 +7,13 @@ export enum ToggleAction {
     TOGGLE = 'TOGGLE'
 }
 
+export enum ToggleFormActionEnum{
+    TOGGLE_FORM = 'TOGGLE_FORM',
+    UNTOGGLE_FORM = 'UNTOGGLE_FORM'
+}
+export enum InputFormActionEnum {
+    ON_CHANGE = 'ON_CHANGE'
+}
 export enum ImageViewHandleActionEnum{
     FETCH_IMAGE_VIEW_DATA = 'FETCH_IMAGE_VIEW_DATA',
     SELECT_VIEW_IMAGE = 'SELECT_VIEW_IMAGE'

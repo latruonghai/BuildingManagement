@@ -1,7 +1,8 @@
-import { ImageSectionProps } from '../../types/props/index';
+import { ImageSectionProps, InputProps } from '../../types/props/index';
 import { SlideshowItemProps } from '../../types/components/SlideshowType';
 import photo from "../static/images/cp.jpg";
 import { ImageSlideShowState } from '../../types/states/imageState';
+import { InputState } from '../../types/states/index';
 export const categoriesData: string[] = [
     "Home",
     "Views",
@@ -40,6 +41,23 @@ export const imageViewData: ImageSectionProps[] = [
 
 ]
 
+export const inputValueArray: InputProps[] = [
+    {
+        label: "Name",
+        type: "text",
+        name: "name",
+    },
+    {
+        label: "Price",
+        type: "number",
+        name: "price",
+    },
+    {
+        label: "Number Of Roooms",
+        type: "number",
+        name: "num_of_rooms",
+    }
+]
 export const slideShowData: ImageSlideShowState[] = [
     {
         title: "Ocean",

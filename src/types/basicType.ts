@@ -30,3 +30,6 @@ export interface BasicComponentElement{
 export interface ToggleImageViewAction extends BasicButtonAction {
     idSelector: number;
 }
+export interface ToggleFormAction extends BasicButtonAction {
+    state?: boolean;
+}

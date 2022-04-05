@@ -3,6 +3,8 @@ import { BasicOnclickHandle, BasicButtonTagStyle, BasicButtonAction, BasicHTMLEl
 import { ImageSlideShowState } from '../states/imageState';
 import { BasicComponentProps } from '../components/index';
 import React from 'react';
+import { JsxElement } from 'typescript';
+import { ImageViewState } from '../components/ImageViewState';
 
 
 export type FormComponentBasicProps = {
@@ -27,9 +29,10 @@ export interface ImageSectionProps {
 export interface ImageSectionComponentProps extends ImageSectionProps {
     idImage?: number;
     imageDataSlideShowArray?: ImageSlideShowState[]
+    functionCallBack?: (ev: any) => void;
 }
 export interface ImageViewProps {
-    imageSections: ImageSectionProps[];
+    imageSections: ImageViewState[];
 }
 export type NavBarProps = LogoStyle & CategoricalList & ButtonProps;
 
@@ -48,8 +51,31 @@ export interface InputProps extends BasicComponentProps, FormComponentBasicProps
     style?: {};
     text?: string;
     ref?: React.MutableRefObject<HTMLInputElement>;
+    name?: string;
+    label?: string;
 }
 
 // export interface ImageViewProps extends BasicComponentProps{
 //     image_array: BuildingResponseState[];
 // }
+
+export interface FormProps extends BasicComponentProps {
+    title?: string;
+    footerSectionComponent?: JSX.Element;
+    isFormShowing?: boolean;
+}
+
+export interface InputArrayProps{
+    inputArray: InputProps[];
+    onChangeCallBack?: (ev: any) => void;
+}
+
+export interface HTMLLabelProps{
+    
+}
+
+export interface FormInputProps extends BasicComponentProps{
+    title?: string;
+    inputArray: InputProps[];
+    isFormShowing: boolean;
+}

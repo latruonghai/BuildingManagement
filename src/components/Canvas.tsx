@@ -92,7 +92,7 @@ const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
     return isShowing ? createPortal(
         <Fragment>
             <div className="canvas-section modal-overlay">
-                <h1>Paint App</h1>
+                <h1>Edit Image</h1>
                 <div className="drawing-section overflow-auto">
                     <Menu
                         dispatch={dispatch}

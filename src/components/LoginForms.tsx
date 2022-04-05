@@ -3,7 +3,7 @@ import { FormComponentBasicProps } from "../types/props";
 import "../assets/style/components/_login.scss";
 import Button from "./Button";
 
-export default function Form(props: FormComponentBasicProps) {
+export default function LoginForm(props: FormComponentBasicProps) {
     if (props.type === "Login") {
         return (
             <Fragment>

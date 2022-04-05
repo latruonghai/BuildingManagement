@@ -1,21 +1,23 @@
 // import { updateRequest } from './requestHandle';
 import {
     BACKEND_URL,
-    BACKEND_ADMIN_URL
+    BACKEND_ADMIN_URL,
+    BACKEND_LOGIN
 } from './../services/constant';
 import axios from 'axios';
-import {
-    HEADERS
-} from '../services/constant';
+import {HEADERS} from '../services/constant';
 import {
     slideShowImageHandleAction
 } from '../actions';
 import {
     ImageHandleActionEnum
 } from '../types';
-import {
-    getImageSlideShowApartmentData
-} from './handleArray';
+import { getImageSlideShowApartmentData, updateArrayImageView } from './handleArray';
+import { BuildingDataRequest } from '../types/model/requestType';
+import { getImageFromApiForImageView } from '../actions/index';
+import { ImageViewHandleActionEnum } from '../types/index';
+import { Dispatch } from 'react';
+
 
 
 export const requestBuilding = async () => {
@@ -161,4 +163,71 @@ export const delApartmentImageRequest = async (id: number) => {
     } catch (error) {
         console.log(error);
     }
+}
+
+export const addBuildingRequest = async (data: BuildingDataRequest) => {
+    try {
+        const response = await axios({
+            method: 'POST',
+            url: `${BACKEND_ADMIN_URL}building/create`,
+            headers: HEADERS,
+            data: data
+
+        });
+        if (response.status === 200) {
+
+            alert("Success Add");
+
+        } else if (response.status === 403) {
+            alert("You are not authorized to add");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const FetchAllBuilding = async(callback: Dispatch<any>) => {
+    
+            try{
+                const response = await axios(
+                {
+                    method: 'get',
+                    url: `${BACKEND_URL}building/getAll`,
+                    headers: HEADERS,
+                }
+            );
+
+            if(response.status === 200){
+                // alert("Success");
+                // console.log("Response", response.data);
+                const dataImageVIew = updateArrayImageView(response.data.body);
+                callback(getImageFromApiForImageView(ImageViewHandleActionEnum.FETCH_IMAGE_VIEW_DATA,
+                            dataImageVIew))
+            }
+            else{
+                console.log(response.status);
+                
+            }
+        }
+        catch(error){
+            console.log(error);
+        }
+}
+
+// export const deleteApartmentData = async (id: number) => {
+//     try{
+//         const response = 
+//     }
+// }
+export const login = async (username: string, password: string) => {
+    return await axios({
+        method: 'post',
+        url: BACKEND_LOGIN,
+        headers: HEADERS,
+        data: {
+            username: username,
+            password: password
+        }
+
+    });
 }

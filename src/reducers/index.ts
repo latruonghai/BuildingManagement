@@ -8,6 +8,8 @@ import { imageMethodReducer } from './imageMethodReducer';
 import { reactComponentSelectorReducer } from './reactComponentSelector';
 import { imageViewReducer } from './imageViewReducer';
 import { uploadReducer } from './uploadReducer';
+import { onChangeInputReducer } from './onChangeInputReducer';
+import { toggleFormReducer } from './toggleFormReducer';
 
 // Todo: add new more reducers here
 /**
@@ -22,7 +24,9 @@ const rootReducer = combineReducers({
     imageMethodReducer: imageMethodReducer,
     reactComponentSelectorReducer: reactComponentSelectorReducer,
     imageViewReducer: imageViewReducer,
-    uploadReducer: uploadReducer
+    uploadReducer: uploadReducer,
+    onChangeInputReducer: onChangeInputReducer,
+    toggleFormReducer: toggleFormReducer
 });
 export default rootReducer;
 export type RootState = ReturnType<typeof rootReducer>

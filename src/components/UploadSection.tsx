@@ -23,6 +23,7 @@ const UploadSection= (props: any) => {
     const uploadFile = useSelector((state: RootState) => state.uploadReducer);
     const buildingId = useSelector((state: RootState) => state.toggleModalReducer.idSelector);
     const dispatch = useDispatch();
+    const inputRef = useRef<HTMLInputElement>(null);
     // const currentImageRef = useRef(null);
     const onChangeHandleInput = (e: any) => {
         let file = e.target.files[0];
@@ -33,7 +34,7 @@ const UploadSection= (props: any) => {
             console.log("base64String", base64String);
             // base64String = base64String.replace()
             // document.querySelector("#upload-image-section-view")!.setAttribute("src", base64String);
-            const name_of_apartment = prompt("Enter name of section you want to upload");
+            const name_of_apartment = prompt("Enter name of apartment");
             dispatch(uploadImageAction(UploadImageSectionActionEnum.UPLOAD_IMAGE_SECTION, {
                 imgSrc: base64String,
                 name: name_of_apartment as string

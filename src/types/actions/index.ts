@@ -3,6 +3,7 @@ import { StateCanvas } from '../states/canvasState';
 import { ImageData } from '../data/index';
 import { ImageSlideShowState, ImageUploadState } from '../states/imageState';
 import { ImageViewState } from '../components/ImageViewState';
+import { InputState } from '../states/index';
 export interface SlideShowAction extends BasicButtonAction {
     sizeOfSlideShow: number;
     selectedIndex?: number;
@@ -28,4 +29,7 @@ export interface ImageViewAction extends BasicButtonAction{
 }
 export interface UploadAction extends BasicButtonAction, ImageUploadState{
 
+}
+
+export interface InputStateAction extends BasicButtonAction, InputState{
 }

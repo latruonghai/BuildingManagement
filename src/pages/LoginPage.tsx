@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import Form from "../components/Forms";
 import { LoginState } from "../types";
+import LoginForm from '../components/LoginForms';
 
 /**
  * 
@@ -17,7 +17,7 @@ const LoginPage = (props: LoginState) => {
         <Fragment>
             {
                 props.isLogin &&
-                <Form type="Login"></Form>
+                <LoginForm type="Login"></LoginForm>
             }
         </Fragment>
     )

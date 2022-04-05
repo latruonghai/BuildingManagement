@@ -2,6 +2,7 @@ import { UploadAction } from '../types/actions/index';
 import { UploadImageSectionActionEnum } from '../types/index';
 import { ImageUploadState } from '../types/states/imageState';
 import { initialUploadState } from '../services/initialStateCanvas';
+
 export const uploadReducer = (state: ImageUploadState = initialUploadState, action: UploadAction): ImageUploadState => {
     switch (action.type) {
         case UploadImageSectionActionEnum.UPLOAD_IMAGE_SECTION:

@@ -1,10 +1,11 @@
 import { LoginAction, ImageViewHandleActionEnum, ImageViewActionEnum, UploadImageSectionActionEnum } from '../types/index';
 import { ToggleAction, SlideshowAction, CanvasActionEnum, RedoUndoActionEnum, BasicActionEnum, ImageHandleActionEnum } from '../types/index';
 import { BuildingImageViewAction, ImageSlideShowType, ImageUploadState } from '../types/states/imageState';
-import { ToggleImageViewAction } from '../types/basicType';
-import { SlideShowAction, CanvasAction, RedoUndoAction, ImageSlideShowAction, ImageViewAction, UploadAction } from '../types/actions/index';
+import { ToggleImageViewAction, BasicButtonAction } from '../types/basicType';
+import { SlideShowAction, CanvasAction, RedoUndoAction, ImageSlideShowAction, ImageViewAction, UploadAction, InputStateAction } from '../types/actions/index';
 import { toDataUrlCanvas } from '../utils/handleJsxElement';
 import { ImageViewState } from '../types/components/ImageViewState';
+import { InputState } from '../types/states/index';
 
 export const login = () => {
     return {
@@ -167,5 +168,18 @@ export const uploadImageAction = (type: string, state?: ImageUploadState): Uploa
             return {
                 type: BasicActionEnum.DO_NOTHING,
             }
+    }
+}
+
+export const onChangeInputField = (type: string, state?: InputState): InputStateAction => {
+    return{
+        type: type,
+        value: state!.value as string,
+        name: state!.name as string
+    }
+}
+export const toggleFormAction = (type: string): BasicButtonAction => {
+    return {
+        type: type,
     }
 }

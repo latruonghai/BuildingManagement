@@ -20,7 +20,7 @@ const store = createStore(rootReducer, composeEnhancers && composeEnhancers());
 
 ReactDOM.render(
   <Provider store={store}>
-    <App isLoggin={false} />
+    <App isLoggin={true} />
   </Provider>,
   document.getElementById('root')
 );

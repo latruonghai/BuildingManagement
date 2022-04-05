@@ -1,15 +1,23 @@
 import React, { Fragment, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.scss';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/Homepage';
-import { loginHandle, requestBuilding } from './utils/requestHandle';
+import { login } from './utils/requestHandle';
 // import LoginAction from './types/index';
 
 function App(props: any) {
   useEffect(
     ()=> {
-      loginHandle();
+      const response = login("latruonghai", "password");
+      response.then(
+        res => {
+          console.log(res.headers);
+        }
+      ).catch(
+        err => {
+          console.log(err);
+        }
+      )
       // requestBuilding();
     }
      ,[]
