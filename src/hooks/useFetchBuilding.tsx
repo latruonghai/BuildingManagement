@@ -37,6 +37,8 @@ export const useFetchBuilding = () => {
             }
         }
         fetchData();
-    }, []);
+    }, [dispatch]);
 }
+
+
 export default useFetchBuilding;

@@ -5,10 +5,7 @@ import { getIndexFromIdName } from './handleString';
 import { ImageDataState } from '../types/states/imageState';
 import { Void } from '../types/index';
 import { delApartmentImageRequest, fetchDataApartment } from './requestHandle';
-import { ToggleImageViewState } from '../types/states';
-export const handleListViewOption = (ev: any) => {
-    const { target } = ev;
-}
+
 
 export const onEditTableDataClickHandler = (dispatch: Dispatch<any>, imageSlideShowState: ImageDataState): Void => {
     return (ev: any) => {

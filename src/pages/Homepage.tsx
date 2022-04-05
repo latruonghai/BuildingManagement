@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import Navbar from "../components/Navbar";
-import { categoriesData, imageViewData, inputValueArray } from '../assets/static/StaticData';
+import { categoriesData, inputValueArray } from '../assets/static/StaticData';
 // import logo from "../logo.svg";
 import logo from "../assets/static/images/download.png";
 import { useSelector } from "react-redux";

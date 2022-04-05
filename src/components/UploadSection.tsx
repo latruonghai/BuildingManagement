@@ -1,4 +1,4 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment } from "react";
 import "../assets/style/components/_upload.scss";
 import classNames from "classnames";
 import Input from './Input';
@@ -11,7 +11,6 @@ import { saveUploadedImage } from '../services/saveUploadedImage';
 import { initialApartmentRequest } from '../services/initialStateCanvas';
 import { getRandomStringNameImage } from '../utils/handleString';
 import { reactComponentSelectionAction } from "../actions/elementReactAction";
-import { fetchDataApartment } from "../utils/requestHandle";
 
 
 // Todo:

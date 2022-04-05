@@ -5,7 +5,7 @@ import { getRandomStringNameImage } from '../utils/handleString';
 export const handleUpdateImageButton = (canvas: HTMLCanvasElement, imageData: ImageSlideShowState) => {
     // const imageData: ImageSlideShowState
     const imageStringBase64 = canvas.toDataURL();
-    const IMAGE_REGEX = /([0-9a-zA-Z\._-]+.(png|PNG|gif|GIF|jp[e]?g|JP[E]?G))/
+    const IMAGE_REGEX = /([0-9a-zA-Z._-]+.(png|PNG|gif|GIF|jp[e]?g|JP[E]?G))/
 
     let imageStringName = imageData.imSrc?.split("/").slice(-1)[0];
 

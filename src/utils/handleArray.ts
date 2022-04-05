@@ -16,16 +16,16 @@ export const getInformationFromArray = (array: ImageSectionProps[], index: numbe
     }
 }
 
-export const  getImageSlideShowStateDataAction = (imageData: ImageSlideShowState={}, imageDataArray: ImageSlideShowState[]=[], orderInImage = null):ImageSlideShowType  => {
+export const getImageSlideShowStateDataAction = (imageData: ImageSlideShowState = {}, imageDataArray: ImageSlideShowState[] = [], orderInImage = null): ImageSlideShowType => {
     return {
         imageData: imageData as ImageSlideShowState,
         imageDataArray: imageDataArray as ImageSlideShowState[]
     }
 }
 
-export const updateArrayImageView = (imageDataArray: any): ImageViewState[] =>{
+export const updateArrayImageView = (imageDataArray: any): ImageViewState[] => {
     const imageDataState: ImageViewState[] = [];
-    for(let imageData of imageDataArray){
+    for (let imageData of imageDataArray) {
         imageDataState.push({
             imSrc: IMAGE_BUILDING_LINKS,
             title: imageData.name,
@@ -38,12 +38,12 @@ export const updateArrayImageView = (imageDataArray: any): ImageViewState[] =>{
 
 }
 
-export const getImageSlideShowApartmentData = (imageDataArray: any): ImageSlideShowState[] =>{
+export const getImageSlideShowApartmentData = (imageDataArray: any): ImageSlideShowState[] => {
     const imageDataState: ImageSlideShowState[] = [];
     console.log("Array", imageDataArray);
-    for(let imageData of imageDataArray){
+    for (let imageData of imageDataArray) {
         imageDataState.push({
-            imSrc: _.startsWith(imageData.ImagePath,"/")? API_URL + imageData.ImagePath: imageData.ImagePath,
+            imSrc: _.startsWith(imageData.ImagePath, "/") ? API_URL + imageData.ImagePath : imageData.ImagePath,
             title: imageData.name,
             id: imageData.id,
             ref_id: imageData.IDBuilding

@@ -1,8 +1,5 @@
 import { ImageSectionProps, InputProps } from '../../types/props/index';
-import { SlideshowItemProps } from '../../types/components/SlideshowType';
-import photo from "../static/images/cp.jpg";
 import { ImageSlideShowState } from '../../types/states/imageState';
-import { InputState } from '../../types/states/index';
 export const categoriesData: string[] = [
     "Home",
     "Views",

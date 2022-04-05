@@ -29,15 +29,19 @@ const FormInput = (props: FormInputProps) => {
     const button = <Fragment>
         <Button contentButton={"Close"} classNameStyle="close" onClickHandler={
             () => {
-                dispatch(toggleFormAction(ToggleFormActionEnum.UNTOGGLE_FORM));
+
                 // fetch
                 FetchAllBuilding(dispatch);
+                dispatch(toggleFormAction(ToggleFormActionEnum.UNTOGGLE_FORM));
+
             }
         } />
         <Button contentButton=" Save" classNameStyle="fas fa-save" onClickHandler={
             () => {
-
                 addBuildingRequest(inputState);
+                // FetchAllBuilding(dispatch);
+                // dispatch(toggleFormAction(ToggleFormActionEnum.UNTOGGLE_FORM));
+
 
             }
         }></Button>

@@ -8,9 +8,6 @@ import { TableData } from '../types/data/index';
 import { tableProperties } from "../types/data/componentProperties";
 import Button from "./Button";
 import { ImageSlideShowState } from '../types/states/imageState';
-import { canvasActions, slideShowOrder } from '../actions/index';
-import { CanvasActionEnum } from '../types/index';
-import { getIndexFromIdName } from '../utils/handleString';
 import { onDelTableDataClickHandler, onEditTableDataClickHandler } from '../utils/handleEvents';
 
 const Table = (props: any) => {
