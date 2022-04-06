@@ -40,7 +40,7 @@ export default function LoginForm(props: any) {
                     </div>
                     <div className="mb-6">
                         <label className="login-label" htmlFor="password">Password</label>
-                        <input className="mb-3 input-section" id="password" name="password" placeholder="Password"></input>
+                        <input type="password" className="mb-3 input-section" id="password" name="password" placeholder="Password"></input>
                     </div>
                     <Button classNameStyle="btn login w-1/6" contentButton="Submit" onClickHandler={onClickHandler}></Button>
                     <a className="forgot-pass" href="#">
