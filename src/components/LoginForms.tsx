@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { FormComponentBasicProps } from "../types/props";
 import "../assets/style/components/_login.scss";
 import Button from "./Button";
 import { login } from '../utils/requestHandle';
@@ -21,7 +20,7 @@ export default function LoginForm(props: any) {
                 document.cookie = `token=${res.headers["authorization"]}`;
                 alert("Authentication success!");
                 console.log(document.cookie);
-                dispatch(loginHandler(LoginActionEnum.LOGIN));
+                dispatch(loginHandler(LoginActionEnum.LOGGED_IN, document.cookie));
             }
         ).catch(
             err => {

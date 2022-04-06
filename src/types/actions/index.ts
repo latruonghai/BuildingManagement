@@ -33,3 +33,6 @@ export interface UploadAction extends BasicButtonAction, ImageUploadState {
 
 export interface InputStateAction extends BasicButtonAction, InputState {
 }
+export interface LoginAction extends BasicButtonAction {
+    token?: string;
+}

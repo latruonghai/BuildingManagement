@@ -18,3 +18,8 @@ export interface BuildingStateForm {
     price: number;
     num_of_rooms: number;
 }
+
+export interface LoginState{
+    isLogin?: boolean;
+    token?: string;
+}

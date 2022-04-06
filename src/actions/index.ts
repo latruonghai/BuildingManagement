@@ -2,14 +2,15 @@ import { ImageViewHandleActionEnum, ImageViewActionEnum, UploadImageSectionActio
 import { ToggleAction, SlideshowAction, CanvasActionEnum, RedoUndoActionEnum, BasicActionEnum, ImageHandleActionEnum } from '../types/index';
 import { BuildingImageViewAction, ImageSlideShowType, ImageUploadState } from '../types/states/imageState';
 import { ToggleImageViewAction, BasicButtonAction } from '../types/basicType';
-import { SlideShowAction, CanvasAction, RedoUndoAction, ImageSlideShowAction, ImageViewAction, UploadAction, InputStateAction } from '../types/actions/index';
+import { SlideShowAction, CanvasAction, RedoUndoAction, ImageSlideShowAction, ImageViewAction, UploadAction, InputStateAction, LoginAction } from '../types/actions/index';
 import { toDataUrlCanvas } from '../utils/handleJsxElement';
 import { ImageViewState } from '../types/components/ImageViewState';
 import { InputState } from '../types/states/index';
 
-export const loginHandler = (type: string): BasicButtonAction => {
+export const loginHandler = (type: string, token?: string): LoginAction => {
     return {
         type: type,
+        token: token
     }
 }
 export const viewImage = (idData: number): BuildingImageViewAction => {

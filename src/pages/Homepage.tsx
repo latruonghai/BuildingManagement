@@ -12,11 +12,13 @@ import { useToggleSlideShowModal } from '../hooks/useToggle';
 // import { FormProps } from '../types/props/index';
 import FormInput from "../components/FormInput";
 import useFetchBuilding from '../hooks/useFetchBuilding';
+import { checkIsLoggin } from '../utils/handleString';
 
 
 const HomePage = (props: any) => {
     const isShowing = useSelector((state: RootState) => state.toggleModalReducer);
     const { toggleSlideShowModal } = useToggleSlideShowModal();
+    const token = useSelector((state: RootState) => state.loginReducer.token);
     const contentBodyModal = useSelector((state: RootState) => state.viewImageReducer);
     const reactComponentState = useSelector((state: RootState) => state.reactComponentSelectorReducer);
     const editorImageState = useSelector((state: RootState) => state.canvasReducer);
@@ -28,6 +30,7 @@ const HomePage = (props: any) => {
     useFetchBuilding();
     // const isCanvasShowwing = useSelector((state: RootState) => state.canvasReducer.isShowing);
     return (
+        checkIsLoggin(token as string)?
         <Fragment>
             <Navbar logo={logo} title="TMA Solutions" contentButton="Open main menu" items={categoriesData} />
             <ImageView imageSections={imageStateArray} />
@@ -38,7 +41,7 @@ const HomePage = (props: any) => {
 
             <Canvas isShowing={editorImageState.isShowing} imgData={imageSlideshowState.imageDataArray[imageIndex as number]} />
             <FormInput inputArray={inputValueArray} isFormShowing={isFormShowing}></FormInput>
-        </Fragment>
+        </Fragment>:<div></div>
     )
 }
 

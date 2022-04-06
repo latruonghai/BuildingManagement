@@ -1,7 +1,7 @@
 import { BasicButtonAction } from './basicType';
 export enum LoginActionEnum {
-    LOGIN = 'LOGIN',
-    LOGOUT = "LOGOUT"
+    LOGGED_IN = "LOGGED_IN",
+    LOGGED_OUT  = "LOGGED_OUT", 
 }
 export enum ToggleAction {
     TOGGLE = 'TOGGLE'

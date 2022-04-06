@@ -21,8 +21,8 @@ const Navbar = (props: NavBarProps) =>{
                     <NavItems items={props.items}/>
                     <Button contentButton={"Logout"} onClickHandler={
                         ()=>{
-                                document.cookie = `token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-                                dispatch(loginHandler(LoginActionEnum.LOGIN));
+                                
+                                dispatch(loginHandler(LoginActionEnum.LOGGED_OUT, ""));
                         }
                     } />
                 </div>
