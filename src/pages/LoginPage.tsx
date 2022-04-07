@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { LoginState } from "../types";
 import LoginForm from '../components/LoginForms';
 
 /**
@@ -24,7 +23,7 @@ const LoginPage = (props: any) => {
     return (
         <Fragment>
             {
-            
+
                 <LoginForm></LoginForm>
             }
         </Fragment>

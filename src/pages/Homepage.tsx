@@ -30,18 +30,18 @@ const HomePage = (props: any) => {
     useFetchBuilding();
     // const isCanvasShowwing = useSelector((state: RootState) => state.canvasReducer.isShowing);
     return (
-        checkIsLoggin(token as string)?
-        <Fragment>
-            <Navbar logo={logo} title="TMA Solutions" contentButton="Open main menu" items={categoriesData} />
-            <ImageView imageSections={imageStateArray} />
-            <Modal isShowing={isShowing.toggle} toggle={toggleSlideShowModal} class_name="Information "
-                bodyContent={contentBodyModal} >
-                {reactComponentState.element}
-            </Modal>
+        checkIsLoggin(token as string) ?
+            <Fragment>
+                <Navbar logo={logo} title="TMA Solutions" contentButton="Open main menu" items={categoriesData} />
+                <ImageView imageSections={imageStateArray} />
+                <Modal isShowing={isShowing.toggle} toggle={toggleSlideShowModal} class_name="Information "
+                    bodyContent={contentBodyModal} typeName={reactComponentState.typeName} >
+                    {reactComponentState.element}
+                </Modal>
 
-            <Canvas isShowing={editorImageState.isShowing} imgData={imageSlideshowState.imageDataArray[imageIndex as number]} />
-            <FormInput inputArray={inputValueArray} isFormShowing={isFormShowing}></FormInput>
-        </Fragment>:<div></div>
+                <Canvas isShowing={editorImageState.isShowing} imgData={imageSlideshowState.imageDataArray[imageIndex as number]} />
+                <FormInput inputArray={inputValueArray} isFormShowing={isFormShowing}></FormInput>
+            </Fragment> : <div></div>
     )
 }
 

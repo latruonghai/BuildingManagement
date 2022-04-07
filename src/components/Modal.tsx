@@ -12,6 +12,7 @@ import { ImageDataState } from "../types/states/imageState";
 import { fetchDataApartment, delApartmentImageRequest } from '../utils/requestHandle';
 import OptionButton from "./OptionButton";
 import { optionViewPropertiesArray } from '../types/data/componentProperties';
+import UploadSection from "./UploadSection";
 
 // TODO:
 
@@ -19,9 +20,10 @@ import { optionViewPropertiesArray } from '../types/data/componentProperties';
     [x] Change save change image into delete image on slideshow apartment section
     [x] Add handle click event for upload button
  */
-const Modal = ({ toggle, isShowing, class_name, bodyContent, children }: any): JSX.Element => {
+const Modal = ({ toggle, isShowing, class_name, bodyContent, children, typeName }: any): JSX.Element => {
     const dispatch = useDispatch();
     const selectorId = useSelector((state: RootState) => state.toggleModalReducer);
+    // console.log("CHILD", children);
     const imageIndex = useSelector((state: RootState) => state.slideshowReducer);
     // const imageSlideshowState = useSelector((state: RootState) => state.imageMethodReducer);
     // const dispatch = useDispatch();
@@ -57,16 +59,21 @@ const Modal = ({ toggle, isShowing, class_name, bodyContent, children }: any): J
                             <Button contentButton=" Upload Image" classNameStyle="fas fa-upload" onClickHandler={() =>
                                 dispatch(reactComponentSelectionAction(ReactComponentSelectionEnum.UPLOAD_VIEW))} />
 
-                            <Button contentButton=" Edit" classNameStyle=" fas fa-edit edit" type="button" data-dismiss="modal" onClickHandler={
-                                () => dispatch(canvasActions(CanvasActionEnum.SET_IS_SHOWING, true))} />
-                            <Button contentButton=" Delete" classNameStyle=" fas fa-trash delete" type="button" data-dismiss="modal" onClickHandler={
-                                () => {
-                                    const index = imageSlideShowState.imageDataArray[imageIndex as number].id;
-                                    delApartmentImageRequest(index as number);
-                                    // fetchData(selectorId.idSelector as number, dispatch);
-                                }
+                            {
+                                typeName === ReactComponentSelectionEnum.SLIDE_SHOW &&
+                                <Fragment>
+                                    <Button contentButton=" Edit" classNameStyle=" fas fa-edit edit" type="button" data-dismiss="modal" onClickHandler={
+                                        () => dispatch(canvasActions(CanvasActionEnum.SET_IS_SHOWING, true))} />
+                                    <Button contentButton=" Delete" classNameStyle=" fas fa-trash delete" type="button" data-dismiss="modal" onClickHandler={
+                                        () => {
+                                            const index = imageSlideShowState.imageDataArray[imageIndex as number].id;
+                                            delApartmentImageRequest(index as number);
+                                            // fetchData(selectorId.idSelector as number, dispatch);
+                                        }
+                                    }
+                                    />
+                                </Fragment>
                             }
-                            />
                             <Button contentButton=" Close" classNameStyle="fas fa-times btn decline" type="button" data-dismiss="modal" onClickHandler={
                                 () => {
                                     toggle();

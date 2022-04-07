@@ -9,7 +9,7 @@ export const viewImageReducer = (state: BuildingImageState = buildingImageState,
     switch (action.type) {
         case ImageViewActionEnum.VIEW_IMAGE:
             const { idData, imageString, name }: BuildingImageState = getInformationFromArray(imageViewData, action.idData as number);
-
+            // console.log("Image String", imageString);
             return {
                 ...state,
                 idData: idData,

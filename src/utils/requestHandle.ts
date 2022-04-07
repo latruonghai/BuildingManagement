@@ -17,7 +17,7 @@ import { BuildingDataRequest } from '../types/model/requestType';
 import { getImageFromApiForImageView } from '../actions/index';
 import { ImageViewHandleActionEnum } from '../types/index';
 import { Dispatch } from 'react';
-import { getAuthorizationFromCookies, getFullAuthorizationString } from './handleString';
+import { getFullAuthorizationString } from './handleString';
 
 
 
@@ -84,9 +84,9 @@ export const updateRequestUser = async (data: any) => {
             method: 'POST',
             url: `${BACKEND_ADMIN_URL}apartment/update`,
             headers: {
-                    ...HEADERS,
-                    "Authorization": getFullAuthorizationString()
-                },
+                ...HEADERS,
+                "Authorization": getFullAuthorizationString()
+            },
             data: data
 
         });
@@ -113,9 +113,9 @@ export const updateRequestAdmin = (data: any) => {
     var requestOptions = {
         method: 'post',
         headers: {
-                    ...HEADERS,
-                    "Authorization": getFullAuthorizationString()
-                },
+            ...HEADERS,
+            "Authorization": getFullAuthorizationString()
+        },
         body: raw,
         //   mode: "no-cors",
         redirect: 'follow'
@@ -134,9 +134,9 @@ export async function fetchDataApartment(id: number, callback: any) {
             method: "get",
             url: `${BACKEND_URL}getApartmentWithBuildingId/${id}`,
             headers: {
-                    ...HEADERS,
-                    "Authorization": getFullAuthorizationString()
-                },
+                ...HEADERS,
+                "Authorization": getFullAuthorizationString()
+            },
 
         });
         if (response.status === 200) {
@@ -161,10 +161,10 @@ export const delApartmentImageRequest = async (id: number) => {
         const response = await axios({
             method: 'POST',
             url: `${BACKEND_ADMIN_URL}apartment/delete/${id}`,
-            headers:{
-                    ...HEADERS,
-                    "Authorization": getFullAuthorizationString()
-                },
+            headers: {
+                ...HEADERS,
+                "Authorization": getFullAuthorizationString()
+            },
         });
         if (response.status === 200) {
             alert("Success Delete");
@@ -183,9 +183,9 @@ export const addBuildingRequest = async (data: BuildingDataRequest) => {
             method: 'POST',
             url: `${BACKEND_ADMIN_URL}building/create`,
             headers: {
-                    ...HEADERS,
-                    "Authorization": getFullAuthorizationString()
-                },
+                ...HEADERS,
+                "Authorization": getFullAuthorizationString()
+            },
             data: data
 
         });
@@ -270,5 +270,5 @@ export const loginRequest = async (username: string, password: string) => {
             password: password
         }
     });
-        
+
 }

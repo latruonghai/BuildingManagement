@@ -1,6 +1,7 @@
 import { BasicComponentElement } from '../basicType';
 
 export interface ReactComponentElement extends BasicComponentElement {
+    typeName?: string;
 }
 
 export interface ToggleImageViewState {
@@ -19,7 +20,7 @@ export interface BuildingStateForm {
     num_of_rooms: number;
 }
 
-export interface LoginState{
+export interface LoginState {
     isLogin?: boolean;
     token?: string;
 }
