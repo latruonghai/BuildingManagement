@@ -12,7 +12,6 @@ import { ImageDataState } from "../types/states/imageState";
 import { fetchDataApartment, delApartmentImageRequest } from '../utils/requestHandle';
 import OptionButton from "./OptionButton";
 import { optionViewPropertiesArray } from '../types/data/componentProperties';
-import UploadSection from "./UploadSection";
 
 // TODO:
 
@@ -21,12 +20,10 @@ import UploadSection from "./UploadSection";
     [x] Add handle click event for upload button
  */
 const Modal = ({ toggle, isShowing, class_name, bodyContent, children, typeName }: any): JSX.Element => {
+
     const dispatch = useDispatch();
     const selectorId = useSelector((state: RootState) => state.toggleModalReducer);
-    // console.log("CHILD", children);
     const imageIndex = useSelector((state: RootState) => state.slideshowReducer);
-    // const imageSlideshowState = useSelector((state: RootState) => state.imageMethodReducer);
-    // const dispatch = useDispatch();
     const imageSlideShowState: ImageDataState = useSelector((state: RootState) => state.imageMethodReducer);
     // 
     return isShowing ? createPortal(

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.scss';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/Homepage';

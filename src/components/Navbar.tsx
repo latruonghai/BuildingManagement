@@ -5,7 +5,6 @@ import { LoginActionEnum, LogoStyle } from "../types";
 import { CategoricalList } from "../types";
 import { NavBarProps, ButtonProps } from '../types/props/index';
 import Button from "./Button";
-import { checkIsLoggin } from '../utils/handleString';
 import { useDispatch } from "react-redux";
 import { loginHandler } from '../actions/index';
 
@@ -65,7 +64,7 @@ const ButtonToggle = (props: ButtonProps) => {
     )
 }
 
-const NavItems = (props: CategoricalList) => {
+const NavItems = (props: CategoricalList   ) => {
     return (
         <Fragment>
             <div className="menu-mobile" id="mobile-menu">
