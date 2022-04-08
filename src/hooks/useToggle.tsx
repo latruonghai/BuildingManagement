@@ -8,7 +8,7 @@ export const useToggleSlideShowModal = (id: number = 0)=> {
     const toggleSlideShowModal = useCallback(
     () => {
         dispatch(toggleModal(id));
-    },[id]);
+    },[dispatch, id]);
 
     
 
