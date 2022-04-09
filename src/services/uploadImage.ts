@@ -7,7 +7,7 @@ import {
 } from './constant';
 
 export const uploadImage = async (imageRequest: ApartmentDataRequest) => {
-    const url = "http://localhost:8080/admin/api/apartment/add";
+    const url = "http://localhost:8080/admin/api/apartment/";
     try {
         const response = await axios({
                 method: "POST",

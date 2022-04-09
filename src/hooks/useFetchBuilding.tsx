@@ -15,7 +15,7 @@ export const useFetchBuilding = () => {
                 const response = await axios(
                     {
                         method: 'get',
-                        url: `${BACKEND_URL}building/getAll`,
+                        url: `${BACKEND_URL}buildings/`,
                         headers: HEADERS,
                     }
                 );

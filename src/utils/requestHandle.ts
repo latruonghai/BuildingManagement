@@ -17,7 +17,7 @@ import { BuildingDataRequest } from '../types/model/requestType';
 import { getImageFromApiForImageView } from '../actions/index';
 import { ImageViewHandleActionEnum } from '../types/index';
 import { Dispatch } from 'react';
-import { getAuthorizationFromCookies, getFullAuthorizationString } from './handleString';
+import { getFullAuthorizationString } from './handleString';
 
 
 
@@ -25,7 +25,7 @@ export const requestBuilding = async () => {
     try {
         const response = await axios({
             method: 'get',
-            url: `${BACKEND_URL}building/getAll`,
+            url: `${BACKEND_URL}buildings/`,
             headers: HEADERS,
         });
 
@@ -81,12 +81,12 @@ export const loginHandle = () => {
 export const updateRequestUser = async (data: any) => {
     try {
         const response = await axios({
-            method: 'POST',
-            url: `${BACKEND_ADMIN_URL}apartment/update`,
+            method: 'PUT',
+            url: `${BACKEND_ADMIN_URL}apartment/`,
             headers: {
-                    ...HEADERS,
-                    "Authorization": getFullAuthorizationString()
-                },
+                ...HEADERS,
+                "Authorization": getFullAuthorizationString()
+            },
             data: data
 
         });
@@ -113,9 +113,9 @@ export const updateRequestAdmin = (data: any) => {
     var requestOptions = {
         method: 'post',
         headers: {
-                    ...HEADERS,
-                    "Authorization": getFullAuthorizationString()
-                },
+            ...HEADERS,
+            "Authorization": getFullAuthorizationString()
+        },
         body: raw,
         //   mode: "no-cors",
         redirect: 'follow'
@@ -134,9 +134,9 @@ export async function fetchDataApartment(id: number, callback: any) {
             method: "get",
             url: `${BACKEND_URL}getApartmentWithBuildingId/${id}`,
             headers: {
-                    ...HEADERS,
-                    "Authorization": getFullAuthorizationString()
-                },
+                ...HEADERS,
+                "Authorization": getFullAuthorizationString()
+            },
 
         });
         if (response.status === 200) {
@@ -159,12 +159,12 @@ export async function fetchDataApartment(id: number, callback: any) {
 export const delApartmentImageRequest = async (id: number) => {
     try {
         const response = await axios({
-            method: 'POST',
-            url: `${BACKEND_ADMIN_URL}apartment/delete/${id}`,
-            headers:{
-                    ...HEADERS,
-                    "Authorization": getFullAuthorizationString()
-                },
+            method: 'DELETE',
+            url: `${BACKEND_ADMIN_URL}apartment/${id}`,
+            headers: {
+                ...HEADERS,
+                "Authorization": getFullAuthorizationString()
+            },
         });
         if (response.status === 200) {
             alert("Success Delete");
@@ -181,11 +181,11 @@ export const addBuildingRequest = async (data: BuildingDataRequest) => {
     try {
         const response = await axios({
             method: 'POST',
-            url: `${BACKEND_ADMIN_URL}building/create`,
+            url: `${BACKEND_ADMIN_URL}building/`,
             headers: {
-                    ...HEADERS,
-                    "Authorization": getFullAuthorizationString()
-                },
+                ...HEADERS,
+                "Authorization": getFullAuthorizationString()
+            },
             data: data
 
         });
@@ -207,7 +207,7 @@ export const FetchAllBuilding = async (callback: Dispatch<any>) => {
         const response = await axios(
             {
                 method: 'get',
-                url: `${BACKEND_URL}building/getAll`,
+                url: `${BACKEND_URL}buildings/`,
                 headers: {
                     ...HEADERS,
                     "Authorization": getFullAuthorizationString()
@@ -253,8 +253,8 @@ export const login = async (username: string, password: string) => {
 export const deleteBuilding = async (id: number) => {
     return await axios(
         {
-            method: 'POST',
-            url: `${BACKEND_ADMIN_URL}building/delete/${id}`,
+            method: 'DELETE',
+            url: `${BACKEND_ADMIN_URL}building/${id}`,
             headers: HEADERS,
         }
     )
@@ -270,5 +270,5 @@ export const loginRequest = async (username: string, password: string) => {
             password: password
         }
     });
-        
+
 }
