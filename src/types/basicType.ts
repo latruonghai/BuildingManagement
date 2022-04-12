@@ -38,3 +38,4 @@ export interface BasicTableProperties {
     header?: string[];
     body?: string[];
 }
+

@@ -21,6 +21,6 @@ export const checkIsLoggin = (cookieString: string): boolean => {
 }
 
 export const getFullAuthorizationString = (): string => {
-    console.log("Get Full Authorization String");
+    // console.log("Get Full Authorization String");
     return document.cookie !==""?getAuthorizationFromCookies(document.cookie):"Bearer "
 }

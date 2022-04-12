@@ -197,7 +197,8 @@ export const addBuildingRequest = async (data: BuildingDataRequest) => {
             alert("You are not authorized to add");
         }
     } catch (error) {
-
+        // console.log(error);
+        alert(error);
     }
 }
 
