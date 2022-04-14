@@ -19,7 +19,7 @@ import { StateCanvas } from '../types/states/canvasState';
 // TODO:  Handling the undo and redo action
 /**
  * 
-    [ ] Solve the problem about the undo and redo action
+    [x] Solve the problem about the undo and redo action
 BUG: Can't drawing image with canvas
 BUG: Can't refresh the page after edit image
 BUG: Image drawn with canvas is not be updated with the original width and height
@@ -74,8 +74,8 @@ const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
 
     const endDrawing = (ev: any) => {
         ctxRef.current.closePath();
-        const canvas = canvasRef.current;
-        dispatch(redoUndoAction(RedoUndoActionEnum.CURRENT_STATE, canvas as HTMLCanvasElement));
+        // const canvas = canvasRef.current;
+        // dispatch(redoUndoAction(RedoUndoActionEnum.CURRENT_STATE, canvas as HTMLCanvasElement));
         dispatch(canvasActions(CanvasActionEnum.SET_IS_DRAWING, false));
     };
 
@@ -114,9 +114,6 @@ const Canvas = ({ isShowing, imgData, toggle }: CanvasProps): JSX.Element => {
                 </div>
                 <div className="button-area">
                     <Button classNameStyle="font-medium mb-2" contentButton="Add Image" onClickHandler={handleClick} />
-                    {/* <Button classNameStyle="fas fa-undo ml-2 mb-2" contentButton="" onClickHandler={
-                        () => { dispatch!(redoUndoAction(RedoUndoActionEnum.UNDO)); }} />
-                    <Button classNameStyle="fas fa-redo ml-2 mb-2" contentButton="" /> */}
                     <Button classNameStyle="font-medium mb-2" contentButton="Update Image"
                         onClickHandler={() => {
                             handleUpdateImageButton(canvasRef.current as HTMLCanvasElement, imgData as any);

@@ -173,7 +173,7 @@ export const delApartmentImageRequest = async (id: number) => {
             alert("You are not authorized to delete");
         }
     } catch (error) {
-
+        alert("Delete Failed Because of Server Error");
     }
 }
 

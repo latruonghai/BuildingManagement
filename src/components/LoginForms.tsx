@@ -43,9 +43,9 @@ export default function LoginForm(props: any) {
                         <input type="password" className="mb-3 input-section" id="password" name="password" placeholder="Password"></input>
                     </div>
                     <Button classNameStyle="btn login w-1/6" contentButton="Submit" onClickHandler={onClickHandler}></Button>
-                    <a className="forgot-pass" href="#">
+                    {/* <a className="forgot-pass" href="#">
                         Forgot Password?
-                    </a>
+                    </a> */}
                 </div>
 
             </Fragment>

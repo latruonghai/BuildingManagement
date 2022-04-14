@@ -3,7 +3,6 @@ import { viewImageReducer } from './buildingImageSectionAction';
 import { toggleModalReducer } from './toggleModalReducer';
 import { slideShowReducer } from './slideshowReducer';
 import { canvasReducer } from './canvasReducer';
-import { redoUndoReducer } from './redoUndoReducer';
 import { imageMethodReducer } from './imageMethodReducer';
 import { reactComponentSelectorReducer } from './reactComponentSelector';
 import { imageViewReducer } from './imageViewReducer';
@@ -21,7 +20,7 @@ const rootReducer = combineReducers({
     toggleModalReducer: toggleModalReducer,
     slideshowReducer: slideShowReducer,
     canvasReducer: canvasReducer,
-    redoUndoReducer: redoUndoReducer,
+    // redoUndoReducer: redoUndoReducer,
     imageMethodReducer: imageMethodReducer,
     reactComponentSelectorReducer: reactComponentSelectorReducer,
     imageViewReducer: imageViewReducer,

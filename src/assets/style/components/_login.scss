@@ -8,19 +8,21 @@
             @apply h-1/5 w-3/4 ;
         }
         .login-title{
-            @apply text-4xl text-center mb-2 font-bold;
+            @apply text-4xl mb-2 font-bold;
         }
         .login-section{
-            @apply bg-gradient-to-br from-cyan-500 to-blue-500 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-2/4 m-auto mt-5;
+            @apply bg-gradient-to-br from-cyan-500 to-blue-500 shadow-md
+            items-center
+            rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-3/6 m-auto mt-5;
             background:$white;
             background: linear-gradient(to right, #f2ebeb, $white);
             
         }
         .login-label{
-                    @apply block text-sm font-bold mb-2;
+            @apply block text-sm font-bold mb-2;
         }
         .input-section{
-                    @apply shadow appearance-none border rounded w-4/5 py-2 px-3;
+            @apply shadow appearance-none border rounded w-full py-2 px-3;
         }
         .forgot-pass{
             @apply inline-block align-baseline font-bold text-sm text-blue-600 hover:text-blue-800;

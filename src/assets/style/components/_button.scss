@@ -8,9 +8,9 @@
 
         }
 
-        .login {
-            @apply box-border border-2 rounded-md bg-blue-300 hover:bg-blue-800;
-        }
+        // .login {
+        //     @apply box-border border-2 rounded-md bg-white ;
+        // }
 
         .edit {
             @apply text-black bg-white hover:bg-gray-400 focus:ring-gray-300 rounded-lg border border-gray-200 hover:text-gray-900 focus:z-10 
@@ -35,7 +35,7 @@
             @apply bg-red-400 hover:bg-orange-600 text-black
             hover:text-black hover:font-bold focus:ring-red-800 ;
         }
-        .logout{
+        .logout, .login{
             @apply bg-white text-blue-600 border-blue-600 border-2 font-semibold
             hover:text-white hover:font-bold hover:bg-blue-600 hover:border-blue-800
             hover:shadow-md;

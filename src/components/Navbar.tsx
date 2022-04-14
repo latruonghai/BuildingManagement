@@ -7,6 +7,8 @@ import { NavBarProps, ButtonProps } from '../types/props/index';
 import Button from "./Button";
 import { useDispatch } from "react-redux";
 import { loginHandler } from '../actions/index';
+import { useNavigate } from "react-router-dom";
+// import React from "react";
 
 
 const Navbar = (props: NavBarProps) =>{
@@ -31,10 +33,15 @@ const Navbar = (props: NavBarProps) =>{
 }
 
 const NavLogo = ({logo, title}: LogoStyle)=>{
+    let navigate = useNavigate();
     return(
         <Fragment>
             <a className="logo-section cursor-pointer">
-                <img className="logo-section-image" src={logo} alt="TMA" />
+                <img className="logo-section-image" src={logo} alt="TMA" onClick={
+                    ()=>{
+                        return navigate("/");
+                    }
+                } />
                 <span className="logo-section-title">{title}</span>
             </a>
         </Fragment>
