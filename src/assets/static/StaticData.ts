@@ -1,9 +1,7 @@
 import { ImageSectionProps, InputProps } from '../../types/props/index';
 import { ImageSlideShowState } from '../../types/states/imageState';
 export const categoriesData: string[] = [
-    "Home",
-    "Views",
-    "About"
+
 ];
 
 export const imageViewData: ImageSectionProps[] = [

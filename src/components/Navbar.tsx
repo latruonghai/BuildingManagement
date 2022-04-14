@@ -18,7 +18,7 @@ const Navbar = (props: NavBarProps) =>{
                     <NavLogo logo={props.logo} title={props.title} />
                     <ButtonToggle contentButton={props.contentButton}/>
                     <NavItems items={props.items}/>
-                    <Button contentButton={"Logout"} onClickHandler={
+                    <Button classNameStyle="logout" contentButton={"Logout"} onClickHandler={
                         ()=>{
                                 
                                 dispatch(loginHandler(LoginActionEnum.LOGGED_OUT, ""));
@@ -33,7 +33,7 @@ const Navbar = (props: NavBarProps) =>{
 const NavLogo = ({logo, title}: LogoStyle)=>{
     return(
         <Fragment>
-            <a className="logo-section">
+            <a className="logo-section cursor-pointer">
                 <img className="logo-section-image" src={logo} alt="TMA" />
                 <span className="logo-section-title">{title}</span>
             </a>

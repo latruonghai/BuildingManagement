@@ -75,7 +75,7 @@ const Row = ({ body, id_name, handleCallback }: RowProps) => {
                     {body.title}
                 </td>
                 <td className="cell">
-                    <img className="h-4/5" alt="" src={body.imSrc} />
+                    <img className="h-4/5" alt="" src={body.imSrc} title={body.title} />
                 </td>
                 <td>
                     <Button classNameStyle="fas fa-edit edit" onClickHandler={onEditTableDataClickHandler(dispatch, imageSlideShowState)} id_name={`button-${id_name}`} contentButton={" Edit"} ></Button>

@@ -83,6 +83,7 @@ export interface FormInputProps extends BasicComponentProps {
 
 export interface OptionView extends BasicHTMLElement {
     onClickHandler?: (ev: any) => void;
+    title?:string;
 }
 
 export interface OptionViewProps {

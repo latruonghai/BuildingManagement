@@ -10,12 +10,14 @@ export const optionViewPropertiesArray = (dispatch: Dispatch<any>): OptionView[]
 
         {
             class_name: "fas fa-image",
+            title: "Change to slideshow view",
             onClickHandler: (ev: any) => {
                 dispatch(reactComponentSelectionAction(ReactComponentSelectionEnum.SLIDE_SHOW));
             }
         },
         {
             class_name: "fas fa-table",
+            title: "Change to table view",
             onClickHandler: (ev: any) => {
                 dispatch(reactComponentSelectionAction(ReactComponentSelectionEnum.TABLE_VIEW));
             }

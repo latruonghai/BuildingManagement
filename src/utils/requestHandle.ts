@@ -202,6 +202,7 @@ export const addBuildingRequest = async (data: BuildingDataRequest) => {
     }
 }
 
+
 export const FetchAllBuilding = async (callback: Dispatch<any>) => {
 
     try {
@@ -233,11 +234,6 @@ export const FetchAllBuilding = async (callback: Dispatch<any>) => {
     }
 }
 
-// export const deleteApartmentData = async (id: number) => {
-//     try{
-//         const response = 
-//     }
-// }
 export const login = async (username: string, password: string) => {
     return await axios({
         method: 'post',

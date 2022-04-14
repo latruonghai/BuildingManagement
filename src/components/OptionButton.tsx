@@ -8,7 +8,7 @@ const OptionButton = (props: OptionViewProps) => {
             <div className="option">
                 {
                     props!.arrayOptionView.map((item: OptionView, index: number) => {
-                        return <i key={index} className={`option-view ${item.class_name}`} onClick={item.onClickHandler}></i>
+                        return <i title={item.title} key={index} className={`option-view ${item.class_name}`} onClick={item.onClickHandler}></i>
                     }
                     )
                 }
