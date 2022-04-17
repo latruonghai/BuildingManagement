@@ -3,15 +3,10 @@ import { BasicButtonAction, BasicHTMLElement } from '../basicType';
 
 export type ButtonActionType = string;
 
-
-
-export interface ButtonLoginAction extends BasicButtonAction {
-
-}
-export interface BasicComponentProps  extends BasicHTMLElement{
-
+export interface ButtonLoginAction extends BasicButtonAction {}
+export interface BasicComponentProps extends BasicHTMLElement {
     children?: JSX.Element;
-    handleCallback?: (ev: any) => void ;
+    handleCallback?: (ev: any) => void;
 }
 
 export interface ImageHandleAction extends BasicButtonAction {
@@ -24,5 +19,3 @@ export interface ModalProps extends BasicComponentProps {
     toggle: any;
     bodyContent: BuildingImageState;
 }
-
-

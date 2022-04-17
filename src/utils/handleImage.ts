@@ -6,7 +6,10 @@
     show at the moment.
  */
 
-export const handleImageUpload = (ev: any, callbackFunction?: (str: string) => void) => {
+export const handleImageUpload = (
+    ev: any,
+    callbackFunction?: (str: string) => void
+) => {
     const files = ev.target.files;
 
     let file = files[0];
@@ -15,11 +18,11 @@ export const handleImageUpload = (ev: any, callbackFunction?: (str: string) => v
 
     reader.onload = function () {
         let base64String: string = reader.result as string;
-        base64String = base64String.replace("data:", "").replace(/^.*,/, "");
+        base64String = base64String.replace('data:', '').replace(/^.*,/, '');
         callbackFunction && callbackFunction(base64String);
-        // 
-    }
+        //
+    };
 
     file && reader.readAsDataURL(file);
-    // 
-}
+    //
+};

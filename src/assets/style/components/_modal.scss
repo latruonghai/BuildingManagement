@@ -3,7 +3,6 @@
 @layer components {
     body {
         .modal {
-
             &-overlay {
                 @apply flex flex-col space-y-4 min-w-fit h-screen max-h-full fixed left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none 
                 focus:outline-none bg-opacity-50 bg-gray-100;
@@ -29,7 +28,6 @@
                 @apply p-6 space-y-6;
 
                 &-option-view {
-                    
                 }
             }
 

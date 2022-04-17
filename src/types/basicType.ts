@@ -1,4 +1,4 @@
-import { Dispatch } from "react";
+import { Dispatch } from 'react';
 
 export interface BasicOnclickHandle {
     onClickHandler?: Dispatch<BasicButtonAction> | any;
@@ -6,7 +6,7 @@ export interface BasicOnclickHandle {
 export interface BasicButtonTagStyle {
     contentButton: string;
     classNameStyle?: string;
-    type?: "button" | "submit" | "reset";
+    type?: 'button' | 'submit' | 'reset';
 }
 export interface BasicButtonAction {
     type?: string;
@@ -38,4 +38,3 @@ export interface BasicTableProperties {
     header?: string[];
     body?: string[];
 }
-

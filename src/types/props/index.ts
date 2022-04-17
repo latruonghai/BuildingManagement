@@ -1,5 +1,10 @@
 import { LogoStyle, CategoricalList } from '../index';
-import { BasicOnclickHandle, BasicButtonTagStyle, BasicButtonAction, BasicHTMLElement } from '../basicType';
+import {
+    BasicOnclickHandle,
+    BasicButtonTagStyle,
+    BasicButtonAction,
+    BasicHTMLElement
+} from '../basicType';
 import { ImageSlideShowState } from '../states/imageState';
 import { BasicComponentProps } from '../components/index';
 import React from 'react';
@@ -7,19 +12,19 @@ import { JsxElement } from 'typescript';
 import { ImageViewState } from '../components/ImageViewState';
 import { TableData } from '../data/index';
 
-
 export type FormComponentBasicProps = {
     type: string;
-}
+};
 
-export interface ButtonProps extends BasicButtonTagStyle, BasicOnclickHandle, BasicHTMLElement {
+export interface ButtonProps
+    extends BasicButtonTagStyle,
+        BasicOnclickHandle,
+        BasicHTMLElement {
     buttonAction?: BasicButtonAction;
     description?: string;
 }
 
-
 export interface ImageSectionProps {
-
     imgDescription?: string;
     imSrc: string;
     imgContent?: string;
@@ -29,7 +34,7 @@ export interface ImageSectionProps {
 
 export interface ImageSectionComponentProps extends ImageSectionProps {
     idImage?: number;
-    imageDataSlideShowArray?: ImageSlideShowState[]
+    imageDataSlideShowArray?: ImageSlideShowState[];
     functionCallBack?: (ev: any) => void;
 }
 export interface ImageViewProps {
@@ -44,11 +49,13 @@ export interface CanvasProps {
     imgData?: ImageSlideShowState;
 }
 
-export interface InputProps extends BasicComponentProps, FormComponentBasicProps {
+export interface InputProps
+    extends BasicComponentProps,
+        FormComponentBasicProps {
     placeholder?: string;
     acceptFile?: string;
     tabIndex?: number;
-    autoComplete?: "off" | "on";
+    autoComplete?: 'off' | 'on';
     style?: {};
     text?: string;
     ref?: React.MutableRefObject<HTMLInputElement>;
@@ -71,9 +78,7 @@ export interface InputArrayProps {
     onChangeCallBack?: (ev: any) => void;
 }
 
-export interface HTMLLabelProps {
-
-}
+export interface HTMLLabelProps {}
 
 export interface FormInputProps extends BasicComponentProps {
     title?: string;
@@ -83,19 +88,16 @@ export interface FormInputProps extends BasicComponentProps {
 
 export interface OptionView extends BasicHTMLElement {
     onClickHandler?: (ev: any) => void;
-    title?:string;
+    title?: string;
 }
 
 export interface OptionViewProps {
     arrayOptionView: OptionView[];
 }
 
-export interface TableProps extends BasicHTMLElement, TableData {
-
-}
+export interface TableProps extends BasicHTMLElement, TableData {}
 
 export interface RowProps extends BasicComponentProps {
     body: ImageSlideShowState;
     // id_name: string;
-
 }

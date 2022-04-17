@@ -1,4 +1,4 @@
-export interface ApartmentDataRequest{
+export interface ApartmentDataRequest {
     id?: number;
     image_path: string;
     description: string;
@@ -7,7 +7,7 @@ export interface ApartmentDataRequest{
     image_bye_string: string;
 }
 
-export interface BuildingDataRequest{
+export interface BuildingDataRequest {
     id?: number;
     name?: string;
     price?: number;

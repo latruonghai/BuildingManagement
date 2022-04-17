@@ -1,6 +1,9 @@
 import { BasicButtonAction, ToggleFormAction } from '../types/basicType';
 import { ToggleFormActionEnum } from '../types/index';
-export const toggleFormReducer = (state: boolean = false, action: BasicButtonAction): boolean => {
+export const toggleFormReducer = (
+    state: boolean = false,
+    action: BasicButtonAction
+): boolean => {
     switch (action.type) {
         case ToggleFormActionEnum.TOGGLE_FORM:
             return true;
@@ -9,4 +12,4 @@ export const toggleFormReducer = (state: boolean = false, action: BasicButtonAct
         default:
             return state;
     }
-}
+};

@@ -5,14 +5,11 @@ import { useCallback } from 'react';
 export const useToggleSlideShowModal = (id: number = 0) => {
     const dispatch = useDispatch();
 
-    const toggleSlideShowModal = useCallback(
-        () => {
-            dispatch(toggleModal(id));
-        }, [dispatch, id]);
-
-
+    const toggleSlideShowModal = useCallback(() => {
+        dispatch(toggleModal(id));
+    }, [dispatch, id]);
 
     return {
-        toggleSlideShowModal,
+        toggleSlideShowModal
     };
-}
+};

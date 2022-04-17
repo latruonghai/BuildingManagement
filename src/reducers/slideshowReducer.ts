@@ -1,6 +1,9 @@
 import { SlideshowAction } from '../types/index';
 import { SlideShowAction } from '../types/actions/index';
-export const slideShowReducer = (state: number = 0, action: SlideShowAction) => {
+export const slideShowReducer = (
+    state: number = 0,
+    action: SlideShowAction
+) => {
     switch (action.type) {
         case SlideshowAction.NEXT:
             return state < action.sizeOfSlideShow - 1 ? state + 1 : 0;
@@ -11,4 +14,4 @@ export const slideShowReducer = (state: number = 0, action: SlideShowAction) => 
         default:
             return state;
     }
-}
+};

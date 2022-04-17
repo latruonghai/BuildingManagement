@@ -1,5 +1,5 @@
 import { BasicImageProperties } from '../basicType';
-export interface ImageViewState extends BasicImageProperties{
+export interface ImageViewState extends BasicImageProperties {
     description?: string;
     price?: number;
     idData: number;

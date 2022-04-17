@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 import { viewImageReducer } from './buildingImageSectionAction';
 import { toggleModalReducer } from './toggleModalReducer';
 import { slideShowReducer } from './slideshowReducer';
@@ -30,4 +30,4 @@ const rootReducer = combineReducers({
     loginReducer: loginReducer
 });
 export default rootReducer;
-export type RootState = ReturnType<typeof rootReducer>
+export type RootState = ReturnType<typeof rootReducer>;

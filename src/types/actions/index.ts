@@ -9,30 +9,25 @@ export interface SlideShowAction extends BasicButtonAction {
     selectedIndex?: number;
 }
 
-export interface CanvasAction extends BasicButtonAction, StateCanvas {
-}
+export interface CanvasAction extends BasicButtonAction, StateCanvas {}
 export interface RedoUndoAction extends BasicButtonAction {
     currentCanvasElement?: string;
-
 }
 
 export interface ImageSlideShowAction extends BasicButtonAction {
-    imageDataArray?: ImageSlideShowState[],
-    imageData?: ImageSlideShowState
+    imageDataArray?: ImageSlideShowState[];
+    imageData?: ImageSlideShowState;
 }
 
-export interface ReactComponentSelectionAction extends BasicButtonAction, BasicComponentElement {
-
-}
+export interface ReactComponentSelectionAction
+    extends BasicButtonAction,
+        BasicComponentElement {}
 export interface ImageViewAction extends BasicButtonAction {
     imageData?: ImageViewState[];
 }
-export interface UploadAction extends BasicButtonAction, ImageUploadState {
+export interface UploadAction extends BasicButtonAction, ImageUploadState {}
 
-}
-
-export interface InputStateAction extends BasicButtonAction, InputState {
-}
+export interface InputStateAction extends BasicButtonAction, InputState {}
 export interface LoginAction extends BasicButtonAction {
     token?: string;
 }

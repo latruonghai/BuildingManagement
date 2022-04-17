@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
 import LoginForm from '../components/LoginForms';
 
 /**
@@ -20,14 +20,7 @@ HACK
  */
 
 const LoginPage = (props: any) => {
-    return (
-        <Fragment>
-            {
-
-                <LoginForm></LoginForm>
-            }
-        </Fragment>
-    )
-}
+    return <Fragment>{<LoginForm></LoginForm>}</Fragment>;
+};
 
 export default LoginPage;

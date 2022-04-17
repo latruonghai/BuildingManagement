@@ -1,7 +1,7 @@
 import { BasicButtonAction } from './basicType';
 export enum LoginActionEnum {
-    LOGGED_IN = "LOGGED_IN",
-    LOGGED_OUT  = "LOGGED_OUT", 
+    LOGGED_IN = 'LOGGED_IN',
+    LOGGED_OUT = 'LOGGED_OUT'
 }
 export enum ToggleAction {
     TOGGLE = 'TOGGLE'
@@ -27,19 +27,18 @@ export enum RedoUndoActionEnum {
     CURRENT_STATE = 'CURRENT_STATE'
 }
 export enum ImageUploadStateEnum {
-    UPLOAD_IMAGE = 'UPLOAD_IMAGE',
-
+    UPLOAD_IMAGE = 'UPLOAD_IMAGE'
 }
 export enum ReactComponentSelectionEnum {
     SLIDE_SHOW = 'SLIDE_SHOW',
     UPLOAD_VIEW = 'UPLOAD_VIEW',
-    TABLE_VIEW = 'TABLE_VIEW',
+    TABLE_VIEW = 'TABLE_VIEW'
 }
 export enum ImageHandleActionEnum {
     GET_ALL_IMAGES = 'GET_ALL_IMAGES',
-    UPLOAD = "UPLOAD",
-    DELETE = "DELETE_IMAGE",
-    UPDATE = "UPDATE_IMAGE"
+    UPLOAD = 'UPLOAD',
+    DELETE = 'DELETE_IMAGE',
+    UPDATE = 'UPDATE_IMAGE'
 }
 export enum UploadImageSectionActionEnum {
     UPLOAD_IMAGE_SECTION = 'UPLOAD_IMAGE_SECTION',
@@ -47,19 +46,19 @@ export enum UploadImageSectionActionEnum {
     CHANGE_IMAGE_NAME = 'CHANGE_IMAGE_NAME'
 }
 export enum CanvasActionEnum {
-    SET_IS_DRAWING = "SET_IS_DRAWING",
-    SET_LINE_WIDTH = "SET_LINE_WIDTH",
-    SET_LINE_COLOR = "SET_LINE_COLOR",
-    SET_OPACITY = "SET_OPACITY",
-    SET_IS_SHOWING = "SET_IS_SHOWING",
+    SET_IS_DRAWING = 'SET_IS_DRAWING',
+    SET_LINE_WIDTH = 'SET_LINE_WIDTH',
+    SET_LINE_COLOR = 'SET_LINE_COLOR',
+    SET_OPACITY = 'SET_OPACITY',
+    SET_IS_SHOWING = 'SET_IS_SHOWING'
 }
 export enum SlideshowAction {
-    PREVIOUS = "PREVIOUS",
-    NEXT = "NEXT",
-    EXACTINDEX = "EXACTINDEX"
+    PREVIOUS = 'PREVIOUS',
+    NEXT = 'NEXT',
+    EXACTINDEX = 'EXACTINDEX'
 }
 export enum ImageViewActionEnum {
-    VIEW_IMAGE = "VIEW_IMAGE"
+    VIEW_IMAGE = 'VIEW_IMAGE'
 }
 export interface LoginState {
     type: string;
@@ -70,7 +69,6 @@ export interface ButtonAction {
     name?: string;
     action?: BasicButtonAction;
 }
-
 
 export interface LogoStyle {
     logo: string;

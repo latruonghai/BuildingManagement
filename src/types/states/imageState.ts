@@ -9,13 +9,13 @@ export interface BuildingImageViewAction extends BasicButtonAction {
     idData: number | null;
 }
 
-// export interface ImageState 
+// export interface ImageState
 export interface ImageSlideShowState extends BasicImageProperties {
     orderInImage?: number;
     ref_id?: number;
 }
 export interface ImageDataState {
-    // imageDataArray: 
+    // imageDataArray:
     imageDataArray: ImageSlideShowState[];
 }
 export interface ImageSlideShowType {

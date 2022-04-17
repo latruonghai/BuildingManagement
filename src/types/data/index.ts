@@ -20,4 +20,3 @@ export interface TableData {
     headers?: string[];
     body?: ImageSlideShowState[];
 }
-

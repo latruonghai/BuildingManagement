@@ -8,5 +8,3 @@ export interface CanvasMenuDispatch extends BasicComponentProps {
     setIsDrawing?: Dispatch<boolean>;
     dispatch?: Dispatch<CanvasAction | RedoUndoAction>;
 }
-
-

@@ -1,5 +1,2 @@
-export interface BasicState {
-
-}
-export interface BasicSlideshowState extends BasicState {
-}
+export interface BasicState {}
+export interface BasicSlideshowState extends BasicState {}

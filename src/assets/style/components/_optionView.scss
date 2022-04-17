@@ -1,11 +1,11 @@
 @tailwind components;
 
-@layer components{
-    body{
-        .option{
+@layer components {
+    body {
+        .option {
             @apply flex float-right;
-            &-view{
-                @apply hover:cursor-pointer hover:scale-110 m-2 
+            &-view {
+                @apply hover:cursor-pointer hover:scale-110 m-2;
             }
         }
     }
